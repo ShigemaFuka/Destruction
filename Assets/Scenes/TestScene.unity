@@ -394,6 +394,7 @@ GameObject:
   - component: {fileID: 705439916}
   - component: {fileID: 705439917}
   - component: {fileID: 705439918}
+  - component: {fileID: 705439919}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -417,7 +418,6 @@ Transform:
   - {fileID: 20414427}
   - {fileID: 2037455148}
   - {fileID: 1692213189}
-  - {fileID: 1650847724}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!54 &705439916
@@ -475,6 +475,22 @@ MonoBehaviour:
   _objectToThrow: {fileID: 7676526347516393709, guid: 80ac65c7677921341b951d450f3cbe42, type: 3}
   _throwPoint: {fileID: 1650847724}
   _throwForce: 5
+--- !u!114 &705439919
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 705439914}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39b9626bae6574149911927d41a4557b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _virtualCamera: {fileID: 1692213188}
+  _shakeDuration: 0.5
+  _shakeAmplitude: 0.5
+  _shakeFrequency: 0.5
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -920,7 +936,7 @@ GameObject:
   m_Layer: 0
   m_Name: Muzzle
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 6519382022992737161, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -932,12 +948,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1650847723}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.58, z: 1.55}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.029999912, z: 0.9600002}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 705439915}
+  m_Father: {fileID: 1692213189}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1677477952
 GameObject:
@@ -1052,7 +1068,6 @@ GameObject:
   - component: {fileID: 1692213189}
   - component: {fileID: 1692213190}
   - component: {fileID: 1692213191}
-  - component: {fileID: 1692213192}
   - component: {fileID: 1692213193}
   - component: {fileID: 1692213194}
   m_Layer: 0
@@ -1076,6 +1091,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 919453923}
+  - {fileID: 1650847724}
   m_Father: {fileID: 705439915}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1692213190
@@ -1131,21 +1147,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _sensitivity: 100
   _playerBody: {fileID: 705439915}
---- !u!114 &1692213192
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1692213188}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 39b9626bae6574149911927d41a4557b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _shakeDuration: 0.5
-  _shakeAmplitude: 1.2
-  _shakeFrequency: 2
 --- !u!114 &1692213193
 MonoBehaviour:
   m_ObjectHideFlags: 0
