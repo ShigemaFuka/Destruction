@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 /// <summary>
@@ -7,14 +6,17 @@ using UnityEngine;
 public class ExplosionUponImpact : MonoBehaviour
 {
     private IExplosion _explosion = default;
+    private GameObject _player = default;
 
     private void Start()
     {
         _explosion = GetComponent<IExplosion>();
+        _player = GameObject.FindGameObjectWithTag("Player");
     }
 
     private void OnCollisionEnter(Collision other)
     {
         _explosion.DoExplosion();
+        _player.GetComponent<IExplosion>()?.DoExplosion();
     }
 }

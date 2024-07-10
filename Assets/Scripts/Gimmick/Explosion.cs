@@ -9,12 +9,8 @@ public class Explosion : MonoBehaviour, IExplosion
 {
     [SerializeField] private float _forceMagnitude = 10f;
     [SerializeField, Header("範囲")] private float _range = 5f;
-    private Collider[] _colliders = new Collider[20];
     [SerializeField, Header("爆発エフェクト")] private GameObject _explosionEffectPrefab = default;
-
-    private void Update()
-    {
-    }
+    private Collider[] _colliders = new Collider[20];
 
     public void DoExplosion()
     {
@@ -27,7 +23,8 @@ public class Explosion : MonoBehaviour, IExplosion
         }
 
         if (_explosionEffectPrefab)
-            Instantiate(_explosionEffectPrefab, gameObject.transform.position, Quaternion.identity);
+            Instantiate(_explosionEffectPrefab, 
+                gameObject.transform.position + new Vector3(0, 1, 0), Quaternion.identity);
         Destroy(gameObject);
     }
 
