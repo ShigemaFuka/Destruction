@@ -152,7 +152,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f10e245bf4f6f9848bdf2b1e63a88dea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _forceMagnitude: 10
+  _forceMagnitude: 20
   _range: 5
   _explosionEffectPrefab: {fileID: 100004, guid: f95ff734540a0d749be6571b6cb5b37f, type: 3}
 --- !u!114 &1070644131443437545

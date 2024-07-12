@@ -9,7 +9,7 @@ public class Put : MonoBehaviour
     private Vector3 _putPosition = default;
     private GameObject _mark = default;
     private Camera _mainCamera = default;
-    private Vector3 _hitPosition = default;
+    private Vector3 _hitPosition = new Vector3(0, 0, 10f);
     private Ray _ray = default;
 
     private void Start()

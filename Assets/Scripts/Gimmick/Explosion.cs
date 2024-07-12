@@ -7,7 +7,7 @@ using UnityEngine;
 /// </summary>
 public class Explosion : MonoBehaviour, IExplosion
 {
-    [SerializeField] private float _forceMagnitude = 10f;
+    [SerializeField] private float _forceMagnitude = 20f;
     [SerializeField, Header("範囲")] private float _range = 5f;
     [SerializeField, Header("爆発エフェクト")] private GameObject _explosionEffectPrefab = default;
     private Collider[] _colliders = new Collider[20];
