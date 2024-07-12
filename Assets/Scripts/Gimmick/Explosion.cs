@@ -17,9 +17,8 @@ public class Explosion : MonoBehaviour, IExplosion
         var size = Physics.OverlapSphereNonAlloc(transform.position, _range, _colliders);
         for (var i = 0; i < size; i++)
         {
-            if (_colliders[i] == null) continue;
-            var receiveBlast = _colliders[i].GetComponent<IReceiveBlast>();
-            if (receiveBlast != null) receiveBlast.DoReceiveBlast(_forceMagnitude, gameObject);
+            var receiveBlast = _colliders[i]?.GetComponent<IReceiveBlast>();
+            receiveBlast?.DoReceiveBlast(_forceMagnitude, gameObject);
         }
 
         if (_explosionEffectPrefab)

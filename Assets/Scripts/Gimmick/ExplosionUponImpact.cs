@@ -2,6 +2,7 @@ using UnityEngine;
 
 /// <summary>
 /// ぶつかったら爆発する
+/// Explosionとともにアタッチ
 /// </summary>
 public class ExplosionUponImpact : MonoBehaviour
 {
