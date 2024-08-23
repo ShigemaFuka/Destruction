@@ -3,7 +3,7 @@ using UnityEngine;
 /// <summary>
 /// 弾を前方に移動させる
 /// </summary>
-public class Bullet : MonoBehaviour
+public class BulletRB : MonoBehaviour
 {
     public float _speed = 10f;
     public float _lifetime = 5f;
