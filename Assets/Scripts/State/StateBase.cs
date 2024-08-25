@@ -2,10 +2,13 @@ using UnityEngine;
 
 public class StateBase : MonoBehaviour
 {
-    protected IState _currentState;
+    protected IState _currentState = default;
+    private IdleState _idleState = default;
 
     private void Start()
     {
+        _idleState = new IdleState(this);
+        ChangeState(_idleState);
         OnStart();
     }
 

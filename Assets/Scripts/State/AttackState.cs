@@ -5,19 +5,15 @@ using UnityEngine;
 /// </summary>
 public class AttackState : IState
 {
-    private readonly StateBase stateBase;
-
-    // private Transform _target = default;
+    private readonly StateBase _stateBase = default;
     private float _interval = default;
     private GameObject _bulletPrefab = default;
     private float _timer = default;
     private Transform _muzzle = default;
 
-
     public AttackState(StateBase stateBase, float interval, GameObject bulletPrefab, Transform muzzle)
     {
-        this.stateBase = stateBase;
-        // _target = target;
+        _stateBase = stateBase;
         _interval = interval;
         _bulletPrefab = bulletPrefab;
         _muzzle = muzzle;
@@ -26,7 +22,7 @@ public class AttackState : IState
     public void Enter()
     {
         _timer = 0;
-        Debug.Log("Enter Attack State");
+        // Debug.Log("Enter Attack State");
     }
 
     public void Execute()
@@ -41,12 +37,12 @@ public class AttackState : IState
 
     public void Exit()
     {
-        Debug.Log("Exit Attack State");
+        // Debug.Log("Exit Attack State");
     }
 
     private void Attack()
     {
         Object.Instantiate(_bulletPrefab, _muzzle.position, _muzzle.rotation);
-        Debug.Log("発射");
+        // Debug.Log("発射");
     }
 }

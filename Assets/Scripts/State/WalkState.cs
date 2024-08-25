@@ -6,29 +6,27 @@ using UnityEngine.AI;
 /// </summary>
 public class WalkState : IState
 {
-    private readonly StateBase stateBase;
-
-    // private float _speed = default;
+    private readonly StateBase _stateBase = default;
     private float _distance = 0.1f; // 到達したとみなす距離
     private Vector3[] _positions = default; // 経路の位置情報
     private int _indexNum = default; // めざす場所のインデックス番号
     private NavMeshAgent _agent = default;
     private Transform _transform = default;
-    private IdleState _idleState = default;
+    private ChangeOfCourseState _changeOfCourseState = default;
 
-    public WalkState(StateBase stateBase, Transform t, NavMeshAgent nma, Vector3[] vecs, IdleState idleState)
+    public WalkState(StateBase stateBase, Transform t, NavMeshAgent nma, Vector3[] vecs,
+        ChangeOfCourseState changeOfCourseState)
     {
-        this.stateBase = stateBase;
+        _stateBase = stateBase;
         _transform = t;
         _agent = nma;
         _positions = vecs;
-        // _speed = speed;
-        _idleState = idleState;
+        this._changeOfCourseState = changeOfCourseState;
     }
 
     public void Enter()
     {
-        Debug.Log("Enter Walk State");
+        // Debug.Log("Enter Walk State");
         // enemy.SetAnimation("Walk");
     }
 
@@ -40,7 +38,7 @@ public class WalkState : IState
 
     public void Exit()
     {
-        Debug.Log("Exit Walk State");
+        // Debug.Log("Exit Walk State");
     }
 
     /// <summary>
@@ -50,8 +48,8 @@ public class WalkState : IState
     {
         if (_indexNum == _positions.Length)
         {
-            stateBase.ChangeState(_idleState);
-            Debug.Log("攻撃に移行");
+            _stateBase.ChangeState(_changeOfCourseState);
+            // Debug.Log("攻撃に移行");
             return;
         }
 

@@ -6,7 +6,8 @@ using UnityEngine;
 /// </summary>
 public class BulletTr : MonoBehaviour
 {
-    public float _speed = 10f;
+    [SerializeField] private float _speed = 10f;
+    [SerializeField, Header("攻撃力")] private float _dmg = 1f;
 
     private void Update()
     {
@@ -16,5 +17,8 @@ public class BulletTr : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         // todo: 何かに接触したら仕舞う
+        // ~~~
+        var d = other.GetComponent<IDamage>();
+        d?.Damage(_dmg);
     }
 }

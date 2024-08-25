@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
@@ -10,10 +11,14 @@ public class Generator : MonoBehaviour
     [SerializeField, Header("インターバル")] private float _interval = 1f;
     private float _timer = default;
     private bool _useInitial = default; // 初期インターバルを使うか
+    private List<GameObject> _enemiesList = default; // 生成した物
+
+    public List<GameObject> EnemiesList => _enemiesList;
 
     private void Start()
     {
         _useInitial = true;
+        _enemiesList = new List<GameObject>();
     }
 
     private void Update()
@@ -23,7 +28,7 @@ public class Generator : MonoBehaviour
         {
             if (_timer >= _initialInterval)
             {
-                Generate();
+                _enemiesList.Add(Generate());
                 _timer = 0;
                 _useInitial = false;
             }
@@ -32,14 +37,19 @@ public class Generator : MonoBehaviour
         {
             if (_timer >= _interval)
             {
-                Generate();
+                _enemiesList.Add(Generate());
                 _timer = 0;
             }
         }
     }
 
-    private void Generate()
+    private GameObject Generate()
     {
-        Instantiate(_prefab, transform);
+        return Instantiate(_prefab, transform);
+    }
+
+    public void RemoveObj(GameObject go)
+    {
+        _enemiesList.Remove(go);
     }
 }

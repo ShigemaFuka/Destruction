@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2588639951685375804}
   - component: {fileID: 1030421886208082726}
   - component: {fileID: 2002119305561646622}
+  - component: {fileID: 658309192418728665}
   m_Layer: 0
   m_Name: Tmp_EnemyAI
   m_TagString: Untagged
@@ -69,11 +70,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f631f508bdc44e41976c8565c92ddde, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speed: 5
+  _speed: 1
   _parentRouteName: Route
   _bulletPrefab: {fileID: 548845198865158214, guid: 969e21256764b67478da6ca230c30279, type: 3}
   _bulletSpawnPoint: {fileID: 7681515401579915976}
   _shootInterval: 3
+  _deadPrefab: {fileID: 7791997215596961460, guid: b8274fb3422638a4594d38c81d47e80d, type: 3}
+--- !u!114 &658309192418728665
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1821308159862844387}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c23496152764984489d18f8332a93422, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _maxHp: 5
+  _currentHp: 0
 --- !u!1 &2672729395394513926
 GameObject:
   m_ObjectHideFlags: 0
