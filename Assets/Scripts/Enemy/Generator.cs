@@ -12,6 +12,7 @@ public class Generator : MonoBehaviour
     private float _timer = default;
     private bool _useInitial = default; // 初期インターバルを使うか
     private List<GameObject> _enemiesList = default; // 生成した物
+    private WaveManager _waveManager = default; // 生成数の制限
 
     public List<GameObject> EnemiesList => _enemiesList;
 
@@ -19,10 +20,13 @@ public class Generator : MonoBehaviour
     {
         _useInitial = true;
         _enemiesList = new List<GameObject>();
+        _waveManager = FindObjectOfType<WaveManager>();
+        if (!_waveManager) Debug.LogWarning($"{_waveManager}が見つかりませんでした。");
     }
 
     private void Update()
     {
+        if (!_waveManager.CanGeneration) return; // 生成できないならリターン
         _timer += Time.deltaTime;
         if (_useInitial)
         {
@@ -45,6 +49,7 @@ public class Generator : MonoBehaviour
 
     private GameObject Generate()
     {
+        _waveManager.AddCount(); // 生成のたびに個数を加算（各Waveにおいて）
         return Instantiate(_prefab, transform);
     }
 

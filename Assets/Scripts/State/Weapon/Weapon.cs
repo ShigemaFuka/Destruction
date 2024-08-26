@@ -24,7 +24,6 @@ public class Weapon : StateBase
     protected override void OnStart()
     {
         _generator = FindObjectOfType<Generator>();
-        _target = IntrusionJudgment();
         _offenseState = new OffenseState(this, _damage, _bulletPrefab, _bulletSpawnPoint);
         _timer = _shootInterval;
     }

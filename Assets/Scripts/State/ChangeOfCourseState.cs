@@ -20,9 +20,9 @@ public class ChangeOfCourseState : IState
 
     public void Enter()
     {
-        // Debug.Log("Enter Idle State");
+        // Debug.Log("Enter ChangeOfCourse State");
         // // アニメーションの変更など
-        // enemy.SetAnimation("Idle");
+        // enemy.SetAnimation("");
     }
 
     public void Execute()
@@ -32,7 +32,7 @@ public class ChangeOfCourseState : IState
 
     public void Exit()
     {
-        // Debug.Log("Exit Idle State");
+        // Debug.Log("Exit ChangeOfCourse State");
     }
 
     /// <summary>
@@ -43,10 +43,10 @@ public class ChangeOfCourseState : IState
         var nextCorner = _target.position;
         var to = nextCorner - _transform.position;
         var angle = Vector3.SignedAngle(_transform.forward, to, Vector3.up);
-        // 角度が1゜を越えていたら
-        if (Mathf.Abs(angle) > 1)
+        // 角度が10゜を越えていたら
+        if (Mathf.Abs(angle) > 10)
         {
-            var rotMax = 30 * Time.deltaTime;
+            var rotMax = 70 * Time.deltaTime;
             var rot = Mathf.Min(Mathf.Abs(angle), rotMax);
             _transform.Rotate(0f, rot * Mathf.Sign(angle), 0f);
         }

@@ -22,7 +22,7 @@ public class OffenseState : IState
         Object.Instantiate(_bulletPrefab, _muzzle.position, _muzzle.rotation);
         Offense();
         Exit();
-        Debug.Log("Enter Offense State");
+        // Debug.Log("Enter Offense State");
     }
 
     public void Execute()
@@ -31,7 +31,7 @@ public class OffenseState : IState
 
     public void Exit()
     {
-        Debug.Log("Exit Offense State");
+        // Debug.Log("Exit Offense State");
     }
 
     private void Offense()
