@@ -10,9 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 8982363150269206534}
   - component: {fileID: 2740663181768036856}
-  - component: {fileID: 8310453897617189129}
+  - component: {fileID: -6779412709165986187}
   m_Layer: 0
-  m_Name: WeaponA
+  m_Name: WeaponB
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -49,7 +49,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _bulletPrefab: {fileID: 548845198865158214, guid: 95b0f0ad1822b2c438f0e89b8f3a6146, type: 3}
   _bulletSpawnPoint: {fileID: 8824671351046544291}
---- !u!114 &8310453897617189129
+--- !u!114 &-6779412709165986187
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -63,8 +63,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _cost: 1
   _attack: 1
-  _reload: 2
-  _range: 1
+  _reload: 2.5
+  _range: 1.5
 --- !u!1 &2625919358032345624
 GameObject:
   m_ObjectHideFlags: 0

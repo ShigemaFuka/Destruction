@@ -12,7 +12,6 @@ public class ShowObjectOnClick : MonoBehaviour
     public void OnClick()
     {
         _panel.SetActive(!_panel.activeSelf);
-
         Debug.Log($"{gameObject.name}が押されたよ");
     }
 }

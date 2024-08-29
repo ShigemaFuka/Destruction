@@ -21,7 +21,7 @@ public class Generator : MonoBehaviour
         _useInitial = true;
         _enemiesList = new List<GameObject>();
         _waveManager = FindObjectOfType<WaveManager>();
-        if (!_waveManager) Debug.LogWarning($"{_waveManager}が見つかりませんでした。");
+        if (!_waveManager) Debug.LogWarning($"{_waveManager.name}が見つかりませんでした。");
     }
 
     private void Update()
