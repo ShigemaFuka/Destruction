@@ -7,13 +7,13 @@ using UnityEngine.EventSystems;
 public class CursorPerception : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
     [SerializeField] private GameObject _info = default;
-    [SerializeField, Header("生成場所のObj")] private GameObject _gameObject = default;
+    [SerializeField, Header("生成場所のObj")] private GameObject _posObj = default;
     private Vector3 _position = default; // 武器を配置する場所
     private WeaponGenerator _weaponGenerator = default;
 
     private void Start()
     {
-        _position = _gameObject.transform.position;
+        _position = _posObj.transform.position;
         _weaponGenerator = FindObjectOfType<WeaponGenerator>();
         _info.SetActive(false);
     }
@@ -22,7 +22,11 @@ public class CursorPerception : MonoBehaviour, IPointerEnterHandler, IPointerExi
     {
         // todo: show info
         _info.SetActive(true);
-        if (_weaponGenerator) _weaponGenerator.SetPosition(_position);
+        if (_weaponGenerator)
+        {
+            _weaponGenerator.SetPosition(_position);
+            _weaponGenerator.SetGameObject(_posObj);
+        }
     }
 
     public void OnPointerExit(PointerEventData eventData)

@@ -9,11 +9,13 @@ public class WeaponGenerator : MonoBehaviour
     [SerializeField] private List<GameObject> _weapons = default;
     private int _indexNum = default;
     private Vector3 _position = default;
+    private GameObject _weaponPoint = default;
 
     public void GenerateOnClick(int indexNum)
     {
         var go = Instantiate(_weapons[indexNum]);
         go.transform.position = _position;
+        _weaponPoint.SetActive(false);
     }
 
     /// <summary>
@@ -23,6 +25,16 @@ public class WeaponGenerator : MonoBehaviour
     {
         _position = pos;
     }
-    // todo: 生成後、WeaponPointを消す
+
+    /// <summary>
+    /// 配置機能の親Objを指定
+    /// </summary>
+    /// <param name="go"></param>
+    public void SetGameObject(GameObject go)
+    {
+        // todo: 生成後、WeaponPointを消す
+        _weaponPoint = go;
+    }
+
     // todo: 強化機能を使えるようにする
 }
