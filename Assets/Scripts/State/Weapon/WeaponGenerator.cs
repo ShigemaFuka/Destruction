@@ -7,7 +7,6 @@ using UnityEngine;
 public class WeaponGenerator : MonoBehaviour
 {
     [SerializeField] private List<GameObject> _weapons = default;
-    private int _indexNum = default;
     private Vector3 _position = default;
     private GameObject _weaponPoint = default;
 
@@ -32,9 +31,7 @@ public class WeaponGenerator : MonoBehaviour
     /// <param name="go"></param>
     public void SetGameObject(GameObject go)
     {
-        // todo: 生成後、WeaponPointを消す
+        // 生成後、WeaponPointを非アクティブ化
         _weaponPoint = go;
     }
-
-    // todo: 強化機能を使えるようにする
 }

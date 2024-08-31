@@ -9,10 +9,14 @@ public class Weapon : StateBase
 
     [SerializeField, Header("弾丸プレハブ")] private GameObject _bulletPrefab = default;
     [SerializeField, Header("マズル")] private Transform _bulletSpawnPoint = default;
+
+    [SerializeField, Header("可視化範囲のObj")] private GameObject _rangeObj = default;
+
     // [SerializeField, Header("発射インターバル")] private float _shootInterval = default;
     // [SerializeField, Header("ダメージ数")] private float _damage = 2f;
-    // [SerializeField, Header("範囲")] private float _range = 5f;
+    [SerializeField, Header("範囲")] private float _range = 5f;
     private Generator _generator = default;
+
     private GameObject _target = default;
     private OffenseState _offenseState = default;
     private float _timer = default;
@@ -34,6 +38,8 @@ public class Weapon : StateBase
 
     protected override void OnUpdate()
     {
+        ShowRange();
+
         if (_target != null)
         {
             Rotation();
@@ -85,8 +91,13 @@ public class Weapon : StateBase
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.yellow;
-        // Gizmos.DrawWireSphere(transform.position, _range);
-        Gizmos.DrawWireSphere(transform.position, _weaponStatus.Range);
+        Gizmos.DrawWireSphere(transform.position, _range);
+    }
+
+    private void ShowRange()
+    {
+        var r = _weaponStatus.Range * 2;
+        _rangeObj.transform.localScale = new Vector3(r, r, r);
     }
 
     /// <summary>
