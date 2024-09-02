@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 /// <summary>
@@ -8,7 +7,6 @@ public class Upgrader : MonoBehaviour
 {
     [Header("強化するたびに変化させる加算減算の量")] [Space] [SerializeField]
     private int _level = 1;
-
     [SerializeField] private float _cost = 1.2f;
     [SerializeField] private float _attack = 1.2f;
     [SerializeField] private float _reload = 1.2f;
@@ -26,10 +24,8 @@ public class Upgrader : MonoBehaviour
         {
             Debug.LogWarning("コストが足りません");
             return;
-        }
-
-        // todo: コスト制限と、資金減算処理
-        _costManager.Decrease(status.Cost);
+        } // コスト制限
+        _costManager.Decrease(status); // 資金減算処理
         status.Level += _level;
         status.Cost *= _cost;
         status.Attack *= _attack;
