@@ -14,39 +14,38 @@ public class Weapon : StateBase
 
     // [SerializeField, Header("発射インターバル")] private float _shootInterval = default;
     // [SerializeField, Header("ダメージ数")] private float _damage = 2f;
-    [SerializeField, Header("範囲")] private float _range = 5f;
+    // [SerializeField, Header("範囲")] private float _range = 5f;
     private Generator _generator = default;
-
-    private GameObject _target = default;
     private OffenseState _offenseState = default;
     private float _timer = default;
     private WeaponStatus _weaponStatus = default;
 
     #endregion
 
-    public GameObject Target => _target;
+    public GameObject Target { get; private set; } = default;
 
     protected override void OnStart()
     {
         _weaponStatus = GetComponent<WeaponStatus>();
         _generator = FindObjectOfType<Generator>();
         // _offenseState = new OffenseState(this, _damage, _bulletPrefab, _bulletSpawnPoint);
-        _offenseState = new OffenseState(this, _weaponStatus.Attack, _bulletPrefab, _bulletSpawnPoint);
+        _offenseState = new OffenseState(this, _weaponStatus.Attack, _bulletPrefab, _bulletSpawnPoint, gameObject);
         // _timer = _shootInterval;
         _timer = _weaponStatus.Reload; // 生成直後に発射可能
+        if (_generator.EnemiesList.Count == 0) Debug.LogWarning("listの要素数が０です。");
     }
 
     protected override void OnUpdate()
     {
         ShowRange();
 
-        if (_target != null)
+        if (Target != null)
         {
             Rotation();
         }
 
-        _target = IntrusionJudgment();
-        if (_target == null)
+        Target = IntrusionJudgment();
+        if (Target == null)
         {
             return;
         }
@@ -66,12 +65,6 @@ public class Weapon : StateBase
     /// </summary>
     private GameObject IntrusionJudgment()
     {
-        if (_generator.EnemiesList.Count == 0)
-        {
-            Debug.LogWarning("listの要素数が０です。");
-            return null;
-        }
-
         foreach (var enemy in _generator.EnemiesList)
         {
             if (enemy == null) continue; // 中身がnullなら飛ばす
@@ -88,11 +81,11 @@ public class Weapon : StateBase
         return null;
     }
 
-    private void OnDrawGizmos()
-    {
-        Gizmos.color = Color.yellow;
-        Gizmos.DrawWireSphere(transform.position, _range);
-    }
+    // private void OnDrawGizmos()
+    // {
+    //     Gizmos.color = Color.yellow;
+    //     Gizmos.DrawWireSphere(transform.position, _range);
+    // }
 
     private void ShowRange()
     {
@@ -105,7 +98,7 @@ public class Weapon : StateBase
     /// </summary>
     private void Rotation()
     {
-        var nextCorner = _target.transform.position;
+        var nextCorner = Target.transform.position;
         var to = nextCorner - transform.position;
         var angle = Vector3.SignedAngle(transform.forward, to, Vector3.up);
         // 角度が1゜を越えていたら

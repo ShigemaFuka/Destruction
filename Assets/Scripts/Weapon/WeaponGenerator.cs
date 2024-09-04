@@ -12,6 +12,11 @@ public class WeaponGenerator : MonoBehaviour
     private CostManager _costManager = default;
     private List<WeaponStatus> _weaponStatusList = default;
 
+    public List<WeaponStatus> WeaponStatusList
+    {
+        get => _weaponStatusList;
+        //set => _weaponStatusList = value;
+    }
 
     private void Start()
     {

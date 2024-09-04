@@ -48,6 +48,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4065794274877748512, guid: edbca84195120c149ad78e0393a17d73, type: 3}
+      propertyPath: _indexNum
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 5854329523407431365, guid: edbca84195120c149ad78e0393a17d73, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -68,6 +72,10 @@ PrefabInstance:
       propertyPath: m_Text
       value: "\u5439"
       objectReference: {fileID: 0}
+    - target: {fileID: 7117602781919837118, guid: edbca84195120c149ad78e0393a17d73, type: 3}
+      propertyPath: _indexNum
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 7757685714266588566, guid: edbca84195120c149ad78e0393a17d73, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: GenerateOnClick
@@ -78,7 +86,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8409787759147600806, guid: edbca84195120c149ad78e0393a17d73, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -11.4
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8409787759147600806, guid: edbca84195120c149ad78e0393a17d73, type: 3}
       propertyPath: m_LocalPosition.y
@@ -86,7 +94,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8409787759147600806, guid: edbca84195120c149ad78e0393a17d73, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 32.2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8409787759147600806, guid: edbca84195120c149ad78e0393a17d73, type: 3}
       propertyPath: m_LocalRotation.w

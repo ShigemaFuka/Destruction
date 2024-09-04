@@ -3,16 +3,17 @@ using UnityEngine;
 
 /// <summary>
 /// 吹き飛ばす
-/// todo: なんかおかしい
 /// </summary>
 public class BlowAway : MonoBehaviour, IOffense
 {
-    [SerializeField, Header("移動させる距離")] private float pushDistance = 5f;
-    [SerializeField, Header("移動速度")] private float pushSpeed = 5f; // 
-    private Transform pointA; // A地点からの出発点
-    private List<Vector3> initialPosition; // オブジェクトBの初期位置
-    private List<Vector3> targetPosition; // オブジェクトBの目標位置
-    private List<bool> isPushing;
+    [SerializeField, Header("移動させる距離（攻撃値に比例）")]
+    private float _pushDistance = 5f;
+
+    [SerializeField, Header("移動速度")] private float _pushSpeed = 50f;
+    private Transform _pointA = default; // A地点からの出発点
+    private List<Vector3> _initialPositions = default; // 初期位置
+    private List<Vector3> _targetPositions = default; // 目標位置
+    private List<bool> _isPushings = default;
     private List<GameObject> _targets = default;
     private Generator _generator = default;
     private WeaponStatus _weaponStatus = default;
@@ -21,11 +22,11 @@ public class BlowAway : MonoBehaviour, IOffense
     {
         _generator = FindObjectOfType<Generator>();
         _weaponStatus = GetComponent<WeaponStatus>();
-        initialPosition = new List<Vector3>();
-        targetPosition = new List<Vector3>();
-        isPushing = new List<bool>();
+        _initialPositions = new List<Vector3>();
+        _targetPositions = new List<Vector3>();
+        _isPushings = new List<bool>();
         _targets = new List<GameObject>();
-        pointA = transform;
+        _pointA = transform;
     }
 
     private void Update()
@@ -33,16 +34,17 @@ public class BlowAway : MonoBehaviour, IOffense
         for (var i = 0; i < _targets.Count; i++)
         {
             // オブジェクトBを目標位置に向かって移動させる
-            if (isPushing[i])
+            if (_isPushings[i])
             {
-                _targets[i].transform.position = Vector3.MoveTowards(_targets[i].transform.position, targetPosition[i],
-                    pushSpeed * Time.deltaTime);
+                _targets[i].transform.position = Vector3.MoveTowards(_targets[i].transform.position,
+                    _targetPositions[i],
+                    _pushSpeed * Time.deltaTime);
 
                 // 目標位置に到達したか確認
-                if (Vector3.Distance(_targets[i].transform.position, targetPosition[i]) < 0.001f)
+                if (Vector3.Distance(_targets[i].transform.position, _targetPositions[i]) < 0.001f)
                 {
-                    isPushing[i] = false;
-                    Debug.Log("オブジェクトBの移動が完了しました");
+                    _isPushings[i] = false;
+                    // Debug.Log("移動が完了しました");
                 }
             }
         }
@@ -69,26 +71,21 @@ public class BlowAway : MonoBehaviour, IOffense
         GetTarget();
         for (var i = 0; i < _targets.Count; i++)
         {
-            // オブジェクトBの初期位置を記録
-            initialPosition.Add(_targets[i].transform.position);
-            // A地点からオブジェクトBへの方向ベクトルを計算
-            var direction = (_targets[i].transform.position - pointA.position).normalized;
-            // 目標位置を計算
-            targetPosition.Add(initialPosition[i] + direction * pushDistance);
-
-            // 移動を開始
-            isPushing.Add(true);
+            // 対象の初期位置を記録
+            _initialPositions.Add(_targets[i].transform.position);
+            // A地点から対象への方向ベクトルを計算
+            var direction = (_targets[i].transform.position - _pointA.position).normalized;
+            // 目標位置を計算 攻撃値に応じて吹き飛ばす距離が変動
+            _targetPositions.Add(_initialPositions[i] + direction * (_pushDistance * _weaponStatus.Attack));
+            _isPushings.Add(true); // 移動を開始
         }
-
-        // _target = target;
-        // Debug.LogWarning("吹き飛ばす");
     }
 
     private void ClearList()
     {
-        initialPosition.Clear();
-        targetPosition.Clear();
-        isPushing.Clear();
+        _initialPositions.Clear();
+        _targetPositions.Clear();
+        _isPushings.Clear();
         _targets.Clear();
     }
 }

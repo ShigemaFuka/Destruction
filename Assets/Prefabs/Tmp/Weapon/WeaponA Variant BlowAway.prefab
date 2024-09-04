@@ -10,7 +10,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 593403065626194188, guid: 9b416c58123a0e943a566cf3bbaec78f, type: 3}
       propertyPath: m_Name
-      value: WeaponA Variant 1
+      value: WeaponA Variant BlowAway
       objectReference: {fileID: 0}
     - target: {fileID: 593403065626194188, guid: 9b416c58123a0e943a566cf3bbaec78f, type: 3}
       propertyPath: m_IsActive
@@ -34,7 +34,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8982363150269206534, guid: 9b416c58123a0e943a566cf3bbaec78f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -7.2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8982363150269206534, guid: 9b416c58123a0e943a566cf3bbaec78f, type: 3}
       propertyPath: m_LocalPosition.y
@@ -42,7 +42,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8982363150269206534, guid: 9b416c58123a0e943a566cf3bbaec78f, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 27.7
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8982363150269206534, guid: 9b416c58123a0e943a566cf3bbaec78f, type: 3}
       propertyPath: m_LocalRotation.w
@@ -98,5 +98,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2cdf22d01258eb418a2508d4dcdfdcd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pushDistance: 10
-  pushSpeed: 50
+  _pushDistance: 5
+  _pushSpeed: 50

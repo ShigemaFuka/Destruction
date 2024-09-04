@@ -7,7 +7,7 @@ using UnityEngine.AI;
 public class WalkState : IState
 {
     private readonly StateBase _stateBase = default;
-    private float _distance = 0.1f; // 到達したとみなす距離
+    private float _distance = 1f; // 到達したとみなす距離
     private Vector3[] _positions = default; // 経路の位置情報
     private int _indexNum = default; // めざす場所のインデックス番号
     private NavMeshAgent _agent = default;
@@ -21,7 +21,7 @@ public class WalkState : IState
         _transform = t;
         _agent = nma;
         _positions = vecs;
-        this._changeOfCourseState = changeOfCourseState;
+        _changeOfCourseState = changeOfCourseState;
     }
 
     public void Enter()

@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -10,9 +12,12 @@ public class CursorPerception : MonoBehaviour, IPointerEnterHandler, IPointerExi
     [SerializeField, Header("生成場所のObj")] private GameObject _posObj = default;
     private Vector3 _position = default; // 武器を配置する場所
     private WeaponGenerator _weaponGenerator = default;
+    private List<IPointerEnter> _pointerEnters = default; // かざした時の処理があるなら実行
 
     private void Start()
     {
+        _pointerEnters = new List<IPointerEnter>();
+        _pointerEnters = GetComponents<IPointerEnter>().ToList();
         _position = _posObj.transform.position;
         _weaponGenerator = FindObjectOfType<WeaponGenerator>();
         _info.SetActive(false);
@@ -26,6 +31,11 @@ public class CursorPerception : MonoBehaviour, IPointerEnterHandler, IPointerExi
         {
             _weaponGenerator.SetPosition(_position);
             _weaponGenerator.SetGameObject(_posObj);
+        }
+
+        foreach (var pointerEnter in _pointerEnters)
+        {
+            pointerEnter.PointerEnter();
         }
     }
 
