@@ -68,7 +68,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _level: 1
   _cost: 2
-  _attack: 1
+  _attack: 2.2
   _reload: 2
   _range: 5
 --- !u!114 &1049205326787407132

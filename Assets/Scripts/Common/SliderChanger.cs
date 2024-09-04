@@ -9,7 +9,7 @@ public class SliderChanger : MonoBehaviour
 {
     [SerializeField] private Slider _slider = default;
     [SerializeField] private Hp _hp = default;
-    [SerializeField, Header("アニメーションの時間")] float _duration = 0.2f;
+    [SerializeField, Header("アニメーションの時間")] private float _duration = 0.2f;
     private float _previousHp = default; // 変化前のHp
 
     private void Start()
@@ -21,8 +21,7 @@ public class SliderChanger : MonoBehaviour
     {
         if (_hp.CurrentHp != _previousHp)
         {
-            var value = _previousHp - _hp.CurrentHp;
-            _slider.DOValue(_hp.CurrentHp + 1 - value, _duration).OnComplete(() => { _previousHp = _hp.CurrentHp; });
+            _slider.DOValue(_hp.CurrentHp, _duration).OnComplete(() => { _previousHp = _hp.CurrentHp; });
         }
     }
 }

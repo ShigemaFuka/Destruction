@@ -1,5 +1,9 @@
 using UnityEngine;
 
+/// <summary>
+/// FPSカメラ
+/// カーソルに合わせて回転
+/// </summary>
 public class CameraController : MonoBehaviour
 {
     [SerializeField] private float _sensitivity = 100f;
