@@ -29,7 +29,7 @@ public class CostManager : MonoBehaviour
 
     public bool Judge(float value)
     {
-        var flag = _currentCost > value; // コストが足りている＝真
+        var flag = _currentCost >= value; // コストが足りている＝真
         return flag;
     }
 
