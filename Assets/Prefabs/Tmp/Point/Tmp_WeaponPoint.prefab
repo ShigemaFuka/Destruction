@@ -177,7 +177,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: "\u77F3"
+  m_Text: "\u9060"
 --- !u!1 &2576941123333065178
 GameObject:
   m_ObjectHideFlags: 0
@@ -449,7 +449,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 0
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 100
   m_TargetDisplay: 0
 --- !u!114 &3849727152827824324
 MonoBehaviour:
@@ -1110,4 +1110,4 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: "\u5F13"
+  m_Text: "\u8FD1"
