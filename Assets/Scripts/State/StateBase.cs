@@ -5,6 +5,9 @@ public class StateBase : MonoBehaviour
     protected IState _currentState = default;
     private IdleState _idleState = default;
 
+    [SerializeField, Tooltip("現在の状態名")]
+    private string _currentStateName = "";
+    
     private void Start()
     {
         _idleState = new IdleState(this);
@@ -18,6 +21,10 @@ public class StateBase : MonoBehaviour
 
     private void Update()
     {
+        if (_currentState != null)
+        {
+            _currentStateName = _currentState.GetType().Name;
+        }
         _currentState.Execute();
         OnUpdate();
     }
