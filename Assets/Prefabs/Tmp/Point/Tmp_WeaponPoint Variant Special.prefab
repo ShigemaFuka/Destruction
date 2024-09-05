@@ -14,7 +14,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 102225579831555431, guid: edbca84195120c149ad78e0393a17d73, type: 3}
       propertyPath: m_Name
-      value: "Tmp_WeaponPoint Variant\u3000Special"
+      value: Tmp_WeaponPoint Variant Special
       objectReference: {fileID: 0}
     - target: {fileID: 2019193033956653166, guid: edbca84195120c149ad78e0393a17d73, type: 3}
       propertyPath: m_AnchorMax.y
@@ -52,6 +52,10 @@ PrefabInstance:
       propertyPath: _indexNum
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 4210814558584709323, guid: edbca84195120c149ad78e0393a17d73, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 1a765c6f94f0dec47b01fecdfad4aece, type: 2}
     - target: {fileID: 5854329523407431365, guid: edbca84195120c149ad78e0393a17d73, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0

@@ -69,7 +69,7 @@ MonoBehaviour:
   _level: 1
   _cost: 2
   _attack: 2.2
-  _reload: 2
+  _reload: 2.2
   _range: 5
 --- !u!114 &1049205326787407132
 MonoBehaviour:
@@ -197,7 +197,7 @@ MonoBehaviour:
   _level: 1
   _cost: 1.5
   _attack: 1.4
-  _reload: 1.2
+  _reload: 1.15
   _range: 1.2
 --- !u!1 &1091748047314874747
 GameObject:
