@@ -10,13 +10,18 @@ public class AttackState : IState
     private GameObject _bulletPrefab = default;
     private float _timer = default;
     private Transform _muzzle = default;
+    private GameObject _target = default;
+    private float _attackValue = default;
 
-    public AttackState(StateBase stateBase, float interval, GameObject bulletPrefab, Transform muzzle)
+    public AttackState(StateBase stateBase, float interval, GameObject bulletPrefab, Transform muzzle,
+        GameObject target, float attackValue)
     {
         _stateBase = stateBase;
         _interval = interval;
         _bulletPrefab = bulletPrefab;
         _muzzle = muzzle;
+        _target = target;
+        _attackValue = attackValue;
     }
 
     public void Enter()
@@ -42,6 +47,8 @@ public class AttackState : IState
 
     private void Attack()
     {
+        var d = _target.GetComponent<IDamage>();
+        d.Damage(_attackValue);
         Object.Instantiate(_bulletPrefab, _muzzle.position, _muzzle.rotation);
         // Debug.Log("発射");
     }

@@ -11,8 +11,9 @@ public class Enemy : StateBase
     [SerializeField, Header("マズル")] private Transform _bulletSpawnPoint = default;
     [SerializeField, Header("発射インターバル")] private float _shootInterval = default;
     [SerializeField, Header("死亡プレハブ")] private GameObject _deadPrefab = default;
+    [SerializeField, Header("攻撃力")] private float _attackValue = 1f;
     private Vector3[] _positions = default; // 経路の位置情報
-    private Transform _tower = default;
+    private GameObject _tower = default;
     private GameObject _parentRoute = default;
     private NavMeshAgent _agent = default;
     private WalkState _walkState = default;
@@ -31,10 +32,10 @@ public class Enemy : StateBase
         GetRoute();
         _agent = GetComponent<NavMeshAgent>();
         _agent.speed = _speed;
-        _tower = GameObject.FindWithTag("Tower").transform;
+        _tower = GameObject.FindWithTag("Tower");
         _generator = FindObjectOfType<Generator>();
-        _attackState = new AttackState(this, _shootInterval, _bulletPrefab, _bulletSpawnPoint);
-        _changeOfCourseState = new ChangeOfCourseState(this, transform, _tower, _attackState);
+        _attackState = new AttackState(this, _shootInterval, _bulletPrefab, _bulletSpawnPoint, _tower, _attackValue);
+        _changeOfCourseState = new ChangeOfCourseState(this, transform, _tower.transform, _attackState);
         _walkState = new WalkState(this, transform, _agent, _positions, _changeOfCourseState);
         _deathState = new DeathState(this, _deadPrefab, transform, gameObject, _generator);
         ChangeState(_walkState);
@@ -52,8 +53,6 @@ public class Enemy : StateBase
             ChangeState(_walkState);
         } // Agentが動いていたら（終点未到達なら）
         // 吹き飛ばされたときなど 後退 → 戦闘復帰を想定
-
-        // Debug.Log("curr: " + _currentState);
     }
 
     /// <summary>

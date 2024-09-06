@@ -179,7 +179,7 @@ GameObject:
   - component: {fileID: 658309192418728665}
   - component: {fileID: 902008640464004093}
   m_Layer: 0
-  m_Name: Tmp_EnemyAI
+  m_Name: Tmp_EnemyAI Speed
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -238,7 +238,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _currentStateName: 
-  _speed: 3
+  _speed: 6
   _parentRouteName: Route
   _bulletPrefab: {fileID: 548845198865158214, guid: 95b0f0ad1822b2c438f0e89b8f3a6146, type: 3}
   _bulletSpawnPoint: {fileID: 7681515401579915976}
@@ -257,7 +257,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c23496152764984489d18f8332a93422, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxHp: 5
+  _maxHp: 0.5
   _currentHp: 0
 --- !u!114 &902008640464004093
 MonoBehaviour:
@@ -449,8 +449,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.9, y: 0.9, z: 0.9}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 2588639951685375804}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
