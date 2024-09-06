@@ -9,12 +9,7 @@ public class Weapon : StateBase
 
     [SerializeField, Header("弾丸プレハブ")] private GameObject _bulletPrefab = default;
     [SerializeField, Header("マズル")] private Transform _bulletSpawnPoint = default;
-
     [SerializeField, Header("可視化範囲のObj")] private GameObject _rangeObj = default;
-
-    // [SerializeField, Header("発射インターバル")] private float _shootInterval = default;
-    // [SerializeField, Header("ダメージ数")] private float _damage = 2f;
-    // [SerializeField, Header("範囲")] private float _range = 5f;
     private Generator _generator = default;
     private OffenseState _offenseState = default;
     private float _timer = default;
@@ -28,10 +23,7 @@ public class Weapon : StateBase
     {
         _weaponStatus = GetComponent<WeaponStatus>();
         _generator = FindObjectOfType<Generator>();
-        // _offenseState = new OffenseState(this, _damage, _bulletPrefab, _bulletSpawnPoint);
         _offenseState = new OffenseState(this, _weaponStatus.Attack, _bulletPrefab, _bulletSpawnPoint, gameObject);
-        // _timer = _shootInterval;
-        _timer = _weaponStatus.Reload; // 生成直後に発射可能
         if (_generator.EnemiesList.Count == 0) Debug.LogWarning("listの要素数が０です。");
     }
 
@@ -51,7 +43,6 @@ public class Weapon : StateBase
         }
 
         _timer += Time.deltaTime;
-        // if (_timer >= _shootInterval)
         if (_timer >= _weaponStatus.Reload)
         {
             ChangeState(_offenseState);
@@ -71,7 +62,6 @@ public class Weapon : StateBase
             var offset = enemy.transform.position - transform.position;
             var sqrLen = offset.sqrMagnitude;
 
-            // if (sqrLen < _range * _range)
             if (sqrLen < _weaponStatus.Range * _weaponStatus.Range)
             {
                 return enemy;
@@ -80,12 +70,6 @@ public class Weapon : StateBase
 
         return null;
     }
-
-    // private void OnDrawGizmos()
-    // {
-    //     Gizmos.color = Color.yellow;
-    //     Gizmos.DrawWireSphere(transform.position, _range);
-    // }
 
     private void ShowRange()
     {

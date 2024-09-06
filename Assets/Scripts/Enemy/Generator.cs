@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
-/// 一定間隔で生成する
+/// 一定間隔で敵を生成する
 /// </summary>
 public class Generator : MonoBehaviour
 {

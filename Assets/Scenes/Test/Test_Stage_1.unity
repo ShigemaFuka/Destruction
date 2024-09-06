@@ -442,6 +442,7 @@ GameObject:
   - component: {fileID: 393984896}
   - component: {fileID: 393984897}
   - component: {fileID: 393984898}
+  - component: {fileID: 393984899}
   m_Layer: 0
   m_Name: System
   m_TagString: Untagged
@@ -495,8 +496,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _maxNumsEachWaves: 030000000500000007000000
   _intervals:
-  - 4
-  - 5
+  - 2
+  - 2
+  - 2
   _canGeneration: 0
   _currentCount: 0
   _wave: 0
@@ -514,6 +516,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _currentCost: 6
   _costText: {fileID: 642664369}
+--- !u!114 &393984899
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 393984893}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e04b0fd580e8a6488569735c35070f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _sceneName: Result
+  _duration: 1.5
 --- !u!1001 &523678293
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1092,7 +1108,7 @@ Transform:
   m_GameObject: {fileID: 963194225}
   serializedVersion: 2
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 30, z: 26.55}
+  m_LocalPosition: {x: 0, y: 30, z: 26.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1161,10 +1177,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _speed: 20
-  _rangeXup: 0
-  _rangeXdown: -20
-  _rangeZup: 33
-  _rangeZdown: 30
+  _topLimit: 32
+  _bottomLimit: 27
+  _leftLimit: -14.5
+  _rightLimit: 0
 --- !u!1 &1010160467
 GameObject:
   m_ObjectHideFlags: 0
