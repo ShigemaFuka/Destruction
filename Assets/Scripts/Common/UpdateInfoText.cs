@@ -16,11 +16,17 @@ public class UpdateInfoText : MonoBehaviour
         if (_targetButton == null) Debug.LogWarning($"{_targetButton.name}がありません。");
         _targetButton.onClick.AddListener(OnClick);
         _infoText.text = "";
-        GetSetStatus();
+        ShowStatus();
     }
 
-    private void GetSetStatus()
+    private void OnEnable()
     {
+        ShowStatus();
+    }
+
+    private void ShowStatus()
+    {
+        if (_weaponStatus == null) return;
         var status = _weaponStatus;
         _infoText.text = $"Lv.{status.Level}\n" +
                          $"Cost : {status.Cost:0.0}   Att : {status.Attack:0.0}\n" +
@@ -29,6 +35,6 @@ public class UpdateInfoText : MonoBehaviour
 
     private void OnClick()
     {
-        GetSetStatus();
+        ShowStatus();
     }
 }

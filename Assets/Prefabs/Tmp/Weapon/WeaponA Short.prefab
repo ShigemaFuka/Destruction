@@ -398,7 +398,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1730394895614339168}
         m_TargetAssemblyTypeName: Upgrader, Assembly-CSharp
-        m_MethodName: Upgrade
+        m_MethodName: UpgradeOnInGame
         m_Mode: 2
         m_Arguments:
           m_ObjectArgument: {fileID: 8310453897617189129}
