@@ -67,10 +67,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _level: 1
-  _cost: 2
+  _cost: 3.5
   _attack: 2.2
   _reload: 2.2
   _range: 5
+  _indexNum: 0
 --- !u!114 &1049205326787407132
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -195,7 +196,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _level: 1
-  _cost: 1.5
+  _cost: 2
   _attack: 1.4
   _reload: 1.15
   _range: 1.2
