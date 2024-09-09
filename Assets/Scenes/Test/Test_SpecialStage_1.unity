@@ -557,6 +557,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _coin: 1000000
+  _initialCoin: 100
   _stageList: 
   _statusList: []
   _initialStatusList:
@@ -1753,7 +1754,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: -0.5, z: 0}
-  m_LocalScale: {x: 12, y: 1, z: 12}
+  m_LocalScale: {x: 40, y: 1, z: 40}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1894426321}
@@ -1800,7 +1801,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: b94d20635fbcd7c44bf45514b77d0062, type: 2}
+  - {fileID: 2100000, guid: 940f2fec7b22408458eba5e14026128f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1859,7 +1860,7 @@ MonoBehaviour:
   m_OverrideVoxelSize: 0
   m_VoxelSize: 0.16666667
   m_MinRegionArea: 2
-  m_NavMeshData: {fileID: 23800000, guid: 6b494d3d2f9c377498df7de7880c063f, type: 2}
+  m_NavMeshData: {fileID: 23800000, guid: 11886556f040ade468088f3b00e63bb6, type: 2}
   m_BuildHeightMesh: 0
 --- !u!1 &1971775966
 GameObject:

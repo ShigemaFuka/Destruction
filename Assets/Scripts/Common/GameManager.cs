@@ -3,7 +3,8 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    [SerializeField] private float _coin = 100f;
+    [SerializeField] private float _coin = default;
+    [SerializeField, Header("初期化")] private float _initialCoin = 100f;
     [SerializeField] private List<bool> _stageList = default;
     [SerializeField] private List<WeaponStatusData> _statusList = default;
     [SerializeField, Header("ステータス初期化用")] private List<WeaponStatusData> _initialStatusList = default;
@@ -28,7 +29,7 @@ public class GameManager : MonoBehaviour
         else
         {
             // 初期値を設定する場合
-            _coin = 100f;
+            _coin = _initialCoin;
             _stageList = new List<bool> { false, false };
             _statusList = _initialStatusList;
             _saveManager.SaveGameData(_coin, _stageList, _statusList);
@@ -47,12 +48,12 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.D))
+        if (Input.GetKeyDown(KeyCode.J))
         {
             _saveManager.DeleteData();
         }
 
-        if (Input.GetKeyDown(KeyCode.S))
+        if (Input.GetKeyDown(KeyCode.K))
         {
             _saveManager.SaveGameData(_coin, _stageList, _statusList);
         }
@@ -72,7 +73,7 @@ public class GameManager : MonoBehaviour
         }
 
         // 'A'キーを押したらコインの値を増やす
-        if (Input.GetKeyDown(KeyCode.A))
+        if (Input.GetKeyDown(KeyCode.L))
         {
             _coin += 10f;
             Debug.Log("コインが増えました: " + _coin);

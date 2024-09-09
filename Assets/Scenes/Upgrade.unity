@@ -311,7 +311,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a77806f776326b41a837596c26f17c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _coin: 1000000
+  _coin: 0
+  _initialCoin: 1000
   _stageList: 
   _statusList: []
   _initialStatusList:
