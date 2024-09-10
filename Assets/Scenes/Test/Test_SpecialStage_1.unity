@@ -445,6 +445,7 @@ GameObject:
   - component: {fileID: 393984899}
   - component: {fileID: 393984901}
   - component: {fileID: 393984902}
+  - component: {fileID: 393984903}
   m_Layer: 0
   m_Name: System
   m_TagString: Untagged
@@ -496,7 +497,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43fc92a802b5f8b47accb358bd36f4ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxNumsEachWaves: 0a000000080000000a000000
+  _hp: {fileID: 1988573412}
+  _maxNumsEachWaves: 020000000200000002000000
   _intervals:
   - 2
   - 3
@@ -516,7 +518,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e581e03cb9c086f4ab9d814d3b1332f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _currentCost: 50
+  _currentCost: 10
   _costText: {fileID: 642664369}
 --- !u!114 &393984899
 MonoBehaviour:
@@ -576,6 +578,19 @@ MonoBehaviour:
     _attack: 1
     _reload: 6
     _range: 10
+--- !u!114 &393984903
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 393984893}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb676bf7a2f5a0a4c978753fc77012f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _reward: 100
 --- !u!1001 &429305597
 PrefabInstance:
   m_ObjectHideFlags: 0

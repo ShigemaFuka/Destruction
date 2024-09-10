@@ -9,6 +9,7 @@ public class WaveManager : MonoBehaviour
 {
     #region 宣言部
 
+    [SerializeField, Header("タワーのHP")] private Hp _hp = default;
     [SerializeField, Header("各Waveの最大生成数")]
     private List<int> _maxNumsEachWaves = default;
 
@@ -21,6 +22,7 @@ public class WaveManager : MonoBehaviour
 
     private Generator _generator = default;
     private SceneChanger _sceneChanger = default;
+    private GameManager _gameManager = default;
 
     #endregion
 
@@ -31,6 +33,9 @@ public class WaveManager : MonoBehaviour
     {
         _generator = FindObjectOfType<Generator>();
         _sceneChanger = FindObjectOfType<SceneChanger>();
+        _gameManager = FindObjectOfType<GameManager>();
+        if (_hp == null) Debug.LogWarning($"{_hp.name}がありません。");
+
         if (_maxNumsEachWaves.Count == 0)
         {
             Debug.LogWarning("_maxNumsEachWaves.Count == 0");
@@ -42,6 +47,7 @@ public class WaveManager : MonoBehaviour
         }
 
         _canGeneration = true;
+        _gameManager.ResetTmpCoin();
     }
 
     private void Update()
@@ -56,6 +62,8 @@ public class WaveManager : MonoBehaviour
             if (_generator.EnemiesList.Count == 0)
             {
                 StartCoroutine(_sceneChanger.LateChange()); // リザルトへ
+                _gameManager.ChangeReward(_hp.CurrentHp, _hp.MaxHp);
+                Debug.Log($"tmp reward: {_gameManager.TemporaryCustodyCoin}");
             }
 
             return;

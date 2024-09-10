@@ -36,6 +36,7 @@ public class BlowAway : MonoBehaviour, IOffense
             // オブジェクトBを目標位置に向かって移動させる
             if (_isPushings[i])
             {
+                if (_targets[i] == null) continue;
                 _targets[i].transform.position = Vector3.MoveTowards(_targets[i].transform.position,
                     _targetPositions[i],
                     _pushSpeed * Time.deltaTime);

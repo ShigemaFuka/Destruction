@@ -6,6 +6,8 @@ public class Hp : MonoBehaviour, IDamage
     [SerializeField, Header("現在のHP")] private float _currentHp = default;
     [SerializeField, Header("タワーか")] private bool _toResult = default;
     private SceneChanger _sceneChanger = default;
+    private GameManager _gameManager = default;
+
 
     public float CurrentHp
     {
@@ -23,6 +25,7 @@ public class Hp : MonoBehaviour, IDamage
     {
         _currentHp = _maxHp;
         _sceneChanger = FindObjectOfType<SceneChanger>();
+        _gameManager = FindObjectOfType<GameManager>();
     }
 
     /// <summary>
@@ -33,10 +36,11 @@ public class Hp : MonoBehaviour, IDamage
     {
         if (_currentHp <= 0)
         {
-            // todo: 何らかの処理
             if (_toResult)
             {
                 StartCoroutine(_sceneChanger.LateChange());
+                _gameManager.ChangeReward(0, _maxHp); // 負け
+                _toResult = false;
             }
 
             Debug.LogWarning("HPが０になりました。");
