@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    #region 変数
+
     [SerializeField, Header("総合コイン数")] private float _coin = default;
     [SerializeField, Header("初期化")] private float _initialCoin = 100f;
     [SerializeField] private List<bool> _stageList = default;
@@ -11,6 +13,19 @@ public class GameManager : MonoBehaviour
     private static float _temporaryCustodyCoin = default; // 獲得したコイン　※戦果
     private SaveManager _saveManager = default;
     private bool _canChangeReward = default; // 報酬減算計算ができるか
+
+    #endregion
+
+    #region プロパティ
+
+    /// <summary>
+    /// 所持しているコイン
+    /// </summary>
+    public float Coin
+    {
+        get => _coin;
+        // set => _coin = value;
+    }
 
     /// <summary>
     /// 獲得したコイン　※戦果
@@ -27,9 +42,23 @@ public class GameManager : MonoBehaviour
         //set => _statusList = value;
     }
 
+    #endregion
+
     private void Start()
     {
         _saveManager = FindObjectOfType<SaveManager>();
+        if (_saveManager == null) Debug.LogWarning("SaveManagerがありません。");
+        InitializedData();
+        _canChangeReward = true;
+    }
+
+    /// <summary>
+    /// データをロードして、
+    /// データがなければ、初期化用の数値を設定してセーブする。
+    /// データがあれば、保存された物を変数に格納する。
+    /// </summary>
+    private void InitializedData()
+    {
         var loadedData = _saveManager.LoadGameData(); // 保存されたデータを読み込む
         if (loadedData != null)
         {
@@ -45,8 +74,6 @@ public class GameManager : MonoBehaviour
             _statusList = _initialStatusList;
             _saveManager.SaveGameData(_coin, _stageList, _statusList);
         }
-
-        _canChangeReward = true;
     }
 
     /// <summary>
@@ -90,6 +117,7 @@ public class GameManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.J))
         {
             _saveManager.DeleteData();
+            InitializedData();
         }
 
         if (Input.GetKeyDown(KeyCode.K))
@@ -111,10 +139,10 @@ public class GameManager : MonoBehaviour
             }
         }
 
-        // 'A'キーを押したらコインの値を増やす
+        // 'L'キーを押したらコインの値を増やす
         if (Input.GetKeyDown(KeyCode.L))
         {
-            _coin += 10f;
+            _coin += 100f;
             Debug.Log("コインが増えました: " + _coin);
             for (var i = 0; i < _statusList.Count; i++)
             {

@@ -508,6 +508,7 @@ GameObject:
   - component: {fileID: 743264305}
   - component: {fileID: 743264306}
   - component: {fileID: 743264307}
+  - component: {fileID: 743264309}
   m_Layer: 0
   m_Name: System
   m_TagString: Untagged
@@ -573,7 +574,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f17bb5f0e5f614459a5a61ea664af41, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _num: 0
 --- !u!114 &743264308
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -586,6 +586,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d88cfeecc40746c44bb83c0e9c2cceb1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &743264309
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 743264303}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e04b0fd580e8a6488569735c35070f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _sceneName: 
+  _duration: 1.5
 --- !u!1 &776089408
 GameObject:
   m_ObjectHideFlags: 0
@@ -1141,7 +1155,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1895416218}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 743264309}
+        m_TargetAssemblyTypeName: SceneChanger, Assembly-CSharp
+        m_MethodName: Change
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: SelectStage
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1895416218
 MonoBehaviour:
   m_ObjectHideFlags: 0

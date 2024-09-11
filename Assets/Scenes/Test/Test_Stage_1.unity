@@ -427,7 +427,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8854c9ed09b4e28448aaf1e27b37d2bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _prefab: {fileID: 1821308159862844387, guid: 57a01991fd7ef2644bc087a7e5cf9949, type: 3}
+  _prefab: {fileID: 1821308159862844387, guid: 1519c5ebe6674104b8e5f7b9535195b5, type: 3}
   _initialInterval: 0
   _interval: 2
 --- !u!1 &393984893
@@ -443,6 +443,9 @@ GameObject:
   - component: {fileID: 393984897}
   - component: {fileID: 393984898}
   - component: {fileID: 393984899}
+  - component: {fileID: 393984900}
+  - component: {fileID: 393984901}
+  - component: {fileID: 393984902}
   m_Layer: 0
   m_Name: System
   m_TagString: Untagged
@@ -494,6 +497,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43fc92a802b5f8b47accb358bd36f4ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _hp: {fileID: 1988573412}
   _maxNumsEachWaves: 030000000500000007000000
   _intervals:
   - 2
@@ -530,6 +534,48 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _sceneName: Result
   _duration: 1.5
+--- !u!114 &393984900
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 393984893}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a77806f776326b41a837596c26f17c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _coin: 0
+  _initialCoin: 100
+  _stageList: 
+  _statusList: []
+  _initialStatusList: []
+--- !u!114 &393984901
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 393984893}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d88cfeecc40746c44bb83c0e9c2cceb1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &393984902
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 393984893}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb676bf7a2f5a0a4c978753fc77012f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _reward: 100
 --- !u!1001 &523678293
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2618,6 +2664,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _maxHp: 5
   _currentHp: 0
+  _toResult: 1
 --- !u!114 &1988573413
 MonoBehaviour:
   m_ObjectHideFlags: 0
