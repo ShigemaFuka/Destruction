@@ -11,20 +11,27 @@ public class DeathState : IState
     private GameObject _deadObj = default; // 生成されたObj
     private GameObject _stpoObj = default;
     private Generator _generator = default;
+    private Animator _animator = default;
 
     public DeathState(StateBase stateBase, GameObject deadPrefab, Transform pos, GameObject stopObj,
-        Generator generator)
+        Generator generator, Animator animator)
     {
         _stateBase = stateBase;
         _deadPrefab = deadPrefab;
         _transform = pos;
         _stpoObj = stopObj;
         _generator = generator;
+        _animator = animator;
     }
 
     public void Enter()
     {
-        _deadObj = Object.Instantiate(_deadPrefab, _transform.position, _transform.rotation);
+        if (_animator) _animator.Play("Die");
+        var renderers = _stateBase.gameObject.GetComponentsInChildren<Renderer>();
+        foreach (var renderer in renderers)
+        {
+            renderer.material.color = Color.black;
+        }
         // Debug.Log("Enter Death State");
     }
 
@@ -38,10 +45,8 @@ public class DeathState : IState
 
     public void Exit()
     {
-        // todo: 仕舞う
-        // _stpoObj.SetActive(false);
         _generator.RemoveObj(_stateBase.gameObject);
-        Object.Destroy(_stateBase.gameObject);
+        Object.Destroy(_stateBase.gameObject, 2f);
         // Debug.Log("Exit Death State");
     }
 }

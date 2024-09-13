@@ -9,20 +9,22 @@ public class ChangeOfCourseState : IState
     private Transform _transform = default;
     private Transform _target = default;
     private AttackState _attackState = default;
+    private Animator _animator = default;
 
-    public ChangeOfCourseState(StateBase stateBase, Transform transform, Transform target, AttackState attackState)
+    public ChangeOfCourseState(StateBase stateBase, Transform transform, Transform target, AttackState attackState,
+        Animator animator)
     {
-        this._stateBase = stateBase;
+        _stateBase = stateBase;
         _transform = transform;
         _target = target;
         _attackState = attackState;
+        _animator = animator;
     }
 
     public void Enter()
     {
         // Debug.Log("Enter ChangeOfCourse State");
-        // // アニメーションの変更など
-        // enemy.SetAnimation("");
+        if (_animator) _animator.Play("Idle");
     }
 
     public void Execute()

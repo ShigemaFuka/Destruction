@@ -6,6 +6,7 @@ public class Enemy : StateBase
     #region 宣言部
 
     [SerializeField] private float _speed = 1f;
+    [SerializeField] private Animator _animator = default;
     [SerializeField, Header("経路オブジェクトの親")] private string _parentRouteName = default;
     [SerializeField, Header("弾丸プレハブ")] private GameObject _bulletPrefab = default;
     [SerializeField, Header("マズル")] private Transform _bulletSpawnPoint = default;
@@ -34,10 +35,11 @@ public class Enemy : StateBase
         _agent.speed = _speed;
         _tower = GameObject.FindWithTag("Tower");
         _generator = FindObjectOfType<Generator>();
-        _attackState = new AttackState(this, _shootInterval, _bulletPrefab, _bulletSpawnPoint, _tower, _attackValue);
-        _changeOfCourseState = new ChangeOfCourseState(this, transform, _tower.transform, _attackState);
-        _walkState = new WalkState(this, transform, _agent, _positions, _changeOfCourseState);
-        _deathState = new DeathState(this, _deadPrefab, transform, gameObject, _generator);
+        _attackState = new AttackState(this, _shootInterval, _bulletPrefab, _bulletSpawnPoint, _tower, _attackValue,
+            _animator);
+        _changeOfCourseState = new ChangeOfCourseState(this, transform, _tower.transform, _attackState, _animator);
+        _walkState = new WalkState(this, transform, _agent, _positions, _changeOfCourseState, _animator);
+        _deathState = new DeathState(this, _deadPrefab, transform, gameObject, _generator, _animator);
         ChangeState(_walkState);
     }
 
@@ -46,6 +48,8 @@ public class Enemy : StateBase
         if (_hp.CurrentHp <= 0)
         {
             ChangeState(_deathState);
+            _agent.isStopped = true;
+            return;
         } // 残機０なら
 
         if (_agent.velocity.magnitude > 0.1f)

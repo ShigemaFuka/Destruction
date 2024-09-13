@@ -13,21 +13,24 @@ public class WalkState : IState
     private NavMeshAgent _agent = default;
     private Transform _transform = default;
     private ChangeOfCourseState _changeOfCourseState = default;
+    private Animator _animator = default;
+    private static readonly int Walk = Animator.StringToHash("Walk");
 
     public WalkState(StateBase stateBase, Transform t, NavMeshAgent nma, Vector3[] vecs,
-        ChangeOfCourseState changeOfCourseState)
+        ChangeOfCourseState changeOfCourseState, Animator animator)
     {
         _stateBase = stateBase;
         _transform = t;
         _agent = nma;
         _positions = vecs;
         _changeOfCourseState = changeOfCourseState;
+        _animator = animator;
     }
 
     public void Enter()
     {
-        // Debug.Log("Enter Walk State");
-        // enemy.SetAnimation("Walk");
+        Debug.Log("Enter Walk State");
+        if(_animator)  _animator.SetBool(Walk, true);
     }
 
     public void Execute()
@@ -38,17 +41,20 @@ public class WalkState : IState
 
     public void Exit()
     {
-        // Debug.Log("Exit Walk State");
+        Debug.Log("Exit Walk State");
+        if(_animator)  _animator.SetBool(Walk, false);
     }
 
     /// <summary>
     /// 目的地
     /// </summary>
-    public void Destination()
+    private void Destination()
     {
+        Debug.Log($"_indexNum: {_indexNum}");
         if (_indexNum == _positions.Length)
         {
-            _stateBase.ChangeState(_changeOfCourseState);
+            var d = (_transform.position - _positions[_indexNum - 1]).sqrMagnitude;
+            if (d <= _distance) _stateBase.ChangeState(_changeOfCourseState);
             // Debug.Log("攻撃に移行");
             return;
         }
