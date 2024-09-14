@@ -241,11 +241,11 @@ MonoBehaviour:
   _currentStateName: 
   _speed: 3
   _animator: {fileID: 884206962274497566}
+  _model: {fileID: 37221069913567189}
   _parentRouteName: Route
   _bulletPrefab: {fileID: 548845198865158214, guid: 95b0f0ad1822b2c438f0e89b8f3a6146, type: 3}
   _bulletSpawnPoint: {fileID: 7681515401579915976}
   _shootInterval: 2
-  _deadPrefab: {fileID: 7791997215596961460, guid: b8274fb3422638a4594d38c81d47e80d, type: 3}
   _attackValue: 1
 --- !u!114 &658309192418728665
 MonoBehaviour:
@@ -991,6 +991,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6be18c83797e9b14cb2dc9160b155d89, type: 3}
+--- !u!1 &37221069913567189 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 16829958793894433, guid: 6be18c83797e9b14cb2dc9160b155d89, type: 3}
+  m_PrefabInstance: {fileID: 54032885612885492}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &851159375248356719 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 824187794674860187, guid: 6be18c83797e9b14cb2dc9160b155d89, type: 3}

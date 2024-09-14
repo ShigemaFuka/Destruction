@@ -7,11 +7,11 @@ public class Enemy : StateBase
 
     [SerializeField] private float _speed = 1f;
     [SerializeField] private Animator _animator = default;
+    [SerializeField, Header("モデル")] private GameObject _model = default;
     [SerializeField, Header("経路オブジェクトの親")] private string _parentRouteName = default;
     [SerializeField, Header("弾丸プレハブ")] private GameObject _bulletPrefab = default;
     [SerializeField, Header("マズル")] private Transform _bulletSpawnPoint = default;
     [SerializeField, Header("発射インターバル")] private float _shootInterval = default;
-    [SerializeField, Header("死亡プレハブ")] private GameObject _deadPrefab = default;
     [SerializeField, Header("攻撃力")] private float _attackValue = 1f;
     private Vector3[] _positions = default; // 経路の位置情報
     private GameObject _tower = default;
@@ -39,7 +39,7 @@ public class Enemy : StateBase
             _animator);
         _changeOfCourseState = new ChangeOfCourseState(this, transform, _tower.transform, _attackState, _animator);
         _walkState = new WalkState(this, transform, _agent, _positions, _changeOfCourseState, _animator);
-        _deathState = new DeathState(this, _deadPrefab, transform, gameObject, _generator, _animator);
+        _deathState = new DeathState(this, _generator, _animator, _model);
         ChangeState(_walkState);
     }
 
