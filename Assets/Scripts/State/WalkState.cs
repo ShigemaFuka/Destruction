@@ -30,7 +30,7 @@ public class WalkState : IState
     public void Enter()
     {
         Debug.Log("Enter Walk State");
-        if(_animator)  _animator.SetBool(Walk, true);
+        if (_animator) _animator.SetBool(Walk, true);
     }
 
     public void Execute()
@@ -42,7 +42,7 @@ public class WalkState : IState
     public void Exit()
     {
         Debug.Log("Exit Walk State");
-        if(_animator)  _animator.SetBool(Walk, false);
+        if (_animator) _animator.SetBool(Walk, false);
     }
 
     /// <summary>
@@ -50,7 +50,6 @@ public class WalkState : IState
     /// </summary>
     private void Destination()
     {
-        Debug.Log($"_indexNum: {_indexNum}");
         if (_indexNum == _positions.Length)
         {
             var d = (_transform.position - _positions[_indexNum - 1]).sqrMagnitude;
