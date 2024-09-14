@@ -6,7 +6,7 @@ using UnityEngine;
 /// </summary>
 public class Generator : MonoBehaviour
 {
-    [SerializeField] private GameObject _prefab = default;
+    [SerializeField] private GameObject[] _prefabs = default;
     [SerializeField, Header("初期インターバル")] private float _initialInterval = 2f;
     [SerializeField, Header("インターバル")] private float _interval = 1f;
     private float _timer = default;
@@ -49,8 +49,9 @@ public class Generator : MonoBehaviour
 
     private GameObject Generate()
     {
+        var go = Instantiate(_prefabs[_waveManager.EnemyTypeList[_waveManager.TotalCount]], transform);
         _waveManager.AddCount(); // 生成のたびに個数を加算（各Waveにおいて）
-        return Instantiate(_prefab, transform);
+        return go;
     }
 
     public void RemoveObj(GameObject go)

@@ -43,7 +43,7 @@ public class DeathState : IState
         }
 
         _generator.RemoveObj(_stateBase.gameObject);
-        Object.Destroy(_stateBase.gameObject, 3f);
+        // Object.Destroy(_stateBase.gameObject, 3f);
         // Debug.Log("Exit Death State");
     }
 }

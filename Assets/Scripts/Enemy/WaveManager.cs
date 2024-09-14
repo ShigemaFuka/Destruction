@@ -10,24 +10,44 @@ public class WaveManager : MonoBehaviour
     #region 宣言部
 
     [SerializeField, Header("タワーのHP")] private Hp _hp = default;
+
     [SerializeField, Header("各Waveの最大生成数")]
     private List<int> _maxNumsEachWaves = default;
+
+    [SerializeField, Header("敵の種類を指定する　※↑の数だけ指定")]
+    private List<int> _enemyTypeList = default;
 
     [SerializeField, Header("次のWaveを開始するまでの間隔")]
     private List<float> _intervals = default;
 
-    [SerializeField] private bool _canGeneration = default; // 生成ができるか
-    [SerializeField] private int _currentCount = default; // 現在までに生成した数（各Waveにおいて）
-    [SerializeField] private int _wave = default; // 現在のWave番号
-
+    private bool _canGeneration = default; // 生成ができるか
+    private int _currentCount = default; // 現在までに生成した数（各Waveにおいて）
+    private int _totalCount = default; // 現在までに生成した総数
+    private int _wave = default; // 現在のWave番号
     private Generator _generator = default;
     private SceneChanger _sceneChanger = default;
     private GameManager _gameManager = default;
 
     #endregion
 
+    #region プロパティ
+
     /// <summary> 生成ができるか </summary>
     public bool CanGeneration => _canGeneration;
+
+    /// <summary> 敵の種類 </summary>
+    public List<int> EnemyTypeList
+    {
+        get => _enemyTypeList;
+        //set => _enemyTypeList = value;
+    }
+
+    public int TotalCount
+    {
+        get => _totalCount;
+    }
+
+    #endregion
 
     private void Start()
     {
@@ -87,6 +107,7 @@ public class WaveManager : MonoBehaviour
     public void AddCount()
     {
         _currentCount++;
+        _totalCount++;
     }
 
     /// <summary>
