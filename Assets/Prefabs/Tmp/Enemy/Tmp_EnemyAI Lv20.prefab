@@ -277,6 +277,7 @@ MonoBehaviour:
   _slider: {fileID: 3540070472871720225}
   _hp: {fileID: 658309192418728665}
   _duration: 0.15
+  _hpCanvas: {fileID: 3441810557513546610}
 --- !u!1 &2672729395394513926
 GameObject:
   m_ObjectHideFlags: 0

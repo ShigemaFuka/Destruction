@@ -146,8 +146,8 @@ MonoBehaviour:
   _level: 1
   _cost: 2
   _attack: 0.2
-  _reload: 0.5
-  _range: 15
+  _reload: 1
+  _range: 12.5
   _indexNum: 1
 --- !u!114 &8351132949555554499
 MonoBehaviour:
@@ -492,9 +492,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _level: 1
-  _cost: 2
+  _cost: 1.8
   _attack: 1.2
-  _reload: 1.15
+  _reload: 1.05
   _range: 1.02
 --- !u!1 &4522530145922970015
 GameObject:

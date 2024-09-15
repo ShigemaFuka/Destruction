@@ -215,7 +215,7 @@ NavMeshAgent:
   m_AgentTypeID: 0
   m_Radius: 0.5
   m_Speed: 3.5
-  m_Acceleration: 8
+  m_Acceleration: 5
   avoidancePriority: 50
   m_AngularSpeed: 120
   m_StoppingDistance: 0
@@ -239,7 +239,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _currentStateName: 
-  _speed: 15
+  _speed: 12
   _animator: {fileID: 7557833393426607356}
   _model: {fileID: 7215814147065642742}
   _parentRouteName: Route
@@ -259,7 +259,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c23496152764984489d18f8332a93422, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxHp: 0.5
+  _maxHp: 2.5
   _currentHp: 0
   _toResult: 0
 --- !u!114 &902008640464004093
@@ -277,6 +277,7 @@ MonoBehaviour:
   _slider: {fileID: 3540070472871720225}
   _hp: {fileID: 658309192418728665}
   _duration: 0.15
+  _hpCanvas: {fileID: 3441810557513546610}
 --- !u!1 &2672729395394513926
 GameObject:
   m_ObjectHideFlags: 0
@@ -768,7 +769,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 833854997431449644, guid: dadecae318be19749ac4fbd62bd9a632, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.52
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 833854997431449644, guid: dadecae318be19749ac4fbd62bd9a632, type: 3}
       propertyPath: m_LocalPosition.z

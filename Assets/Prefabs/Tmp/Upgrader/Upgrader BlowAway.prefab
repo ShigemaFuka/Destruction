@@ -606,7 +606,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _pushDistance: 10
-  _pushSpeed: 50
+  _pushSpeed: 40
 --- !u!114 &2602607651671606493
 MonoBehaviour:
   m_ObjectHideFlags: 0
