@@ -283,7 +283,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 0, g: 1, b: 0, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -427,7 +427,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8854c9ed09b4e28448aaf1e27b37d2bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _prefab: {fileID: 1821308159862844387, guid: 1519c5ebe6674104b8e5f7b9535195b5, type: 3}
+  _prefabs:
+  - {fileID: 1821308159862844387, guid: 57a01991fd7ef2644bc087a7e5cf9949, type: 3}
+  - {fileID: 1821308159862844387, guid: b3837618ec5019f4c9e626b2424b291a, type: 3}
+  - {fileID: 1821308159862844387, guid: 61add08bdb62a874a9815d72e5f4a19b, type: 3}
+  - {fileID: 1821308159862844387, guid: cea29b7ec942cd04eb271590258644fe, type: 3}
+  - {fileID: 1821308159862844387, guid: 1519c5ebe6674104b8e5f7b9535195b5, type: 3}
+  - {fileID: 1821308159862844387, guid: 06e44225446ce3240942ce1d266be3e9, type: 3}
+  - {fileID: 1821308159862844387, guid: abf24e093a1d6d242981d70838b25e5a, type: 3}
+  - {fileID: 1821308159862844387, guid: 32cd58892f178b44ab7d4990ad7ee0b3, type: 3}
   _initialInterval: 0
   _interval: 2
 --- !u!1 &393984893
@@ -498,14 +506,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _hp: {fileID: 1988573412}
-  _maxNumsEachWaves: 030000000500000007000000
+  _maxNumsEachWaves: 030000000500000006000000
+  _enemyTypeList: 0400000004000000050000000400000004000000040000000500000004000000040000000400000004000000050000000500000005000000
   _intervals:
-  - 2
-  - 2
-  - 2
-  _canGeneration: 0
-  _currentCount: 0
-  _wave: 0
+  - 4
+  - 4
+  - 4
 --- !u!114 &393984898
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1226,7 +1232,9 @@ MonoBehaviour:
   _topLimit: 32
   _bottomLimit: 27
   _leftLimit: -14.5
-  _rightLimit: 0
+  _rightLimit: 10
+  _upLimit: 45
+  _downLimit: 10
 --- !u!1 &1010160467
 GameObject:
   m_ObjectHideFlags: 0
@@ -1336,7 +1344,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 312839850}
   m_FillRect: {fileID: 284769653}
   m_HandleRect: {fileID: 312839849}
@@ -1505,7 +1513,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 0, g: 0, b: 0, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -2620,7 +2628,7 @@ Transform:
   m_GameObject: {fileID: 1988573409}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 14.1, y: 1.5, z: 27.59}
+  m_LocalPosition: {x: 17.6, y: 1.5, z: 27.59}
   m_LocalScale: {x: 2, y: 1, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2662,7 +2670,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c23496152764984489d18f8332a93422, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxHp: 5
+  _maxHp: 500
   _currentHp: 0
   _toResult: 1
 --- !u!114 &1988573413
@@ -2680,6 +2688,7 @@ MonoBehaviour:
   _slider: {fileID: 1024363556}
   _hp: {fileID: 1988573412}
   _duration: 0.4
+  _hpCanvas: {fileID: 0}
 --- !u!1 &2002628725
 GameObject:
   m_ObjectHideFlags: 0
