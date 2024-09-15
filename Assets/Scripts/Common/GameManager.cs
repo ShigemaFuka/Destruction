@@ -70,7 +70,7 @@ public class GameManager : MonoBehaviour
         {
             // 初期値を設定する場合
             _coin = _initialCoin;
-            _stageList = new List<bool> { false, false };
+            _stageList = new List<bool> { true, true, false, false };
             _statusList = _initialStatusList;
             _saveManager.SaveGameData(_coin, _stageList, _statusList);
         }
@@ -84,6 +84,24 @@ public class GameManager : MonoBehaviour
         _statusList[indexNum] = status;
         _coin -= status._cost;
         _saveManager.SaveGameData(_coin, _stageList, _statusList);
+    }
+
+    /// <summary>
+    /// コイン減らす
+    /// </summary>
+    public void Decrease(float amount)
+    {
+        _coin -= amount;
+    }
+
+    public void Save()
+    {
+        _saveManager.SaveGameData(_coin, _stageList, _statusList);
+    }
+
+    public void Unlock(int num)
+    {
+        _stageList[num] = true;
     }
 
     /// <summary>

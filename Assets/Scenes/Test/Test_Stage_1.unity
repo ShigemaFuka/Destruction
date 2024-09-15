@@ -436,7 +436,7 @@ MonoBehaviour:
   - {fileID: 1821308159862844387, guid: 06e44225446ce3240942ce1d266be3e9, type: 3}
   - {fileID: 1821308159862844387, guid: abf24e093a1d6d242981d70838b25e5a, type: 3}
   - {fileID: 1821308159862844387, guid: 32cd58892f178b44ab7d4990ad7ee0b3, type: 3}
-  _initialInterval: 0
+  _initialInterval: 5
   _interval: 2
 --- !u!1 &393984893
 GameObject:

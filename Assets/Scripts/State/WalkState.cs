@@ -29,7 +29,7 @@ public class WalkState : IState
 
     public void Enter()
     {
-        Debug.Log("Enter Walk State");
+        // Debug.Log("Enter Walk State");
         if (_animator) _animator.SetBool(Walk, true);
     }
 
@@ -41,7 +41,7 @@ public class WalkState : IState
 
     public void Exit()
     {
-        Debug.Log("Exit Walk State");
+        // Debug.Log("Exit Walk State");
         if (_animator) _animator.SetBool(Walk, false);
     }
 
