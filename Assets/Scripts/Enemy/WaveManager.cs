@@ -23,6 +23,7 @@ public class WaveManager : MonoBehaviour
     private bool _canGeneration = default; // 生成ができるか
     private int _currentCount = default; // 現在までに生成した数（各Waveにおいて）
     private int _totalCount = default; // 現在までに生成した総数
+    private int _killCount = default; // 倒された数
     private int _wave = default; // 現在のWave番号
     private Generator _generator = default;
     private SceneChanger _sceneChanger = default;
@@ -45,6 +46,12 @@ public class WaveManager : MonoBehaviour
     public int TotalCount
     {
         get => _totalCount;
+    }
+
+    /// <summary> 倒された数 </summary>
+    public int KillCount
+    {
+        get => _killCount;
     }
 
     #endregion
@@ -108,6 +115,11 @@ public class WaveManager : MonoBehaviour
     {
         _currentCount++;
         _totalCount++;
+    }
+
+    public void AddKillCount()
+    {
+        _killCount++;
     }
 
     /// <summary>

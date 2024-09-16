@@ -27,6 +27,9 @@ public class DeathState : IState
         {
             renderer.material.color = Color.gray;
         }
+        
+        _generator.RemoveObj(_stateBase.gameObject);
+
         // Debug.Log("Enter Death State");
     }
 
@@ -42,7 +45,6 @@ public class DeathState : IState
             _model.transform.position = new Vector3(pos.x, -0.5f, pos.z); // 地面に落ちる感じ
         }
 
-        _generator.RemoveObj(_stateBase.gameObject);
         // Object.Destroy(_stateBase.gameObject, 3f);
         // Debug.Log("Exit Death State");
     }

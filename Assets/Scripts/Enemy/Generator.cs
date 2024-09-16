@@ -56,6 +56,10 @@ public class Generator : MonoBehaviour
 
     public void RemoveObj(GameObject go)
     {
-        _enemiesList.Remove(go);
+        if (_enemiesList.Contains(go))
+        {
+            _enemiesList.Remove(go);
+            _waveManager.AddKillCount(); // 死亡数加算
+        }
     }
 }
