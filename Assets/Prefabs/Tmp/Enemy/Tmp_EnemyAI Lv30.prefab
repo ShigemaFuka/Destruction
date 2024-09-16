@@ -245,7 +245,7 @@ MonoBehaviour:
   _parentRouteName: Route
   _bulletPrefab: {fileID: 548845198865158214, guid: 95b0f0ad1822b2c438f0e89b8f3a6146, type: 3}
   _bulletSpawnPoint: {fileID: 7681515401579915976}
-  _shootInterval: 2
+  _shootInterval: 2.15
   _attackValue: 4
 --- !u!114 &658309192418728665
 MonoBehaviour:

@@ -239,7 +239,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _currentStateName: 
-  _speed: 14
+  _speed: 12.3
   _animator: {fileID: 7557833393426607356}
   _model: {fileID: 7215814147065642742}
   _parentRouteName: Route

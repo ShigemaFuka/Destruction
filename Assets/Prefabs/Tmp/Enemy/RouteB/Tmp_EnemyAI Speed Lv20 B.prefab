@@ -179,7 +179,7 @@ GameObject:
   - component: {fileID: 658309192418728665}
   - component: {fileID: 902008640464004093}
   m_Layer: 0
-  m_Name: Tmp_EnemyAI Speed Lv30
+  m_Name: Tmp_EnemyAI Speed Lv20 B
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -239,14 +239,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _currentStateName: 
-  _speed: 12.8
+  _speed: 14
   _animator: {fileID: 7557833393426607356}
   _model: {fileID: 7215814147065642742}
-  _parentRouteName: Route
+  _parentRouteName: RouteB
   _bulletPrefab: {fileID: 548845198865158214, guid: 95b0f0ad1822b2c438f0e89b8f3a6146, type: 3}
   _bulletSpawnPoint: {fileID: 7681515401579915976}
-  _shootInterval: 1
-  _attackValue: 1.5
+  _shootInterval: 0.75
+  _attackValue: 1.2
 --- !u!114 &658309192418728665
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -259,7 +259,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c23496152764984489d18f8332a93422, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxHp: 3
+  _maxHp: 2
   _currentHp: 0
   _toResult: 0
 --- !u!114 &902008640464004093
@@ -810,7 +810,7 @@ PrefabInstance:
     - target: {fileID: 5311182879800886956, guid: dadecae318be19749ac4fbd62bd9a632, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 1a0f718684f3d9c4aad2171a6cec7f49, type: 2}
+      objectReference: {fileID: 2100000, guid: 4ea71f2760e9a1c4390a9b64b643647b, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

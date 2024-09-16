@@ -1,5 +1,7 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class GameManager : MonoBehaviour
 {
@@ -70,7 +72,7 @@ public class GameManager : MonoBehaviour
         {
             // 初期値を設定する場合
             _coin = _initialCoin;
-            _stageList = new List<bool> { true, true, false, false };
+            _stageList = new List<bool> { true, true, false, false, false, false };
             _statusList = _initialStatusList;
             _saveManager.SaveGameData(_coin, _stageList, _statusList);
         }
@@ -130,12 +132,17 @@ public class GameManager : MonoBehaviour
         _canChangeReward = false;
     }
 
+    public void ResetData()
+    {
+        _saveManager.DeleteData();
+        InitializedData();
+    }
+
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.J))
         {
-            _saveManager.DeleteData();
-            InitializedData();
+            ResetData();
         }
 
         if (Input.GetKeyDown(KeyCode.K))

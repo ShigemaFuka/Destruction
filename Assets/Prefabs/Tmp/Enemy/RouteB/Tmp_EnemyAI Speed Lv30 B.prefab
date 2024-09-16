@@ -179,7 +179,7 @@ GameObject:
   - component: {fileID: 658309192418728665}
   - component: {fileID: 902008640464004093}
   m_Layer: 0
-  m_Name: Tmp_EnemyAI Speed Lv30
+  m_Name: Tmp_EnemyAI Speed Lv30 B
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -239,10 +239,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _currentStateName: 
-  _speed: 12.8
+  _speed: 15
   _animator: {fileID: 7557833393426607356}
   _model: {fileID: 7215814147065642742}
-  _parentRouteName: Route
+  _parentRouteName: RouteB
   _bulletPrefab: {fileID: 548845198865158214, guid: 95b0f0ad1822b2c438f0e89b8f3a6146, type: 3}
   _bulletSpawnPoint: {fileID: 7681515401579915976}
   _shootInterval: 1
