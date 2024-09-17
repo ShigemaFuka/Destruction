@@ -22,7 +22,7 @@ public class OffenseState : IState
     public void Enter()
     {
         _target = _weapon.Target;
-        Object.Instantiate(_bulletPrefab, _muzzle.position, _muzzle.rotation);
+        if (_bulletPrefab) Object.Instantiate(_bulletPrefab, _muzzle.position, _muzzle.rotation);
         Offense();
         Exit();
         // Debug.Log("Enter Offense State");

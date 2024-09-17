@@ -39,7 +39,7 @@ public class Upgrader : MonoBehaviour
         status.Level += _level;
         status.Cost *= _cost;
         status.Attack *= _attack;
-        status.Reload /= _reload;
+        status.Reload *= _reload;
         status.Range *= _range;
     }
 
@@ -60,7 +60,7 @@ public class Upgrader : MonoBehaviour
         status._level += _level;
         status._cost *= _cost;
         status._attack *= _attack;
-        status._reload /= _reload;
+        status._reload *= _reload;
         status._range *= _range;
         _gameManager.Decrease(status, num); // 資金減算処理
     }

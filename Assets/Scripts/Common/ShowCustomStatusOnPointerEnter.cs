@@ -21,8 +21,10 @@ public class ShowCustomStatusOnPointerEnter : MonoBehaviour, IPointerEnter
 
     private void GetSetInfo()
     {
+        // コストだけ初期値のまま
+        var initialStatus = _gameManager.InitialStatusList[_indexNum];
         var status = _gameManager.StatusList[_indexNum];
-        _infoText.text = $"Cost : {status._cost:0.0}  Att : {status._attack:0.0}\n" +
+        _infoText.text = $"Cost : {initialStatus._cost:0.0}  Att : {status._attack:0.0}\n" +
                          $"RNG : {status._range:0.0}  RT : {status._reload:0.0}";
     }
 

@@ -37,10 +37,18 @@ public class GameManager : MonoBehaviour
         set => _temporaryCustodyCoin = value;
     }
 
+    /// <summary> 保存されるステータス </summary>
     public List<WeaponStatusData> StatusList
     {
         get => _statusList;
         //set => _statusList = value;
+    }
+
+    /// <summary> 初期化用ステータス </summary>
+    public List<WeaponStatusData> InitialStatusList
+    {
+        get => _initialStatusList;
+        //set => _initialStatusList = value;
     }
 
     #endregion

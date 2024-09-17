@@ -110,6 +110,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2656097886099933809}
+  - {fileID: 8290781611038345378}
   - {fileID: 3820962375843923176}
   - {fileID: 3216277637712902656}
   - {fileID: 177903438397099807}
@@ -1101,9 +1102,83 @@ Transform:
   m_GameObject: {fileID: 9015917077572490020}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0.71}
+  m_LocalPosition: {x: 0, y: 0.71, z: 3.17}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5023487290121936961}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &8295232815305764812
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 5023487290121936961}
+    m_Modifications:
+    - target: {fileID: 1875090778556656, guid: 568b47fccc3627543a7dc883324796a1, type: 3}
+      propertyPath: m_Name
+      value: FattyCannonG02_arrenge
+      objectReference: {fileID: 0}
+    - target: {fileID: 4595654756050798, guid: 568b47fccc3627543a7dc883324796a1, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4595654756050798, guid: 568b47fccc3627543a7dc883324796a1, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4595654756050798, guid: 568b47fccc3627543a7dc883324796a1, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4595654756050798, guid: 568b47fccc3627543a7dc883324796a1, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4595654756050798, guid: 568b47fccc3627543a7dc883324796a1, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4595654756050798, guid: 568b47fccc3627543a7dc883324796a1, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4595654756050798, guid: 568b47fccc3627543a7dc883324796a1, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4595654756050798, guid: 568b47fccc3627543a7dc883324796a1, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4595654756050798, guid: 568b47fccc3627543a7dc883324796a1, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4595654756050798, guid: 568b47fccc3627543a7dc883324796a1, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 23364559723917138, guid: 568b47fccc3627543a7dc883324796a1, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 902c1bf0fab39f948a55b2bd894661c8, type: 2}
+    - target: {fileID: 23430875037819608, guid: 568b47fccc3627543a7dc883324796a1, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 902c1bf0fab39f948a55b2bd894661c8, type: 2}
+    - target: {fileID: 23884825674443308, guid: 568b47fccc3627543a7dc883324796a1, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 902c1bf0fab39f948a55b2bd894661c8, type: 2}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 568b47fccc3627543a7dc883324796a1, type: 3}
+--- !u!4 &8290781611038345378 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4595654756050798, guid: 568b47fccc3627543a7dc883324796a1, type: 3}
+  m_PrefabInstance: {fileID: 8295232815305764812}
+  m_PrefabAsset: {fileID: 0}

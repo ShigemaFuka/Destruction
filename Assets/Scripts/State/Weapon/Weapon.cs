@@ -88,7 +88,7 @@ public class Weapon : StateBase
         // 角度が1゜を越えていたら
         if (Mathf.Abs(angle) > 1)
         {
-            var rotMax = 100 * Time.deltaTime;
+            var rotMax = 700 * Time.deltaTime;
             var rot = Mathf.Min(Mathf.Abs(angle), rotMax);
             transform.Rotate(0f, rot * Mathf.Sign(angle), 0f);
         }
