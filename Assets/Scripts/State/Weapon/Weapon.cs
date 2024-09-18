@@ -10,6 +10,9 @@ public class Weapon : StateBase
     [SerializeField, Header("弾丸プレハブ")] private GameObject _bulletPrefab = default;
     [SerializeField, Header("マズル")] private Transform _bulletSpawnPoint = default;
     [SerializeField, Header("可視化範囲のObj")] private GameObject _rangeObj = default;
+    [SerializeField, Header("回転するもの")] private GameObject _rotator = default;
+    [SerializeField, Header("回転速度")] private float _rotateSpeed = 700f;
+    [SerializeField, Header("対象との角度差")] private float _angle = 1f;
     private Generator _generator = default;
     private OffenseState _offenseState = default;
     private float _timer = default;
@@ -25,6 +28,7 @@ public class Weapon : StateBase
         _generator = FindObjectOfType<Generator>();
         _offenseState = new OffenseState(this, _weaponStatus.Attack, _bulletPrefab, _bulletSpawnPoint, gameObject);
         if (_generator.EnemiesList.Count == 0) Debug.LogWarning("listの要素数が０です。");
+        if (!_rotator) Debug.LogWarning("回転するものがありません。");
     }
 
     protected override void OnUpdate()
@@ -82,15 +86,16 @@ public class Weapon : StateBase
     /// </summary>
     private void Rotation()
     {
+        if (_rotator == null) return;
         var nextCorner = Target.transform.position;
-        var to = nextCorner - transform.position;
-        var angle = Vector3.SignedAngle(transform.forward, to, Vector3.up);
-        // 角度が1゜を越えていたら
-        if (Mathf.Abs(angle) > 1)
+        var to = nextCorner - _rotator.transform.position;
+        var angle = Vector3.SignedAngle(_rotator.transform.forward, to, Vector3.up);
+        // 角度が●゜を越えていたら
+        if (Mathf.Abs(angle) > _angle)
         {
-            var rotMax = 700 * Time.deltaTime;
+            var rotMax = _rotateSpeed * Time.deltaTime;
             var rot = Mathf.Min(Mathf.Abs(angle), rotMax);
-            transform.Rotate(0f, rot * Mathf.Sign(angle), 0f);
+            _rotator.transform.Rotate(0f, rot * Mathf.Sign(angle), 0f);
         }
     }
 }

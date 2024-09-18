@@ -131,6 +131,7 @@ MonoBehaviour:
   _bulletPrefab: {fileID: 548845198865158214, guid: 95b0f0ad1822b2c438f0e89b8f3a6146, type: 3}
   _bulletSpawnPoint: {fileID: 3820962375843923176}
   _rangeObj: {fileID: 5917148583042173213}
+  _rotator: {fileID: 0}
 --- !u!114 &5698829206232384819
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -494,7 +495,7 @@ MonoBehaviour:
   _level: 1
   _cost: 1.8
   _attack: 1.2
-  _reload: 1.05
+  _reload: 1.02
   _range: 1.02
 --- !u!1 &4522530145922970015
 GameObject:
