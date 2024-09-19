@@ -55,6 +55,19 @@ public class Hp : MonoBehaviour, IDamage, IHeal
     /// </summary>
     public void Heal()
     {
-        _currentHp += _maxHp / 2;
+        _currentHp += _maxHp * 0.5f;
+        if (_currentHp > _maxHp) _currentHp = _maxHp; // 超えないようにする
+        Debug.Log($"回復 {_maxHp * 0.5f}");
+    }
+
+    /// <summary>
+    /// 回復量は引数なしと同じ
+    /// </summary>
+    /// <param name="per"> 何回に分けて回復させるか </param>
+    public void Heal(int per)
+    {
+        _currentHp += _maxHp * 0.5f / per;
+        if (_currentHp > _maxHp) _currentHp = _maxHp; // 超えないようにする
+        Debug.Log($"回復 {_maxHp * 0.5f / per}");
     }
 }

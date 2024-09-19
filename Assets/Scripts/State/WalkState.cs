@@ -59,13 +59,15 @@ public class WalkState : IState
             var d = (_transform.position - _positions[_indexNum - 1]).sqrMagnitude;
             if (d <= _distance) _stateBase.ChangeState(_changeOfCourseState);
             // Debug.Log("攻撃に移行");
-            return;
+            _agent.SetDestination(_positions[_indexNum - 1]);
         }
-
-        _agent.SetDestination(_positions[_indexNum]);
-        var distance = (_transform.position - _positions[_indexNum]).sqrMagnitude;
-        // だいたい近づいたら到達と見做す
-        if (distance <= _distance) _indexNum++; // 次の目標地点を更新
+        else
+        {
+            _agent.SetDestination(_positions[_indexNum]);
+            var distance = (_transform.position - _positions[_indexNum]).sqrMagnitude;
+            // だいたい近づいたら到達と見做す
+            if (distance <= _distance) _indexNum++; // 次の目標地点を更新
+        }
     }
 
     /// <summary>

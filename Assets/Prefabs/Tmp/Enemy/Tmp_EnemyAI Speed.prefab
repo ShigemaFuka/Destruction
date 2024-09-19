@@ -247,6 +247,8 @@ MonoBehaviour:
   _bulletSpawnPoint: {fileID: 7681515401579915976}
   _shootInterval: 0.5
   _attackValue: 0.4
+  _healPointName: HealPoint
+  _waitTime: 3
 --- !u!114 &658309192418728665
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -4,5 +4,35 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/Title.unity
+    guid: 5db756ab5720bca4e933714449126862
+  - enabled: 1
+    path: Assets/Scenes/Upgrade.unity
+    guid: 6135d1df908c7964a933ec7e0aa79734
+  - enabled: 1
+    path: Assets/Scenes/SelectStage.unity
+    guid: 70a1f892f240d3a438cb31ccbf8b64f4
+  - enabled: 1
+    path: Assets/Scenes/Result.unity
+    guid: 46aeace55392c4042bd459470ffc4e8a
+  - enabled: 1
+    path: Assets/Scenes/Stages/Test_Stage_1.unity
+    guid: 4bca5ae04a78c7348aff9868e5a65439
+  - enabled: 1
+    path: Assets/Scenes/Stages/Test_Stage_2.unity
+    guid: ab3b1a9334d398944a3a2f3c6aca4a6c
+  - enabled: 1
+    path: Assets/Scenes/Stages/Test_SpecialStage_1.unity
+    guid: 3581f62ea66882943b3817a7f2934cfa
+  - enabled: 1
+    path: Assets/Scenes/Stages/Test_SpecialStage_2.unity
+    guid: b82094836de7f894795393d12087cb67
+  - enabled: 1
+    path: Assets/Scenes/Stages/Test_SpecialStage_3.unity
+    guid: 72592e8d8e8338c4da39cf855a08a65b
+  - enabled: 1
+    path: Assets/Scenes/Stages/Test_SpecialStage_4.unity
+    guid: 9331dcac2e2066646844f960e92a5276
   m_configObjects: {}
