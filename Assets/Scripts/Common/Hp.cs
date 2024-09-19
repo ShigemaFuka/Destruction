@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Hp : MonoBehaviour, IDamage
+public class Hp : MonoBehaviour, IDamage, IHeal
 {
     [SerializeField, Header("最大HP")] private float _maxHp = 10;
     [SerializeField, Header("現在のHP")] private float _currentHp = default;
@@ -48,5 +48,13 @@ public class Hp : MonoBehaviour, IDamage
         }
 
         _currentHp -= value;
+    }
+
+    /// <summary>
+    /// 最大HPの半分を回復
+    /// </summary>
+    public void Heal()
+    {
+        _currentHp += _maxHp / 2;
     }
 }
