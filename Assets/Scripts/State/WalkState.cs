@@ -6,6 +6,8 @@ using UnityEngine.AI;
 /// </summary>
 public class WalkState : IState
 {
+    #region 変数
+
     private readonly StateBase _stateBase = default;
     private float _distance = 1f; // 到達したとみなす距離
     private Vector3[] _positions = default; // 経路の位置情報
@@ -15,6 +17,8 @@ public class WalkState : IState
     private ChangeOfCourseState _changeOfCourseState = default;
     private Animator _animator = default;
     private static readonly int Walk = Animator.StringToHash("Walk");
+
+    #endregion
 
     public WalkState(StateBase stateBase, Transform t, NavMeshAgent nma, Vector3[] vecs,
         ChangeOfCourseState changeOfCourseState, Animator animator)
@@ -67,7 +71,7 @@ public class WalkState : IState
     /// <summary>
     /// 進行方向への回転
     /// </summary>
-    public void Rotation()
+    private void Rotation()
     {
         var nextCorner = _transform.position;
         if (_agent.path != null && _agent.path.corners.Length > 1)
