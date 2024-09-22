@@ -56,7 +56,7 @@ MonoBehaviour:
   _rangeObj: {fileID: 7047585281072480173}
   _rotator: {fileID: 3865678403717284783}
   _rotateSpeed: 100
-  _angle: 5
+  _angle: 10
 --- !u!114 &8310453897617189129
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -199,7 +199,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _level: 1
-  _cost: 2
+  _cost: 1.4
   _attack: 1.4
   _reload: 1.01
   _range: 1.2

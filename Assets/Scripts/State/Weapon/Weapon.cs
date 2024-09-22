@@ -11,8 +11,8 @@ public class Weapon : StateBase
     [SerializeField, Header("マズル")] private Transform _bulletSpawnPoint = default;
     [SerializeField, Header("可視化範囲のObj")] private GameObject _rangeObj = default;
     [SerializeField, Header("回転するもの")] private GameObject _rotator = default;
-    [SerializeField, Header("回転速度")] private float _rotateSpeed = 700f;
     [SerializeField, Header("対象との角度差")] private float _angle = 1f;
+    private float _rotateSpeed = 700f; // 回転速度
     private Generator _generator = default;
     private OffenseState _offenseState = default;
     private float _timer = default;
@@ -37,6 +37,7 @@ public class Weapon : StateBase
 
         if (Target != null)
         {
+            SpeedByDistance();
             Rotation();
         }
 
@@ -97,5 +98,47 @@ public class Weapon : StateBase
             var rot = Mathf.Min(Mathf.Abs(angle), rotMax);
             _rotator.transform.Rotate(0f, rot * Mathf.Sign(angle), 0f);
         }
+    }
+
+    /// <summary>
+    /// 対象との距離次第で回転速度を変更する
+    /// </summary>
+    private void SpeedByDistance()
+    {
+        var offset = Target.transform.position - transform.position;
+        var sqrLen = offset.sqrMagnitude;
+
+        if (sqrLen < 5f * 5f)
+        {
+            _rotateSpeed = 100f;
+        }
+        else if (sqrLen < 10f * 10f)
+        {
+            _rotateSpeed = 150f;
+        }
+        else if (sqrLen < 25f * 25f)
+        {
+            _rotateSpeed = 400f;
+        }
+        else
+        {
+            _rotateSpeed = 600f;
+        }
+    }
+
+    /// <summary>
+    /// デバッグ用
+    /// 使用目的：距離ごとに回転速度が変更されているか
+    /// </summary>
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, 5f);
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawWireSphere(transform.position, 10f);
+        Gizmos.color = Color.green;
+        Gizmos.DrawWireSphere(transform.position, 25f);
+        Gizmos.color = Color.blue;
+        Gizmos.DrawWireSphere(transform.position, 35f);
     }
 }

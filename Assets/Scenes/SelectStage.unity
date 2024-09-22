@@ -226,7 +226,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _coin: 0
-  _initialCoin: 1000
+  _initialCoin: 500000
   _stageList: 
   _statusList: []
   _initialStatusList:
