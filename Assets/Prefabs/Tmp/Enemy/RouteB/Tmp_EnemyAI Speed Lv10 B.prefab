@@ -78,7 +78,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 3126182245189564220}
   m_FillRect: {fileID: 5629917799658803159}
   m_HandleRect: {fileID: 8783137117200359054}
@@ -247,6 +247,8 @@ MonoBehaviour:
   _bulletSpawnPoint: {fileID: 7681515401579915976}
   _shootInterval: 0.7
   _attackValue: 1
+  _healPointName: HealPoint
+  _waitTime: 3
 --- !u!114 &658309192418728665
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -303,7 +305,7 @@ Transform:
   m_GameObject: {fileID: 2672729395394513926}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0.72}
+  m_LocalPosition: {x: 0, y: 1.2, z: 0.72}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

@@ -45,8 +45,8 @@ public class ChangeOfCourseState : IState
         var nextCorner = _target.position;
         var to = nextCorner - _transform.position;
         var angle = Vector3.SignedAngle(_transform.forward, to, Vector3.up);
-        // 角度が30゜を越えていたら
-        if (Mathf.Abs(angle) > 30)
+        // 角度が20゜を越えていたら
+        if (Mathf.Abs(angle) > 20)
         {
             var rotMax = 70 * Time.deltaTime;
             var rot = Mathf.Min(Mathf.Abs(angle), rotMax);
