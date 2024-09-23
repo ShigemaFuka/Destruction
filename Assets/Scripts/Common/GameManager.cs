@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using UnityEngine;
-using Random = UnityEngine.Random;
 
 public class GameManager : MonoBehaviour
 {
@@ -14,6 +13,7 @@ public class GameManager : MonoBehaviour
     private static float _temporaryCustodyCoin = default; // 獲得したコイン　※戦果
     private SaveManager _saveManager = default;
     private bool _canChangeReward = default; // 報酬減算計算ができるか
+    private static string _restartSceneName = default; // もう一度プレイするシーン名
 
     #endregion
 
@@ -87,6 +87,7 @@ public class GameManager : MonoBehaviour
 
     /// <summary>
     /// コイン減らす
+    /// ステータスのコスト分減らす
     /// </summary>
     public void Decrease(WeaponStatusData status, int indexNum)
     {
@@ -108,6 +109,10 @@ public class GameManager : MonoBehaviour
         _saveManager.SaveGameData(_coin, _stageList, _statusList);
     }
 
+    /// <summary>
+    /// ステージ解放
+    /// </summary>
+    /// <param name="num"></param>
     public void Unlock(int num)
     {
         _stageList[num] = true;
@@ -139,10 +144,32 @@ public class GameManager : MonoBehaviour
         _canChangeReward = false;
     }
 
+    /// <summary>
+    /// データをリセット
+    /// 初期かデータを保存
+    /// </summary>
     public void ResetData()
     {
         _saveManager.DeleteData();
         InitializedData();
+    }
+
+    /// <summary>
+    /// もう一度プレイするシーン名を設定する
+    /// </summary>
+    public void SetRestartSceneName(string sceneName)
+    {
+        _restartSceneName = sceneName;
+        Debug.Log($"シーン名：{sceneName}がセットされました。");
+    }
+
+    /// <summary>
+    /// もう一度プレイするシーン名を返す
+    /// </summary>
+    /// <returns></returns>
+    public string GetRestartSceneName()
+    {
+        return _restartSceneName;
     }
 
     private void Update()
@@ -155,34 +182,6 @@ public class GameManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.K))
         {
             _saveManager.SaveGameData(_coin, _stageList, _statusList);
-        }
-
-
-        // 'C'キーを押したらリストにランダムな値を追加
-        if (Input.GetKeyDown(KeyCode.C))
-        {
-            var newBool = (Random.Range(0, 2) == 0); // trueかfalseをランダムに追加
-            _stageList.Add(newBool);
-            Debug.Log("リストに値を追加しました: " + newBool);
-            for (var i = 0; i < _stageList.Count; i++)
-            {
-                var stage = _stageList[i];
-                Debug.Log($"[{i}] {stage}");
-            }
-        }
-
-        // 'L'キーを押したらコインの値を増やす
-        if (Input.GetKeyDown(KeyCode.L))
-        {
-            _coin += 100f;
-            Debug.Log("コインが増えました: " + _coin);
-            for (var i = 0; i < _statusList.Count; i++)
-            {
-                var status = _statusList[i];
-                Debug.Log($"[{i}] lv.{status._level}\n" +
-                          $"att: {status._attack}  cost: {status._cost}\n" +
-                          $"ran: {status._range}  reload: {status._reload}");
-            }
         }
     }
 }

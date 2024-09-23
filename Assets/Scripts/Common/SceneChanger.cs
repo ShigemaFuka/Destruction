@@ -10,10 +10,12 @@ public class SceneChanger : MonoBehaviour
     [SerializeField, Header("遷移先のシーン名")] private string _sceneName = default;
     [SerializeField, Header("遷移時間")] private float _duration = 1.5f;
     private WaitForSeconds _wfs = default;
+    private GameManager _gameManager = default;
 
     private void Start()
     {
         _wfs = new WaitForSeconds(_duration);
+        _gameManager = FindObjectOfType<GameManager>();
     }
 
     public void Change()
@@ -36,5 +38,13 @@ public class SceneChanger : MonoBehaviour
     {
         yield return _wfs;
         SceneManager.LoadScene(sceneName);
+    }
+
+    /// <summary>
+    /// 同じステージをもう一度プレイ
+    /// </summary>
+    public void RestartScene()
+    {
+        SceneManager.LoadScene(_gameManager.GetRestartSceneName());
     }
 }
