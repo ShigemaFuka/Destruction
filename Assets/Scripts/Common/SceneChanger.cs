@@ -43,8 +43,13 @@ public class SceneChanger : MonoBehaviour
     /// <summary>
     /// 同じステージをもう一度プレイ
     /// </summary>
-    public void RestartScene()
+    public void ToRestartScene()
     {
         SceneManager.LoadScene(_gameManager.GetRestartSceneName());
+    }
+
+    public void SetRestartScene(string sceneName)
+    {
+        _gameManager.SetRestartSceneName(sceneName);
     }
 }
