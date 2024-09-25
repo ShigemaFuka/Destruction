@@ -2480,7 +2480,7 @@ MonoBehaviour:
   m_OverrideVoxelSize: 0
   m_VoxelSize: 0.16666667
   m_MinRegionArea: 2
-  m_NavMeshData: {fileID: 23800000, guid: cccc4cfc98708fe41bac10e789c846b5, type: 2}
+  m_NavMeshData: {fileID: 23800000, guid: 0b56ef3a8a4f7e74ea9593d549674f6b, type: 2}
   m_BuildHeightMesh: 0
 --- !u!1 &1988573409
 GameObject:
@@ -2841,6 +2841,10 @@ PrefabInstance:
     - target: {fileID: 2611334374724189625, guid: 19791f66fdb2af0419f09bf51d477c19, type: 3}
       propertyPath: m_Name
       value: EnemyGenerator
+      objectReference: {fileID: 0}
+    - target: {fileID: 2611334374724189625, guid: 19791f66fdb2af0419f09bf51d477c19, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5774793546002088814, guid: 19791f66fdb2af0419f09bf51d477c19, type: 3}
       propertyPath: m_LocalPosition.x
