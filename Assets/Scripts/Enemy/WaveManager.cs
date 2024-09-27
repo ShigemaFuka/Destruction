@@ -24,7 +24,7 @@ public class WaveManager : MonoBehaviour
     private int _currentCount = default; // 現在までに生成した数（各Waveにおいて）
     private int _totalCount = default; // 現在までに生成した総数
     private int _killCount = default; // 倒された数
-    private int _wave = default; // 現在のWave番号
+    private int _currentWave = default; // 現在のWave番号
     private Generator _generator = default;
     private SceneChanger _sceneChanger = default;
     private GameManager _gameManager = default;
@@ -54,6 +54,10 @@ public class WaveManager : MonoBehaviour
         get => _killCount;
     }
 
+    public int CurrentWave => _currentWave;
+
+    public int MaxWaveCount => _maxNumsEachWaves.Count;
+
     #endregion
 
     private void Start()
@@ -80,10 +84,10 @@ public class WaveManager : MonoBehaviour
     private void Update()
     {
         // 最終Waveが終わったら
-        if (_wave == _maxNumsEachWaves.Count)
+        if (_currentWave == _maxNumsEachWaves.Count)
         {
             Debug.Log($"最終Wave 終" +
-                      $"\n current wave: {_wave}  Waveのリスト:{_maxNumsEachWaves.Count}");
+                      $"\n current wave: {_currentWave}  Waveのリスト:{_maxNumsEachWaves.Count}");
             _canGeneration = false;
             // 敵を殲滅したらシーン遷移
             if (_generator.EnemiesList.Count == 0)
@@ -97,11 +101,11 @@ public class WaveManager : MonoBehaviour
         }
 
         // 各Waveの生成上限に達したら
-        if (_maxNumsEachWaves[_wave] == _currentCount)
+        if (_maxNumsEachWaves[_currentWave] == _currentCount)
         {
             _canGeneration = false; // 生成停止
             _currentCount = 0;
-            _wave++;
+            _currentWave++;
             StartCoroutine(WaitForNextWave());
         }
     }
@@ -129,8 +133,8 @@ public class WaveManager : MonoBehaviour
     /// <returns></returns>
     private IEnumerator WaitForNextWave()
     {
-        if (_wave == _maxNumsEachWaves.Count) yield break; // 最後は次のWaveがない
-        yield return new WaitForSeconds(_intervals[_wave]);
+        if (_currentWave == _maxNumsEachWaves.Count) yield break; // 最後は次のWaveがない
+        yield return new WaitForSeconds(_intervals[_currentWave]);
         _canGeneration = true;
     }
 }
