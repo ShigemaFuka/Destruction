@@ -9,6 +9,7 @@ public class UpdateInfoText : MonoBehaviour
     [SerializeField, Header("ステータス")] private WeaponStatus _weaponStatus = default;
     [SerializeField, Header("InfoText")] private Text _infoText = default;
     [SerializeField, Header("押すボタン")] private Button _targetButton = default;
+    [SerializeField, Header("コスト表示するか")] private bool _showCost = default;
 
     private void Start()
     {
@@ -28,9 +29,18 @@ public class UpdateInfoText : MonoBehaviour
     {
         if (_weaponStatus == null) return;
         var status = _weaponStatus;
-        _infoText.text = $"Lv.{status.Level}\n" +
-                         $"Cost : {status.Cost:0.0}   Att : {status.Attack:0.0}\n" +
-                         $"RNG : {status.Range:0.0}   RT : {status.Reload:0.0}";
+        if (_showCost)
+        {
+            _infoText.text = $"Lv.{status.Level}\n" +
+                             $"Cost : {status.Cost:0.0}   Att : {status.Attack:0.0}\n" +
+                             $"RNG : {status.Range:0.0}   RT : {status.Reload:0.0}";
+        }
+        else
+        {
+            _infoText.text = $"Lv.{status.Level}\n" +
+                             $"Att : {status.Attack:0.0}\n" +
+                             $"RNG : {status.Range:0.0}   RT : {status.Reload:0.0}";
+        }
     }
 
     private void OnClick()

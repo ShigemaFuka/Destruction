@@ -21,10 +21,21 @@ public class CostManager : MonoBehaviour
 
     /// <summary>
     /// コスト減らす
+    /// ステータスのコストに応じて減算
     /// </summary>
     public void Decrease(WeaponStatus status)
     {
         _currentCost -= status.Cost;
+    }
+
+    /// <summary>
+    /// コスト減らす
+    /// 適当な値で減算
+    /// </summary>
+    /// <param name="amount"></param>
+    public void Decrease(float amount)
+    {
+        _currentCost -= amount;
     }
 
     public bool Judge(float value)

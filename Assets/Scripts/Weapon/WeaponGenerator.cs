@@ -11,6 +11,8 @@ public class WeaponGenerator : MonoBehaviour
     private GameObject _weaponPoint = default;
     private CostManager _costManager = default;
     private List<WeaponStatus> _weaponStatusList = default;
+    private GameManager _gameManager = default;
+    private SaveManager _saveManager = default;
 
     public List<WeaponStatus> WeaponStatusList
     {
@@ -21,7 +23,11 @@ public class WeaponGenerator : MonoBehaviour
     private void Start()
     {
         _costManager = FindObjectOfType<CostManager>();
+        _saveManager = FindObjectOfType<SaveManager>();
         _weaponStatusList = new List<WeaponStatus>();
+        _gameManager = FindObjectOfType<GameManager>();
+
+
         foreach (var weapon in _weapons)
         {
             var weaponStatus = weapon.GetComponent<WeaponStatus>();
@@ -31,12 +37,14 @@ public class WeaponGenerator : MonoBehaviour
 
     public void GenerateOnClick(int indexNum)
     {
-        if (!_costManager.Judge(_weaponStatusList[indexNum].Cost))
+        if (!_costManager.Judge(_gameManager.InitialStatusList[indexNum]._cost))
         {
             Debug.LogWarning("コストが足りません");
             return;
         } // コスト制限
-        _costManager.Decrease(_weaponStatusList[indexNum]); // 設置コスト＝レベル１コスト
+
+        _costManager.Decrease(_gameManager.InitialStatusList[indexNum]._cost); // 設置コスト＝レベル１コスト
+
         var go = Instantiate(_weapons[indexNum]);
         go.transform.position = _position;
         _weaponPoint.SetActive(false);

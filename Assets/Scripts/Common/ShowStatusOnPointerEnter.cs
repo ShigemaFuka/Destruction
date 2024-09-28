@@ -12,18 +12,32 @@ public class ShowStatusOnPointerEnter : MonoBehaviour, IPointerEnter
     private int _indexNum = default;
 
     private WeaponGenerator _weaponGenerator = default;
+    private GameManager _gameManager = default;
 
     private void Start()
     {
         _infoText.text = "";
         _weaponGenerator = FindObjectOfType<WeaponGenerator>();
+        _gameManager = FindObjectOfType<GameManager>();
     }
 
     private void GetSetInfo()
     {
-        var status = _weaponGenerator.WeaponStatusList[_indexNum];
-        _infoText.text = $"Cost : {status.Cost:0.0}  Att : {status.Attack:0.0}\n" +
-                         $"RNG : {status.Range:0.0}  RT : {status.Reload:0.0}";
+        if (_weaponGenerator.WeaponStatusList[_indexNum].name.Contains("Custom"))
+        {
+            var status = _weaponGenerator.WeaponStatusList[_indexNum];
+            _infoText.text = $"Cost : {status.Cost:0.0}  Att : {status.Attack:0.0}\n" +
+                             $"RNG : {status.Range:0.0}  RT : {status.Reload:0.0}";
+            Debug.Log($"cost : {status.Cost:0.0}");
+        }
+        else
+        {
+            var status = _gameManager.InitialStatusList[_indexNum];
+            _infoText.text = $"Cost : {status._cost:0.0}  Att : {status._attack:0.0}\n" +
+                             $"RNG : {status._range:0.0}  RT : {status._reload:0.0}";
+        }
+
+        // todo:CustomWeaponかDefaultWeaponかによって、表示するステータスを変える必要がある
     }
 
     public void PointerEnter()
