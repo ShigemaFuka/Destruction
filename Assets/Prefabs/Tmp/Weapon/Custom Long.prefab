@@ -132,7 +132,6 @@ MonoBehaviour:
   _bulletSpawnPoint: {fileID: 3820962375843923176}
   _rangeObj: {fileID: 5917148583042173213}
   _rotator: {fileID: 8294484694041111120}
-  _rotateSpeed: 700
   _angle: 5
 --- !u!114 &5698829206232384819
 MonoBehaviour:
@@ -173,7 +172,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1639153089067326308}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 914efa53eba092c4f8b9602fe2da11c6, type: 3}
+  m_Script: {fileID: 11500000, guid: 3eccd4897b12c854f8ff94a470cdbe87, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &2703359033815195311

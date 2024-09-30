@@ -55,7 +55,6 @@ MonoBehaviour:
   _bulletSpawnPoint: {fileID: 8824671351046544291}
   _rangeObj: {fileID: 7047585281072480173}
   _rotator: {fileID: 3865678403717284783}
-  _rotateSpeed: 100
   _angle: 10
 --- !u!114 &8310453897617189129
 MonoBehaviour:
@@ -614,6 +613,7 @@ MonoBehaviour:
   _weaponStatus: {fileID: 8310453897617189129}
   _infoText: {fileID: 1465752928861340796}
   _targetButton: {fileID: 1652932629030544296}
+  _showCost: 1
 --- !u!1 &3915041386168744782
 GameObject:
   m_ObjectHideFlags: 0

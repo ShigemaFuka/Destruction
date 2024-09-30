@@ -88,7 +88,7 @@ GameObject:
   - component: {fileID: 5238322922430688312}
   - component: {fileID: 5698829206232384819}
   - component: {fileID: 8351132949555554499}
-  - component: {fileID: 2291588940001818344}
+  - component: {fileID: 1898818980028444182}
   m_Layer: 0
   m_Name: Upgrader Long
   m_TagString: Untagged
@@ -132,6 +132,7 @@ MonoBehaviour:
   _bulletSpawnPoint: {fileID: 3820962375843923176}
   _rangeObj: {fileID: 5917148583042173213}
   _rotator: {fileID: 0}
+  _angle: 1
 --- !u!114 &5698829206232384819
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -162,7 +163,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78ebf1e699736da44b994a0a3cba7c55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &2291588940001818344
+--- !u!114 &1898818980028444182
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -171,7 +172,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1639153089067326308}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 914efa53eba092c4f8b9602fe2da11c6, type: 3}
+  m_Script: {fileID: 11500000, guid: 3eccd4897b12c854f8ff94a470cdbe87, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &2703359033815195311
@@ -455,7 +456,7 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
-        - m_Target: {fileID: 2291588940001818344}
+        - m_Target: {fileID: 1898818980028444182}
           m_TargetAssemblyTypeName: GetSetWeaponStatus, Assembly-CSharp
           m_MethodName: GetSetStatus
           m_Mode: 1
@@ -493,7 +494,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _level: 1
-  _cost: 1.8
+  _cost: 1.2
   _attack: 1.2
   _reload: 1.02
   _range: 1.02
@@ -897,7 +898,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 2291588940001818344}
+      - m_Target: {fileID: 1898818980028444182}
         m_TargetAssemblyTypeName: GetSetWeaponStatus, Assembly-CSharp
         m_MethodName: GetSetStatus
         m_Mode: 1
@@ -1077,6 +1078,7 @@ MonoBehaviour:
   _weaponStatus: {fileID: 5698829206232384819}
   _infoText: {fileID: 7389749072121916043}
   _targetButton: {fileID: 5013468484203503954}
+  _showCost: 0
 --- !u!1 &9015917077572490020
 GameObject:
   m_ObjectHideFlags: 0

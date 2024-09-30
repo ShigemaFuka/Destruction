@@ -276,6 +276,7 @@ MonoBehaviour:
   _weaponStatus: {fileID: 1686161448645881157}
   _infoText: {fileID: 438172219059243721}
   _targetButton: {fileID: 3082265856094849905}
+  _showCost: 0
 --- !u!1 &2906400128185870170
 GameObject:
   m_ObjectHideFlags: 0
@@ -478,7 +479,7 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
-        - m_Target: {fileID: 2602607651671606493}
+        - m_Target: {fileID: 3139748019645215932}
           m_TargetAssemblyTypeName: GetSetWeaponStatus, Assembly-CSharp
           m_MethodName: GetSetStatus
           m_Mode: 1
@@ -516,7 +517,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _level: 1
-  _cost: 2
+  _cost: 1.3
   _attack: 1.3
   _reload: 1
   _range: 1.2
@@ -532,7 +533,7 @@ GameObject:
   - component: {fileID: 410711106173638399}
   - component: {fileID: 1686161448645881157}
   - component: {fileID: 8668855210921949818}
-  - component: {fileID: 2602607651671606493}
+  - component: {fileID: 3139748019645215932}
   m_Layer: 0
   m_Name: Upgrader BlowAway
   m_TagString: Untagged
@@ -575,6 +576,8 @@ MonoBehaviour:
   _bulletPrefab: {fileID: 548845198865158214, guid: 95b0f0ad1822b2c438f0e89b8f3a6146, type: 3}
   _bulletSpawnPoint: {fileID: 2762555301610426339}
   _rangeObj: {fileID: 7340430456267852906}
+  _rotator: {fileID: 0}
+  _angle: 1
 --- !u!114 &1686161448645881157
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -607,7 +610,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _pushDistance: 10
   _pushSpeed: 40
---- !u!114 &2602607651671606493
+--- !u!114 &3139748019645215932
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -616,7 +619,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 4536030478338809380}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 914efa53eba092c4f8b9602fe2da11c6, type: 3}
+  m_Script: {fileID: 11500000, guid: 3eccd4897b12c854f8ff94a470cdbe87, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &6836973784663502573
@@ -828,7 +831,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 2602607651671606493}
+      - m_Target: {fileID: 3139748019645215932}
         m_TargetAssemblyTypeName: GetSetWeaponStatus, Assembly-CSharp
         m_MethodName: GetSetStatus
         m_Mode: 1
