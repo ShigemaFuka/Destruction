@@ -26,7 +26,7 @@ public class Weapon : StateBase
     {
         _weaponStatus = GetComponent<WeaponStatus>();
         _generator = FindObjectOfType<Generator>();
-        _offenseState = new OffenseState(this, _weaponStatus.Attack, _bulletPrefab, _bulletSpawnPoint, gameObject);
+        _offenseState = new OffenseState(this, _bulletPrefab, _bulletSpawnPoint, gameObject);
         if (_generator.EnemiesList.Count == 0) Debug.LogWarning("listの要素数が０です。");
         if (!_rotator) Debug.LogWarning("回転するものがありません。");
     }

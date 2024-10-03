@@ -56,6 +56,7 @@ MonoBehaviour:
   _rangeObj: {fileID: 7047585281072480173}
   _rotator: {fileID: 3865678403717284783}
   _angle: 10
+  _animator: {fileID: 0}
 --- !u!114 &8310453897617189129
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -86,6 +87,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78ebf1e699736da44b994a0a3cba7c55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _animator: {fileID: 3860488896096643462}
 --- !u!1 &854074288121622104
 GameObject:
   m_ObjectHideFlags: 0
@@ -1129,6 +1131,10 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 14183107488235575, guid: 492a52999dfa4ea4493a7bd92e5306cc, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 0d9a4b2f3df6c1148b8693d756bc50be, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -1137,6 +1143,11 @@ PrefabInstance:
       addedObject: {fileID: 8824671351046544291}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 492a52999dfa4ea4493a7bd92e5306cc, type: 3}
+--- !u!95 &3860488896096643462 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 14183107488235575, guid: 492a52999dfa4ea4493a7bd92e5306cc, type: 3}
+  m_PrefabInstance: {fileID: 3864463707762059697}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &3865678403717284783 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1393367149455902, guid: 492a52999dfa4ea4493a7bd92e5306cc, type: 3}

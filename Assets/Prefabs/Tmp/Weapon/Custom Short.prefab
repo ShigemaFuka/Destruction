@@ -317,6 +317,7 @@ MonoBehaviour:
   _rangeObj: {fileID: 5253036192347662379}
   _rotator: {fileID: 5699794103907765107}
   _angle: 5
+  _animator: {fileID: 0}
 --- !u!114 &7397468572893653538
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -347,6 +348,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78ebf1e699736da44b994a0a3cba7c55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _animator: {fileID: 5705828445075808602}
 --- !u!114 &1514994779431325441
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -643,6 +645,7 @@ MonoBehaviour:
   _weaponStatus: {fileID: 7397468572893653538}
   _infoText: {fileID: 3386131504926305286}
   _targetButton: {fileID: 5039501314238372567}
+  _showCost: 0
 --- !u!1 &4078106289412035993
 GameObject:
   m_ObjectHideFlags: 0
@@ -1161,6 +1164,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 14183107488235575, guid: 492a52999dfa4ea4493a7bd92e5306cc, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 0d9a4b2f3df6c1148b8693d756bc50be, type: 2}
     - target: {fileID: 23272282394494464, guid: 492a52999dfa4ea4493a7bd92e5306cc, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -1194,5 +1201,10 @@ Transform:
 --- !u!1 &5699794103907765107 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1393367149455902, guid: 492a52999dfa4ea4493a7bd92e5306cc, type: 3}
+  m_PrefabInstance: {fileID: 5700800438659834221}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &5705828445075808602 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 14183107488235575, guid: 492a52999dfa4ea4493a7bd92e5306cc, type: 3}
   m_PrefabInstance: {fileID: 5700800438659834221}
   m_PrefabAsset: {fileID: 0}

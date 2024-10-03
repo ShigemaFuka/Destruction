@@ -133,6 +133,7 @@ MonoBehaviour:
   _rangeObj: {fileID: 5917148583042173213}
   _rotator: {fileID: 8294484694041111120}
   _angle: 5
+  _animator: {fileID: 0}
 --- !u!114 &5698829206232384819
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -163,6 +164,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78ebf1e699736da44b994a0a3cba7c55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _animator: {fileID: 270508961588444817}
 --- !u!114 &2291588940001818344
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1078,6 +1080,7 @@ MonoBehaviour:
   _weaponStatus: {fileID: 5698829206232384819}
   _infoText: {fileID: 7389749072121916043}
   _targetButton: {fileID: 5013468484203503954}
+  _showCost: 0
 --- !u!1 &9015917077572490020
 GameObject:
   m_ObjectHideFlags: 0
@@ -1181,6 +1184,11 @@ PrefabInstance:
       addedObject: {fileID: 3820962375843923176}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 568b47fccc3627543a7dc883324796a1, type: 3}
+--- !u!95 &270508961588444817 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 8133391233591497053, guid: 568b47fccc3627543a7dc883324796a1, type: 3}
+  m_PrefabInstance: {fileID: 8295232815305764812}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &8290652556203466948 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4722236510932744, guid: 568b47fccc3627543a7dc883324796a1, type: 3}
