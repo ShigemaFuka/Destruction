@@ -52,7 +52,8 @@ public class Enemy : StateBase
                 new EvacuationState(this, this, healPoint, _agent, transform, _hp, _waitTime, this, _walkState);
         }
 
-        _deathState = new DeathState(this, _generator, _animator, _model);
+        var death = GetComponents<IDeath>();
+        _deathState = new DeathState(this, _generator, _animator, _model, death);
         ChangeState(_walkState);
     }
 
