@@ -48,9 +48,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2399515181863257603, guid: e2cf70c2e08524846847cb29d45e3055, type: 3}
+      propertyPath: _speed
+      value: 3.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 2399515181863257603, guid: e2cf70c2e08524846847cb29d45e3055, type: 3}
+      propertyPath: _attackValue
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2399515181863257603, guid: e2cf70c2e08524846847cb29d45e3055, type: 3}
+      propertyPath: _shootInterval
+      value: 1.4
+      objectReference: {fileID: 0}
     - target: {fileID: 2576807350326053886, guid: e2cf70c2e08524846847cb29d45e3055, type: 3}
       propertyPath: m_Name
       value: Tmp_EnemyAI Sucide Variant Lv30
+      objectReference: {fileID: 0}
+    - target: {fileID: 3721932648429910724, guid: e2cf70c2e08524846847cb29d45e3055, type: 3}
+      propertyPath: _maxHp
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 7752482487386017345, guid: e2cf70c2e08524846847cb29d45e3055, type: 3}
       propertyPath: m_Materials.Array.data[0]

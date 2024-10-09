@@ -20,6 +20,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tmp_EnemyAI Sucide Variant Lv60
       objectReference: {fileID: 0}
+    - target: {fileID: 5680639136801243877, guid: 4b4d17cc877cec44bbecc85afa440e93, type: 3}
+      propertyPath: _speed
+      value: 6.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 5680639136801243877, guid: 4b4d17cc877cec44bbecc85afa440e93, type: 3}
+      propertyPath: _attackValue
+      value: 11.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5680639136801243877, guid: 4b4d17cc877cec44bbecc85afa440e93, type: 3}
+      propertyPath: _shootInterval
+      value: 1.55
+      objectReference: {fileID: 0}
+    - target: {fileID: 6647193671344225826, guid: 4b4d17cc877cec44bbecc85afa440e93, type: 3}
+      propertyPath: _maxHp
+      value: 52.5
+      objectReference: {fileID: 0}
     - target: {fileID: 8570888328140501959, guid: 4b4d17cc877cec44bbecc85afa440e93, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

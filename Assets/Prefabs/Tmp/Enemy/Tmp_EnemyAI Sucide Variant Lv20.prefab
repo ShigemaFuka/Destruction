@@ -56,9 +56,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6938632509647799402, guid: 5ec63d0db0f36ed4e8b396ad187c0554, type: 3}
+      propertyPath: _speed
+      value: 3.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6938632509647799402, guid: 5ec63d0db0f36ed4e8b396ad187c0554, type: 3}
+      propertyPath: _attackValue
+      value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6938632509647799402, guid: 5ec63d0db0f36ed4e8b396ad187c0554, type: 3}
+      propertyPath: _shootInterval
+      value: 1.35
+      objectReference: {fileID: 0}
     - target: {fileID: 7116984255117904279, guid: 5ec63d0db0f36ed4e8b396ad187c0554, type: 3}
       propertyPath: m_Name
       value: Tmp_EnemyAI Sucide Variant Lv20
+      objectReference: {fileID: 0}
+    - target: {fileID: 8259819278820374701, guid: 5ec63d0db0f36ed4e8b396ad187c0554, type: 3}
+      propertyPath: _maxHp
+      value: 14.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

@@ -8,9 +8,25 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 658309192418728665, guid: b7d6242685bd9a3418a7549c04e98623, type: 3}
+      propertyPath: _maxHp
+      value: 5.5
+      objectReference: {fileID: 0}
     - target: {fileID: 1821308159862844387, guid: b7d6242685bd9a3418a7549c04e98623, type: 3}
       propertyPath: m_Name
       value: Tmp_EnemyAI Sucide Variant Lv10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2002119305561646622, guid: b7d6242685bd9a3418a7549c04e98623, type: 3}
+      propertyPath: _speed
+      value: 3.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2002119305561646622, guid: b7d6242685bd9a3418a7549c04e98623, type: 3}
+      propertyPath: _attackValue
+      value: 1.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2002119305561646622, guid: b7d6242685bd9a3418a7549c04e98623, type: 3}
+      propertyPath: _shootInterval
+      value: 1.25
       objectReference: {fileID: 0}
     - target: {fileID: 2588639951685375804, guid: b7d6242685bd9a3418a7549c04e98623, type: 3}
       propertyPath: m_LocalPosition.x
