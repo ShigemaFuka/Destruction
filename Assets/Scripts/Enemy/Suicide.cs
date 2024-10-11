@@ -12,14 +12,15 @@ public class Suicide : MonoBehaviour, IDeath
     #region 変数
 
     [SerializeField, Header("生存時間")] private float _lifeTime = 10f;
+    [SerializeField, Header("範囲")] private float _range = 3f;
+    [SerializeField, Header("可視化範囲のObj")] private GameObject _rangeObj = default;
     private Hp _hp = default;
     private WaitForSeconds _wfs = default;
     private GameObject _tower = default;
-    private bool _canDamege = default; // タワーにダメージを与えられるか
+    private bool _canDamage = default; // タワーにダメージを与えられるか
     private float _remainingHp = default;
 
     #endregion
-
 
     private void Start()
     {
@@ -27,7 +28,12 @@ public class Suicide : MonoBehaviour, IDeath
         _wfs = new WaitForSeconds(_lifeTime);
         _hp = GetComponent<Hp>();
         StartCoroutine(DoSuicide());
-        _canDamege = true;
+        _canDamage = true;
+    }
+
+    private void Update()
+    {
+        ShowRange();
     }
 
     private IEnumerator DoSuicide()
@@ -42,13 +48,14 @@ public class Suicide : MonoBehaviour, IDeath
     /// </summary>
     public void Death()
     {
-        // todo: 一定距離以内にタワーが存在するときだけ、ダメージを与える処理
         if (_remainingHp <= 0)
         {
             Attack(_hp.MaxHp * 0.1f);
             Debug.Log("1 wari : " + _hp.MaxHp * 0.1f);
         }
         else Attack(_remainingHp);
+
+        _rangeObj.SetActive(false); // 非表示
     }
 
     /// <summary>
@@ -61,14 +68,47 @@ public class Suicide : MonoBehaviour, IDeath
 
     /// <summary>
     /// 倒されたときと、時間切れになったときに、タワーダメージを与える。
-    /// todo: 距離次第ではダメージを入れない
     /// </summary>
     private void Attack(float value)
     {
-        if (!_canDamege) return;
-        var d = _tower.GetComponent<IDamage>();
-        d.Damage(value);
+        if (!_canDamage) return;
+        if (CheckDistance())
+        {
+            // 一定距離以内にタワーが存在するときだけ、ダメージを与える
+            var d = _tower.GetComponent<IDamage>();
+            d.Damage(value);
+        }
+
         Debug.Log($"damage value : {value}");
-        _canDamege = false;
+        _canDamage = false;
+    }
+
+    private void ShowRange()
+    {
+        var r = _range * 2;
+        if (_rangeObj) _rangeObj.transform.localScale = new Vector3(r, r, r);
+    }
+
+    /// <summary>
+    /// タワーが一定距離以内かどうか
+    /// 一定距離以内なら真　※攻撃可能
+    /// </summary>
+    private bool CheckDistance()
+    {
+        var offset = _tower.transform.position - transform.position;
+        var sqrLen = offset.sqrMagnitude;
+        return sqrLen < _range * _range;
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, 5f);
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawWireSphere(transform.position, 10f);
+        Gizmos.color = Color.green;
+        Gizmos.DrawWireSphere(transform.position, 25f);
+        Gizmos.color = Color.blue;
+        Gizmos.DrawWireSphere(transform.position, 35f);
     }
 }
