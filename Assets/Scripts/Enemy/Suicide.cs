@@ -14,8 +14,8 @@ public class Suicide : MonoBehaviour, IDeath
     [SerializeField, Header("生存時間")] private float _lifeTime = 10f;
     [SerializeField, Header("範囲")] private float _range = 3f;
     [SerializeField, Header("可視化範囲のObj")] private GameObject _rangeObj = default;
+    [SerializeField] private Animator _animator = default;
     private Hp _hp = default;
-    private WaitForSeconds _wfs = default;
     private GameObject _tower = default;
     private bool _canDamage = default; // タワーにダメージを与えられるか
     private float _remainingHp = default;
@@ -25,7 +25,6 @@ public class Suicide : MonoBehaviour, IDeath
     private void Start()
     {
         _tower = GameObject.FindWithTag("Tower");
-        _wfs = new WaitForSeconds(_lifeTime);
         _hp = GetComponent<Hp>();
         StartCoroutine(DoSuicide());
         _canDamage = true;
@@ -38,7 +37,12 @@ public class Suicide : MonoBehaviour, IDeath
 
     private IEnumerator DoSuicide()
     {
-        yield return _wfs;
+        var t = _lifeTime - 5;
+        yield return new WaitForSeconds(t); // 死亡５秒前：t
+        _animator.Play("Warning");
+        yield return new WaitForSeconds(2); // tの２秒後
+        _animator.speed = 1.5f;
+        yield return new WaitForSeconds(_lifeTime - t - 2);
         _remainingHp = _hp.CurrentHp;
         _hp.Damage(_hp.CurrentHp);
     }
@@ -56,14 +60,6 @@ public class Suicide : MonoBehaviour, IDeath
         else Attack(_remainingHp);
 
         _rangeObj.SetActive(false); // 非表示
-    }
-
-    /// <summary>
-    /// 残り時間に応じて色を変える
-    /// todo:見た目が替わるなら何でもいい
-    /// </summary>
-    private void ColorChanger()
-    {
     }
 
     /// <summary>

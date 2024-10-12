@@ -295,8 +295,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _lifeTime: 15
-  _range: 10
+  _range: 9
   _rangeObj: {fileID: 4578483620398084956}
+  _animator: {fileID: 8111396976384915732}
 --- !u!1 &2672729395394513926
 GameObject:
   m_ObjectHideFlags: 0
@@ -916,7 +917,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8407833948312980429, guid: bfbeac74a85119842b7494eb9c65e30a, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -931,5 +932,10 @@ Transform:
 --- !u!1 &4578483620398084956 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8407833948312980429, guid: bfbeac74a85119842b7494eb9c65e30a, type: 3}
+  m_PrefabInstance: {fileID: 5414640623941580945}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &8111396976384915732 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 4302576360220934533, guid: bfbeac74a85119842b7494eb9c65e30a, type: 3}
   m_PrefabInstance: {fileID: 5414640623941580945}
   m_PrefabAsset: {fileID: 0}
