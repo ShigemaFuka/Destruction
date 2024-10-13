@@ -41,7 +41,7 @@ public class Suicide : MonoBehaviour, IDeath
         yield return new WaitForSeconds(t); // 死亡５秒前：t
         _animator.Play("Warning");
         yield return new WaitForSeconds(2); // tの２秒後
-        _animator.speed = 1.5f;
+        _animator.speed = 2f;
         yield return new WaitForSeconds(_lifeTime - t - 2);
         _remainingHp = _hp.CurrentHp;
         _hp.Damage(_hp.CurrentHp);
