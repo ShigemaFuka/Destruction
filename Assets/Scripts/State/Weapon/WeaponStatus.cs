@@ -12,7 +12,7 @@ public class WeaponStatus : MonoBehaviour
     [SerializeField] private float _attack = 1f;
     [SerializeField] private float _reload = 2f;
     [SerializeField] private float _range = 1f;
-    [SerializeField] private int _indexNum = default;
+    [SerializeField] private int _indexNum = default; // Custom用
 
     #endregion
 
