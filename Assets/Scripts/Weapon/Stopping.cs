@@ -6,13 +6,14 @@ using UnityEngine.AI;
 /// <summary>
 /// 一定範囲内にいる敵全てを一定時間「歩行」させない
 /// 停止中に他の敵がエリア内に入ってきても、それらは停止させない
-/// todo:一回しか停止できていない
+/// todo: WeaponStatus Attack < Reload でないとダメ
 /// </summary>
 public class Stopping : MonoBehaviour, IOffense
 {
     private Generator _generator = default;
     private WeaponStatus _weaponStatus = default;
     [SerializeField] private List<GameObject> _targets = default;
+    [SerializeField] private List<GameObject> _stoppingTargets = default;
     private LineRenderer _lineRenderer = default;
 
     private void Start()
@@ -20,6 +21,7 @@ public class Stopping : MonoBehaviour, IOffense
         _generator = FindObjectOfType<Generator>();
         _weaponStatus = GetComponent<WeaponStatus>();
         _targets = new List<GameObject>();
+        _stoppingTargets = new List<GameObject>();
         _lineRenderer = GetComponent<LineRenderer>();
         _lineRenderer.startWidth = 0.1f;
     }
@@ -47,7 +49,6 @@ public class Stopping : MonoBehaviour, IOffense
 
     public void Offense(GameObject target)
     {
-        // _wfs = new WaitForSeconds(_weaponStatus.Attack);
         ClearList();
         GetTarget();
         StartCoroutine(StopWalkingCoroutine());
@@ -57,26 +58,37 @@ public class Stopping : MonoBehaviour, IOffense
     private void ClearList()
     {
         _targets.Clear();
+        _stoppingTargets.Clear();
     }
 
     private IEnumerator StopWalkingCoroutine()
     {
         if (!_weaponStatus) _weaponStatus = GetComponent<WeaponStatus>();
         Debug.Log($"Attack : {_weaponStatus.Attack}");
-        ChangeEnable(true);
+        ChangeEnable();
         yield return new WaitForSeconds(_weaponStatus.Attack);
-        ChangeEnable(false);
+        ChangeEnable(_stoppingTargets);
     }
 
     /// <summary>
     /// 
     /// </summary>
     /// <param name="flag"> 真：停止、偽：歩行 </param>
-    private void ChangeEnable(bool flag)
+    private void ChangeEnable()
     {
         foreach (var target in _targets)
         {
-            target.GetComponent<NavMeshAgent>().isStopped = flag;
+            target.GetComponent<NavMeshAgent>().isStopped = true;
+            if (!_stoppingTargets.Contains(target)) _stoppingTargets.Add(target);
+            Debug.Log($"{target}を停止します。flag: {target.GetComponent<NavMeshAgent>().isStopped}");
+        }
+    }
+
+    private void ChangeEnable(List<GameObject> objects)
+    {
+        foreach (var obj in objects)
+        {
+            obj.GetComponent<NavMeshAgent>().isStopped = false;
         }
     }
 
