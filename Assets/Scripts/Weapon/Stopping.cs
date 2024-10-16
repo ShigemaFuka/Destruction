@@ -6,14 +6,14 @@ using UnityEngine.AI;
 /// <summary>
 /// 一定範囲内にいる敵全てを一定時間「歩行」させない
 /// 停止中に他の敵がエリア内に入ってきても、それらは停止させない
-/// todo: WeaponStatus Attack < Reload でないとダメ
+/// todo: WeaponStatus Attackがリロード未満 でないとダメ
 /// </summary>
 public class Stopping : MonoBehaviour, IOffense
 {
     private Generator _generator = default;
     private WeaponStatus _weaponStatus = default;
-    [SerializeField] private List<GameObject> _targets = default;
-    [SerializeField] private List<GameObject> _stoppingTargets = default;
+    private List<GameObject> _targets = default;
+    private List<GameObject> _stoppingTargets = default;
     private LineRenderer _lineRenderer = default;
 
     private void Start()
@@ -24,6 +24,15 @@ public class Stopping : MonoBehaviour, IOffense
         _stoppingTargets = new List<GameObject>();
         _lineRenderer = GetComponent<LineRenderer>();
         _lineRenderer.startWidth = 0.1f;
+    }
+
+    private void Update()
+    {
+        foreach (var target in _targets)
+        {
+            _lineRenderer.SetPosition(0, transform.position);
+            _lineRenderer.SetPosition(1, target.transform.position);
+        }
     }
 
     private void GetTarget()
@@ -39,12 +48,6 @@ public class Stopping : MonoBehaviour, IOffense
                 _targets.Add(enemy);
             } // 範囲内にいたら
         }
-
-        // foreach (var target in _targets)
-        // {
-        //     // _lineRenderer.SetPosition(0, transform.position);
-        //     // _lineRenderer.SetPosition(1, target.transform.position);
-        // }
     }
 
     public void Offense(GameObject target)
@@ -70,10 +73,6 @@ public class Stopping : MonoBehaviour, IOffense
         ChangeEnable(_stoppingTargets);
     }
 
-    /// <summary>
-    /// 
-    /// </summary>
-    /// <param name="flag"> 真：停止、偽：歩行 </param>
     private void ChangeEnable()
     {
         foreach (var target in _targets)
