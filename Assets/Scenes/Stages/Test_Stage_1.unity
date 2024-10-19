@@ -350,6 +350,11 @@ MonoBehaviour:
     _attack: 1
     _reload: 6
     _range: 10
+  - _level: 1
+    _cost: 2
+    _attack: 3
+    _reload: 3
+    _range: 8
 --- !u!114 &393984901
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -275,6 +275,11 @@ MonoBehaviour:
     _attack: 1
     _reload: 6
     _range: 10
+  - _level: 1
+    _cost: 2
+    _attack: 3
+    _reload: 3
+    _range: 8
 --- !u!114 &393984900
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1607,6 +1612,18 @@ PrefabInstance:
     - target: {fileID: 2978772792870020579, guid: e36b95cff15b03142b0f148dbea601e0, type: 3}
       propertyPath: m_Name
       value: Tmp_WeaponPoint Variant Special
+      objectReference: {fileID: 0}
+    - target: {fileID: 3028146127213893529, guid: e36b95cff15b03142b0f148dbea601e0, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 393984896}
+    - target: {fileID: 3028146127213893529, guid: e36b95cff15b03142b0f148dbea601e0, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: GenerateOnClick
+      objectReference: {fileID: 0}
+    - target: {fileID: 3028146127213893529, guid: e36b95cff15b03142b0f148dbea601e0, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3762769380973291754, guid: e36b95cff15b03142b0f148dbea601e0, type: 3}
       propertyPath: m_AnchorMax.y
