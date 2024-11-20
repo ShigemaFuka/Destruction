@@ -10,11 +10,18 @@ using UnityEngine.AI;
 /// </summary>
 public class Stopping : MonoBehaviour, IOffense
 {
+    // [SerializeField, Header("範囲球")] private GameObject _area = default;
     private Generator _generator = default;
     private WeaponStatus _weaponStatus = default;
     private List<GameObject> _targets = default;
+
     private List<GameObject> _stoppingTargets = default;
-    private LineRenderer _lineRenderer = default;
+
+    // [SerializeField] private Material _defaultMaterial = default;
+    // [SerializeField] private Material _changedMaterial = default;
+    // private MeshRenderer _meshRenderer = default;
+    // private static readonly int Color1 = Shader.PropertyToID("_Color");
+    [SerializeField] private MaterialChanger _materialChanger = default;
 
     private void Start()
     {
@@ -22,17 +29,7 @@ public class Stopping : MonoBehaviour, IOffense
         _weaponStatus = GetComponent<WeaponStatus>();
         _targets = new List<GameObject>();
         _stoppingTargets = new List<GameObject>();
-        _lineRenderer = GetComponent<LineRenderer>();
-        _lineRenderer.startWidth = 0.1f;
-    }
-
-    private void Update()
-    {
-        foreach (var target in _targets)
-        {
-            _lineRenderer.SetPosition(0, transform.position);
-            _lineRenderer.SetPosition(1, target.transform.position);
-        }
+        // _meshRenderer = _area.GetComponent<MeshRenderer>();
     }
 
     private void GetTarget()
@@ -68,9 +65,11 @@ public class Stopping : MonoBehaviour, IOffense
     {
         if (!_weaponStatus) _weaponStatus = GetComponent<WeaponStatus>();
         Debug.Log($"Attack : {_weaponStatus.Attack}");
+        if (_materialChanger) _materialChanger.ToChangedMaterial();
         ChangeEnable();
         yield return new WaitForSeconds(_weaponStatus.Attack);
         ChangeEnable(_stoppingTargets);
+        if (_materialChanger) _materialChanger.ToDefaultMaterial();
     }
 
     private void ChangeEnable()
