@@ -819,7 +819,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1961887566710409636}
         m_TargetAssemblyTypeName: Upgrader, Assembly-CSharp
         m_MethodName: UpgradeOnUpgradeScene
         m_Mode: 3

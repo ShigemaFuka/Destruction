@@ -8,6 +8,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1469192255768907217, guid: eac30dba10d7bf1408cc672b730caa2f, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: fba89fcc656708c489eb3137073d5a5b, type: 2}
+    - target: {fileID: 1469369276953275403, guid: eac30dba10d7bf1408cc672b730caa2f, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: fba89fcc656708c489eb3137073d5a5b, type: 2}
+    - target: {fileID: 1469674941329980625, guid: eac30dba10d7bf1408cc672b730caa2f, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: fba89fcc656708c489eb3137073d5a5b, type: 2}
     - target: {fileID: 3002762008712819382, guid: eac30dba10d7bf1408cc672b730caa2f, type: 3}
       propertyPath: m_Name
       value: WeaponA Variant Stopping Variant
@@ -107,7 +119,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4806500d80e9b6540936fb4e7852a16a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _area: {fileID: 4113783164474447116}
   _materialChanger: {fileID: 1727534084243656163}
 --- !u!114 &1727534084243656163
 MonoBehaviour:

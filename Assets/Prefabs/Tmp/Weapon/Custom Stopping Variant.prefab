@@ -28,6 +28,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Custom Stopping Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 6697345406346670391, guid: 0152206e59b32d948b1d9a121a2a7a8c, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: fba89fcc656708c489eb3137073d5a5b, type: 2}
+    - target: {fileID: 6698648327435800813, guid: 0152206e59b32d948b1d9a121a2a7a8c, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: fba89fcc656708c489eb3137073d5a5b, type: 2}
+    - target: {fileID: 6698835244578717751, guid: 0152206e59b32d948b1d9a121a2a7a8c, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: fba89fcc656708c489eb3137073d5a5b, type: 2}
     - target: {fileID: 6899398558225147432, guid: 0152206e59b32d948b1d9a121a2a7a8c, type: 3}
       propertyPath: m_LocalPosition.x
       value: 8

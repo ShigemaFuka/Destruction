@@ -881,6 +881,7 @@ MonoBehaviour:
   _weaponStatus: {fileID: 1686161448645881157}
   _infoText: {fileID: 3409921968210002256}
   _targetButton: {fileID: 8007162485725994536}
+  _showCost: 0
 --- !u!1 &5789545593172180713
 GameObject:
   m_ObjectHideFlags: 0
