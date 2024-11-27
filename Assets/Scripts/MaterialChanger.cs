@@ -10,6 +10,7 @@ public class MaterialChanger : MonoBehaviour
     private void Start()
     {
         _renderer = _target.GetComponent<MeshRenderer>();
+        ToDefaultMaterial();
     }
 
     /// <summary>

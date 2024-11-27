@@ -10,18 +10,12 @@ using UnityEngine.AI;
 /// </summary>
 public class Stopping : MonoBehaviour, IOffense
 {
-    // [SerializeField, Header("範囲球")] private GameObject _area = default;
+    [SerializeField] private MaterialChanger _materialChanger = default;
     private Generator _generator = default;
     private WeaponStatus _weaponStatus = default;
     private List<GameObject> _targets = default;
-
     private List<GameObject> _stoppingTargets = default;
-
-    // [SerializeField] private Material _defaultMaterial = default;
-    // [SerializeField] private Material _changedMaterial = default;
-    // private MeshRenderer _meshRenderer = default;
-    // private static readonly int Color1 = Shader.PropertyToID("_Color");
-    [SerializeField] private MaterialChanger _materialChanger = default;
+    private bool _isRunning = default;
 
     private void Start()
     {
@@ -29,7 +23,6 @@ public class Stopping : MonoBehaviour, IOffense
         _weaponStatus = GetComponent<WeaponStatus>();
         _targets = new List<GameObject>();
         _stoppingTargets = new List<GameObject>();
-        // _meshRenderer = _area.GetComponent<MeshRenderer>();
     }
 
     private void GetTarget()
@@ -49,10 +42,13 @@ public class Stopping : MonoBehaviour, IOffense
 
     public void Offense(GameObject target)
     {
-        ClearList();
-        GetTarget();
-        StartCoroutine(StopWalkingCoroutine());
-        Debug.Log("歩行を停止させます。");
+        if (!_isRunning)
+        {
+            ClearList();
+            GetTarget();
+            StartCoroutine(StopWalkingCoroutine());
+            Debug.Log("動きを停止");
+        }
     }
 
     private void ClearList()
@@ -63,6 +59,7 @@ public class Stopping : MonoBehaviour, IOffense
 
     private IEnumerator StopWalkingCoroutine()
     {
+        _isRunning = true;
         if (!_weaponStatus) _weaponStatus = GetComponent<WeaponStatus>();
         Debug.Log($"Attack : {_weaponStatus.Attack}");
         if (_materialChanger) _materialChanger.ToChangedMaterial();
@@ -70,23 +67,33 @@ public class Stopping : MonoBehaviour, IOffense
         yield return new WaitForSeconds(_weaponStatus.Attack);
         ChangeEnable(_stoppingTargets);
         if (_materialChanger) _materialChanger.ToDefaultMaterial();
+        _isRunning = false;
     }
 
+    /// <summary>
+    /// 止める
+    /// </summary>
     private void ChangeEnable()
     {
         foreach (var target in _targets)
         {
             target.GetComponent<NavMeshAgent>().isStopped = true;
+            target.GetComponent<Enemy>().enabled = false;
             if (!_stoppingTargets.Contains(target)) _stoppingTargets.Add(target);
             Debug.Log($"{target}を停止します。flag: {target.GetComponent<NavMeshAgent>().isStopped}");
         }
     }
 
+    /// <summary>
+    /// 再始動
+    /// </summary>
+    /// <param name="objects"></param>
     private void ChangeEnable(List<GameObject> objects)
     {
         foreach (var obj in objects)
         {
             obj.GetComponent<NavMeshAgent>().isStopped = false;
+            obj.GetComponent<Enemy>().enabled = true;
         }
     }
 
