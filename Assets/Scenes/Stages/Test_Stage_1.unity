@@ -1873,6 +1873,7 @@ GameObject:
   - component: {fileID: 1988573411}
   - component: {fileID: 1988573412}
   - component: {fileID: 1988573413}
+  - component: {fileID: 1988573414}
   m_Layer: 0
   m_Name: Tower
   m_TagString: Tower
@@ -1950,6 +1951,22 @@ MonoBehaviour:
   _hp: {fileID: 1988573412}
   _duration: 0.4
   _hpCanvas: {fileID: 0}
+--- !u!114 &1988573414
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1988573409}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8fba8ba3b6fe19d49bf91515f530d5fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _cam: {fileID: 963194228}
+  _positionStrength: {x: 0.1, y: 0.1, z: 0.1}
+  _rotationStrength: {x: 1, y: 1, z: 1}
+  _shakeDuration: 0.3
 --- !u!1 &2005882503
 GameObject:
   m_ObjectHideFlags: 0
@@ -2123,6 +2140,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 214912654410868679, guid: c95fb8451fc3d97449e76c777b7e80cb, type: 3}
+      propertyPath: _virtualCamera
+      value: 
+      objectReference: {fileID: 963194225}
     - target: {fileID: 622128977327787638, guid: c95fb8451fc3d97449e76c777b7e80cb, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

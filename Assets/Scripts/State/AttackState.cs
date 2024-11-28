@@ -50,8 +50,15 @@ public class AttackState : IState
 
     private void Attack()
     {
-        var d = _target.GetComponent<IDamage>();
-        d.Damage(_attackValue);
+        // var d = _target.GetComponent<IDamage>();
+        // d.Damage(_attackValue);
+        
+        var ds = _target.GetComponents<IDamage>();
+        foreach (var d in ds)
+        {
+            d?.Damage(_attackValue);
+        }
+        
         if (_animator) _animator.SetTrigger(Attack1);
         Object.Instantiate(_bulletPrefab, _muzzle.position, _muzzle.rotation);
         // Debug.Log("発射");

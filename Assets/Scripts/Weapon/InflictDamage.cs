@@ -11,7 +11,14 @@ public class InflictDamage : MonoBehaviour, IOffense
     public void Offense(GameObject target)
     {
         if (_animator) _animator.SetTrigger(Attack);
-        var d = target.GetComponent<IDamage>();
-        d?.Damage(GetComponent<WeaponStatus>().Attack);
+        // var d = target.GetComponent<IDamage>();
+        // d?.Damage(GetComponent<WeaponStatus>().Attack);
+
+        var ds = target.GetComponents<IDamage>();
+        var value = GetComponent<WeaponStatus>().Attack;
+        foreach (var d in ds)
+        {
+            d?.Damage(value);
+        }
     }
 }

@@ -8,7 +8,6 @@ public class Hp : MonoBehaviour, IDamage, IHeal
     private SceneChanger _sceneChanger = default;
     private GameManager _gameManager = default;
 
-
     public float CurrentHp
     {
         get => _currentHp;

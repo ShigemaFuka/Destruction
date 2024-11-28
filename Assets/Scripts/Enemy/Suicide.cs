@@ -71,8 +71,13 @@ public class Suicide : MonoBehaviour, IDeath
         if (CheckDistance())
         {
             // 一定距離以内にタワーが存在するときだけ、ダメージを与える
-            var d = _tower.GetComponent<IDamage>();
-            d.Damage(value);
+            // var d = _tower.GetComponent<IDamage>();
+            // d.Damage(value);
+            var ds = _tower.GetComponents<IDamage>();
+            foreach (var d in ds)
+            {
+                d?.Damage(value);
+            }
         }
 
         Debug.Log($"damage value : {value}");
