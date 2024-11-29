@@ -1,7 +1,7 @@
 using UnityEngine;
 using DG.Tweening;
 
-public class ShakeCameraDoTween : MonoBehaviour, IDamage
+public class ShakeDoTween : MonoBehaviour, IDamage
 {
     [SerializeField] private Transform _cam = default;
     [SerializeField] private Vector3 _positionStrength = new(0.2f, 0.2f, 0.2f);
