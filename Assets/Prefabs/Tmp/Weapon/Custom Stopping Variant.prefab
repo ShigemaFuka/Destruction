@@ -18,7 +18,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1686161448645881157, guid: 0152206e59b32d948b1d9a121a2a7a8c, type: 3}
       propertyPath: _reload
-      value: 3
+      value: 3.5
       objectReference: {fileID: 0}
     - target: {fileID: 1686161448645881157, guid: 0152206e59b32d948b1d9a121a2a7a8c, type: 3}
       propertyPath: _indexNum
@@ -122,6 +122,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 992c91e1dd96f2a4e9e849102e6bd597, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _target: {fileID: 4113783164474447116, guid: a8c86b1c451775d47b66610505d002c1, type: 3}
+  _target: {fileID: 5429422963600127481}
   _defaultMaterial: {fileID: 2100000, guid: 2c4d9e1ae1cef7242acf44044808ddd8, type: 2}
   _changedMaterial: {fileID: 2100000, guid: 1f8a71458d0541c47a9abf0acd244e33, type: 2}
+--- !u!1 &5429422963600127481 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7340430456267852906, guid: 0152206e59b32d948b1d9a121a2a7a8c, type: 3}
+  m_PrefabInstance: {fileID: 3352751735607540115}
+  m_PrefabAsset: {fileID: 0}

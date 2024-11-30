@@ -38,7 +38,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5963730283640449715, guid: eac30dba10d7bf1408cc672b730caa2f, type: 3}
       propertyPath: _reload
-      value: 3
+      value: 3.5
       objectReference: {fileID: 0}
     - target: {fileID: 5963730283640449715, guid: eac30dba10d7bf1408cc672b730caa2f, type: 3}
       propertyPath: _indexNum
