@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -9,12 +10,18 @@ public class Generator : MonoBehaviour
     [SerializeField] private GameObject[] _prefabs = default;
     [SerializeField, Header("初期インターバル")] private float _initialInterval = 2f;
     [SerializeField, Header("インターバル")] private float _interval = 1f;
+    public static Generator Instance = default;
     private float _timer = default;
     private bool _useInitial = default; // 初期インターバルを使うか
     private List<GameObject> _enemiesList = default; // 生成した物
     private WaveManager _waveManager = default; // 生成数の制限
 
     public List<GameObject> EnemiesList => _enemiesList;
+
+    private void Awake()
+    {
+        Instance = this;
+    }
 
     private void Start()
     {
