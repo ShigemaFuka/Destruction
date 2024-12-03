@@ -7,11 +7,17 @@ using UnityEngine.SceneManagement;
 /// </summary>
 public class SceneChanger : MonoBehaviour
 {
-    [SerializeField, Header("遷移先のシーン名")] private string _sceneName = default;
+    [SerializeField, Header("遷移先のシーン名")] private string _sceneName;
     [SerializeField, Header("遷移時間")] private float _duration = 1.5f;
-    private WaitForSeconds _wfs = default;
-    private GameManager _gameManager = default;
+    public static SceneChanger Instance;
+    private WaitForSeconds _wfs;
+    private GameManager _gameManager;
 
+    private void Awake()
+    {
+        Instance = this;
+    }
+    
     private void Start()
     {
         _wfs = new WaitForSeconds(_duration);

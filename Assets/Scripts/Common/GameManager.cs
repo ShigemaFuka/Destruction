@@ -5,15 +5,16 @@ public class GameManager : MonoBehaviour
 {
     #region 変数
 
-    [SerializeField, Header("総合コイン数")] private float _coin = default;
+    [SerializeField, Header("総合コイン数")] private float _coin;
     [SerializeField, Header("初期化")] private float _initialCoin = 100f;
-    [SerializeField] private List<bool> _stageList = default;
-    [SerializeField] private List<WeaponStatusData> _statusList = default;
-    [SerializeField, Header("ステータス初期化用")] private List<WeaponStatusData> _initialStatusList = default;
-    private static float _temporaryCustodyCoin = default; // 獲得したコイン　※戦果
-    private SaveManager _saveManager = default;
-    private bool _canChangeReward = default; // 報酬減算計算ができるか
-    private static string _restartSceneName = default; // もう一度プレイするシーン名
+    [SerializeField] private List<bool> _stageList;
+    [SerializeField] private List<WeaponStatusData> _statusList;
+    [SerializeField, Header("ステータス初期化用")] private List<WeaponStatusData> _initialStatusList;
+    public static GameManager Instance;
+    private static float _temporaryCustodyCoin; // 獲得したコイン　※戦果
+    private SaveManager _saveManager;
+    private bool _canChangeReward; // 報酬減算計算ができるか
+    private static string _restartSceneName; // もう一度プレイするシーン名
 
     #endregion
 
@@ -53,9 +54,14 @@ public class GameManager : MonoBehaviour
 
     #endregion
 
+    private void Awake()
+    {
+        Instance = this;
+    }
+
     private void Start()
     {
-        _saveManager = FindObjectOfType<SaveManager>();
+        _saveManager = SaveManager.Instance;
         if (_saveManager == null) Debug.LogWarning("SaveManagerがありません。");
         InitializedData();
         _canChangeReward = true;

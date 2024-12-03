@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -20,6 +21,7 @@ public class WaveManager : MonoBehaviour
     [SerializeField, Header("次のWaveを開始するまでの間隔")]
     private List<float> _intervals = default;
 
+    public static WaveManager Instance = default;
     private bool _canGeneration = default; // 生成ができるか
     private int _currentCount = default; // 現在までに生成した数（各Waveにおいて）
     private int _totalCount = default; // 現在までに生成した総数
@@ -60,11 +62,16 @@ public class WaveManager : MonoBehaviour
 
     #endregion
 
+    private void Awake()
+    {
+        Instance = this;
+    }
+
     private void Start()
     {
-        _generator = FindObjectOfType<Generator>();
-        _sceneChanger = FindObjectOfType<SceneChanger>();
-        _gameManager = FindObjectOfType<GameManager>();
+        _generator = Generator.Instance;
+        _sceneChanger = SceneChanger.Instance;
+        _gameManager = GameManager.Instance;
         if (_hp == null) Debug.LogWarning($"{_hp.name}がありません。");
 
         if (_maxNumsEachWaves.Count == 0)
