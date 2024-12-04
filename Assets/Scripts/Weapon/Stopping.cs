@@ -44,8 +44,8 @@ public class Stopping : MonoBehaviour, IOffense
     {
         if (!_isRunning)
         {
-            ClearList();
-            GetTarget();
+            // ClearList();
+            // GetTarget();
             StartCoroutine(StopWalkingCoroutine());
             Debug.Log("動きを停止");
         }
@@ -60,8 +60,11 @@ public class Stopping : MonoBehaviour, IOffense
     private IEnumerator StopWalkingCoroutine()
     {
         _isRunning = true;
+        yield return new WaitForSeconds(_weaponStatus.Attack); 
+        // Attackの待機中にリロード時間が経過してしまっている分の補完
+        ClearList();
+        GetTarget();
         if (!_weaponStatus) _weaponStatus = GetComponent<WeaponStatus>();
-        Debug.Log($"Attack : {_weaponStatus.Attack}");
         if (_materialChanger) _materialChanger.ToChangedMaterial();
         ChangeEnable();
         yield return new WaitForSeconds(_weaponStatus.Attack);

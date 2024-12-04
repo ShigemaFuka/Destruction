@@ -3,10 +3,10 @@ using UnityEngine;
 public class Hp : MonoBehaviour, IDamage, IHeal
 {
     [SerializeField, Header("最大HP")] private float _maxHp = 10;
-    [SerializeField, Header("現在のHP")] private float _currentHp = default;
-    [SerializeField, Header("タワーか")] private bool _toResult = default;
-    private SceneChanger _sceneChanger = default;
-    private GameManager _gameManager = default;
+    [SerializeField, Header("現在のHP")] private float _currentHp;
+    [SerializeField, Header("タワーか")] private bool _toResult;
+    private SceneChanger _sceneChanger;
+    private GameManager _gameManager;
 
     public float CurrentHp
     {
@@ -24,7 +24,7 @@ public class Hp : MonoBehaviour, IDamage, IHeal
     {
         _currentHp = _maxHp;
         _sceneChanger = FindObjectOfType<SceneChanger>();
-        _gameManager = FindObjectOfType<GameManager>();
+        _gameManager = GameManager.Instance;
     }
 
     /// <summary>

@@ -12,13 +12,15 @@ public class DeathState : IState
     private GameObject _model = default; // キャラクターやモンスター
     private IDeath[] _death = default;
 
-    public DeathState(StateBase stateBase, Generator generator, Animator animator, GameObject model, IDeath[] death)
+    public DeathState(StateBase stateBase, GameObject owner, GameObject model, IDeath[] death)
     {
         _stateBase = stateBase;
-        _generator = generator;
-        _animator = animator;
+        // _generator = generator;
+        // _animator = animator;
         _model = model;
+        _animator = model.GetComponent<Animator>();
         _death = death;
+        _generator = Generator.Instance;
     }
 
     public void Enter()
@@ -27,7 +29,9 @@ public class DeathState : IState
         {
             d.Death();
         } // アタッチされていれば、死亡時に何かしらアクションをする
+
         if (_animator) _animator.Play("Die");
+        else Debug.Log("animがない");
         var renderers = _stateBase.gameObject.GetComponentsInChildren<Renderer>();
         foreach (var renderer in renderers)
         {

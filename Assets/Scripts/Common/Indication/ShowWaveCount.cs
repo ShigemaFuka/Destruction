@@ -19,22 +19,24 @@ public class ShowWaveCount : MonoBehaviour
         else Debug.LogWarning("WaveManagerがありません。");
         if (_maxText) _maxText.text = $"/ {_maxValue}";
         else Debug.LogWarning("MaxTextがありません。");
+        _currentWave = 1;
         ShowCount();
     }
 
     private void Update()
     {
         // 値に変更があったときに、表示を更新
-        if (_currentWave != _waveManager.CurrentWave)
+        if (_currentWave != _waveManager.CurrentWave + 1)
         {
+            _currentWave = _waveManager.CurrentWave + 1;
+            if (_currentWave > _maxValue) return;
             ShowCount();
-            _currentWave = _waveManager.CurrentWave;
         }
     }
 
     private void ShowCount()
     {
-        if (_currentText) _currentText.text = $"{_waveManager.CurrentWave}";
+        if (_currentText) _currentText.text = $"{_currentWave}";
         else Debug.LogWarning("CurrentTextがありません。");
     }
 }
