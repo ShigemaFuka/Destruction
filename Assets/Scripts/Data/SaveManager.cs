@@ -4,12 +4,14 @@ using System.Collections.Generic;
 
 public class SaveManager : MonoBehaviour
 {
-    private string _filePath = default;
+    private string _filePath;
+    public static SaveManager Instance;
 
     private void Awake()
     {
         // 保存するファイルのパス
         _filePath = Application.persistentDataPath + "/gameData.json";
+        Instance = this;
     }
 
     /// <summary>

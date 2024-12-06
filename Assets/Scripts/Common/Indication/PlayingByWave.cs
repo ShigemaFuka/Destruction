@@ -5,16 +5,20 @@ using UnityEngine;
 /// </summary>
 public class PlayingByWave : MonoBehaviour
 {
+    [SerializeField] private Animator _anim;
     private WaveManager _waveManager;
-    private int _lastWave;
-    private int _currentWave;
-    
+
     private void Start()
     {
-        
+        _waveManager = WaveManager.Instance;
     }
 
     private void Update()
     {
+        // 最終Waveにならば
+        if (_waveManager.CurrentWave >= _waveManager.MaxWaveCount - 1)
+        {
+            _anim.Play("Sliding");
+        }
     }
 }
