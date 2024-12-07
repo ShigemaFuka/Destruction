@@ -18,7 +18,11 @@ public class PlayingByWave : MonoBehaviour
         // 最終Waveにならば
         if (_waveManager.CurrentWave >= _waveManager.MaxWaveCount - 1)
         {
-            _anim.Play("Sliding");
+            _anim.Play("Last");
+        }
+        else if (_waveManager.CurrentWave == 0)
+        {
+            _anim.Play("First");
         }
     }
 }
