@@ -146,7 +146,7 @@ public class GameManager : MonoBehaviour
     public void ChangeReward(float currentHp, float maxHp)
     {
         if (!_canChangeReward) return; // 減算済みならリターン
-        _temporaryCustodyCoin *= currentHp / maxHp;
+        _temporaryCustodyCoin *= (currentHp / maxHp);
         _canChangeReward = false;
     }
 

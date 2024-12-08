@@ -5,9 +5,9 @@ using UnityEngine;
 /// </summary>
 public class GetTmpCoin : MonoBehaviour
 {
-    private GameManager _gameManager = default;
-    private NumberTween _numberTween = default;
-    private float _reward = default;
+    private GameManager _gameManager;
+    private NumberTween _numberTween;
+    private float _reward; // 一戦で得た報酬
 
     private void Start()
     {
@@ -16,14 +16,8 @@ public class GetTmpCoin : MonoBehaviour
         _numberTween = FindObjectOfType<NumberTween>();
         if (_numberTween == null) Debug.LogWarning($"{_numberTween.name}がありません。");
         _gameManager.AddTmpCoin(); // 戦果を所有コインに加算
-    }
-
-    private void Update()
-    {
-        if (_reward != _gameManager.TemporaryCustodyCoin)
-        {
-            _reward = _gameManager.TemporaryCustodyCoin;
-            _numberTween.NumTween(_reward);
-        }
+        _reward = _gameManager.TemporaryCustodyCoin;
+        _numberTween.NumTween(_reward);
+        _gameManager.ResetTmpCoin();
     }
 }
