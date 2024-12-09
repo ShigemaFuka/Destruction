@@ -1,12 +1,17 @@
 using UnityEngine;
 using UnityEngine.AI;
 
+/// <summary>
+/// ステートコントローラー
+/// エネミーは別で
+/// </summary>
 public class Enemy : StateBase
 {
     #region 宣言部
 
     [SerializeField] private float _speed = 1f;
-    [SerializeField] private Animator _animator = default;
+
+    // [SerializeField] private Animator _animator = default;
     [SerializeField, Header("モデル")] private GameObject _model = default;
     [SerializeField, Header("経路オブジェクトの親")] private string _parentRouteName = default;
     [SerializeField, Header("弾丸プレハブ")] private GameObject _bulletPrefab = default;
@@ -25,7 +30,6 @@ public class Enemy : StateBase
     private EvacuationState _evacuationState = default; // 退避
     private DeathState _deathState = default; // 死亡
     private Hp _hp = default;
-    private Generator _generator = default;
     private bool _canEvacuate = default; // 退避できるか ※一回キリ
 
     #endregion
@@ -38,11 +42,10 @@ public class Enemy : StateBase
         _agent = GetComponent<NavMeshAgent>();
         _agent.speed = _speed;
         _tower = GameObject.FindWithTag("Tower");
-        _generator = FindObjectOfType<Generator>();
-        _attackState = new AttackState(this, _shootInterval, _bulletPrefab, _bulletSpawnPoint, _tower, _attackValue,
-            _animator);
-        _changeOfCourseState = new ChangeOfCourseState(this, transform, _tower.transform, _attackState, _animator);
-        _walkState = new WalkState(this, transform, _agent, _positions, _changeOfCourseState, _animator);
+        _attackState = new AttackState(this, gameObject, _shootInterval, _bulletPrefab, _bulletSpawnPoint, _tower,
+            _attackValue);
+        _changeOfCourseState = new ChangeOfCourseState(this, gameObject, transform, _tower.transform, _attackState);
+        _walkState = new WalkState(this, gameObject, transform, _positions, _changeOfCourseState);
         var go = GameObject.Find(_healPointName);
         if (go)
         {
@@ -53,7 +56,7 @@ public class Enemy : StateBase
         }
 
         var death = GetComponents<IDeath>();
-        _deathState = new DeathState(this, _generator, _animator, _model, death);
+        _deathState = new DeathState(this, gameObject, _model, death);
         ChangeState(_walkState);
     }
 

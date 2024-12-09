@@ -6,14 +6,12 @@ using UnityEngine;
 /// </summary>
 public class Generator : MonoBehaviour
 {
-    [SerializeField] private GameObject[] _prefabs = default;
-    [SerializeField, Header("初期インターバル")] private float _initialInterval = 2f;
+    [SerializeField] private GameObject[] _prefabs;
     [SerializeField, Header("インターバル")] private float _interval = 1f;
-    public static Generator Instance = default;
-    private float _timer = default;
-    private bool _useInitial = default; // 初期インターバルを使うか
-    private List<GameObject> _enemiesList = default; // 生成した物
-    private WaveManager _waveManager = default; // 生成数の制限
+    public static Generator Instance;
+    private float _timer;
+    private List<GameObject> _enemiesList; // 生成した物
+    private WaveManager _waveManager; // 生成数の制限
 
     public List<GameObject> EnemiesList => _enemiesList;
 
@@ -24,9 +22,8 @@ public class Generator : MonoBehaviour
 
     private void Start()
     {
-        _useInitial = true;
         _enemiesList = new List<GameObject>();
-        _waveManager = FindObjectOfType<WaveManager>();
+        _waveManager = WaveManager.Instance;
         if (!_waveManager) Debug.LogWarning($"{_waveManager.name}が見つかりませんでした。");
     }
 
@@ -34,28 +31,18 @@ public class Generator : MonoBehaviour
     {
         if (!_waveManager.CanGeneration) return; // 生成できないならリターン
         _timer += Time.deltaTime;
-        if (_useInitial)
+        if (_timer >= _interval)
         {
-            if (_timer >= _initialInterval)
-            {
-                _enemiesList.Add(Generate());
-                _timer = 0;
-                _useInitial = false;
-            }
-        }
-        else
-        {
-            if (_timer >= _interval)
-            {
-                _enemiesList.Add(Generate());
-                _timer = 0;
-            }
+            _enemiesList.Add(Generate());
+            _timer = 0;
         }
     }
 
     private GameObject Generate()
     {
-        var go = Instantiate(_prefabs[_waveManager.EnemyTypeList[_waveManager.TotalCount]], transform);
+        var num = _waveManager.EnemyTypeList[_waveManager.TotalCount];
+        if (num >= _waveManager.EnemyTypeList.Count) return null;
+        var go = Instantiate(_prefabs[num], transform);
         _waveManager.AddCount(); // 生成のたびに個数を加算（各Waveにおいて）
         return go;
     }

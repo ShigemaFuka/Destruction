@@ -7,16 +7,14 @@ using UnityEngine;
 public class DeathState : IState
 {
     private readonly StateBase _stateBase;
-    private Generator _generator = default;
-    private Animator _animator = default;
-    private GameObject _model = default; // キャラクターやモンスター
-    private IDeath[] _death = default;
+    private Generator _generator;
+    private Animator _animator;
+    private GameObject _model; // キャラクターやモンスター
+    private IDeath[] _death;
 
     public DeathState(StateBase stateBase, GameObject owner, GameObject model, IDeath[] death)
     {
         _stateBase = stateBase;
-        // _generator = generator;
-        // _animator = animator;
         _model = model;
         _animator = model.GetComponent<Animator>();
         _death = death;

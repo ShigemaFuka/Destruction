@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,26 +9,26 @@ public class WaveManager : MonoBehaviour
 {
     #region 宣言部
 
-    [SerializeField, Header("タワーのHP")] private Hp _hp = default;
+    [SerializeField, Header("タワーのHP")] private Hp _hp;
 
     [SerializeField, Header("各Waveの最大生成数")]
-    private List<int> _maxNumsEachWaves = default;
+    private List<int> _maxNumsEachWaves;
 
     [SerializeField, Header("敵の種類を指定する　※↑の数だけ指定")]
-    private List<int> _enemyTypeList = default;
+    private List<int> _enemyTypeList;
 
-    [SerializeField, Header("次のWaveを開始するまでの間隔")]
-    private List<float> _intervals = default;
+    [SerializeField, Header("次のWaveを開始するまでの間隔")] [Header("※第一WaveはGeneratorに依存")]
+    private List<float> _intervals;
 
-    public static WaveManager Instance = default;
-    private bool _canGeneration = default; // 生成ができるか
-    private int _currentCount = default; // 現在までに生成した数（各Waveにおいて）
-    private int _totalCount = default; // 現在までに生成した総数
-    private int _killCount = default; // 倒された数
-    private int _currentWave = default; // 現在のWave番号
-    private Generator _generator = default;
-    private SceneChanger _sceneChanger = default;
-    private GameManager _gameManager = default;
+    public static WaveManager Instance;
+    private bool _canGeneration; // 生成ができるか
+    private int _currentCount; // 現在までに生成した数（各Waveにおいて）
+    private int _totalCount; // 現在までに生成した総数
+    private int _killCount; // 倒された数
+    [SerializeField] private int _currentWave; // 現在のWave番号
+    private Generator _generator;
+    private SceneChanger _sceneChanger;
+    private GameManager _gameManager;
 
     #endregion
 
@@ -72,7 +71,7 @@ public class WaveManager : MonoBehaviour
         _generator = Generator.Instance;
         _sceneChanger = SceneChanger.Instance;
         _gameManager = GameManager.Instance;
-        if (_hp == null) Debug.LogWarning($"{_hp.name}がありません。");
+        if (_hp == null) Debug.LogWarning($"HPがありません。");
 
         if (_maxNumsEachWaves.Count == 0)
         {
@@ -84,35 +83,32 @@ public class WaveManager : MonoBehaviour
             Debug.LogWarning("_intervals.Count == 0");
         }
 
-        _canGeneration = true;
-        _gameManager.ResetTmpCoin();
+        _canGeneration = false;
+        StartCoroutine(WaitForNextWave());
     }
 
     private void Update()
     {
         // 最終Waveが終わったら
-        if (_currentWave == _maxNumsEachWaves.Count)
+        if (_currentWave >= _maxNumsEachWaves.Count + 1)
         {
-            Debug.Log($"最終Wave 終" +
-                      $"\n current wave: {_currentWave}  Waveのリスト:{_maxNumsEachWaves.Count}");
-            _canGeneration = false;
+            Debug.Log($"最終Wave 終");
             // 敵を殲滅したらシーン遷移
             if (_generator.EnemiesList.Count == 0)
             {
                 StartCoroutine(_sceneChanger.LateChange()); // リザルトへ
                 _gameManager.ChangeReward(_hp.CurrentHp, _hp.MaxHp);
-                Debug.Log($"tmp reward: {_gameManager.TemporaryCustodyCoin}");
             }
 
             return;
         }
 
+        if (!_canGeneration) return;
         // 各Waveの生成上限に達したら
-        if (_maxNumsEachWaves[_currentWave] == _currentCount)
+        if (_maxNumsEachWaves[_currentWave - 1] == _currentCount)
         {
             _canGeneration = false; // 生成停止
             _currentCount = 0;
-            _currentWave++;
             StartCoroutine(WaitForNextWave());
         }
     }
@@ -140,8 +136,13 @@ public class WaveManager : MonoBehaviour
     /// <returns></returns>
     private IEnumerator WaitForNextWave()
     {
-        if (_currentWave == _maxNumsEachWaves.Count) yield break; // 最後は次のWaveがない
-        yield return new WaitForSeconds(_intervals[_currentWave]);
-        _canGeneration = true;
+        // 最後は次のWaveがないため
+        if (_currentWave < _maxNumsEachWaves.Count)
+        {
+            yield return new WaitForSeconds(_intervals[_currentWave]);
+            _canGeneration = true;
+        }
+
+        _currentWave++;
     }
 }
