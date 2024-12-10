@@ -25,7 +25,7 @@ public class WaveManager : MonoBehaviour
     private int _currentCount; // 現在までに生成した数（各Waveにおいて）
     private int _totalCount; // 現在までに生成した総数
     private int _killCount; // 倒された数
-    [SerializeField] private int _currentWave; // 現在のWave番号
+    private int _currentWave; // 現在のWave番号
     private Generator _generator;
     private SceneChanger _sceneChanger;
     private GameManager _gameManager;

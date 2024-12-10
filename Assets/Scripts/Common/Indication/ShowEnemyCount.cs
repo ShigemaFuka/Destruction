@@ -6,15 +6,16 @@ using UnityEngine.UI;
 /// </summary>
 public class ShowEnemyCount : MonoBehaviour
 {
-    [SerializeField, Header("Text:現在の数")] private Text _currentText = default;
-    [SerializeField, Header("Text:最大の数")] private Text _maxText = default;
-    [SerializeField] private WaveManager _waveManager = default;
-    private int _maxValue = default; // 最大生成数
-    private int _numberOfRemaining = default; // 残りの数
-    private int _killCount = default; // 倒した数
+    [SerializeField, Header("Text:現在の数")] private Text _currentText;
+    [SerializeField, Header("Text:最大の数")] private Text _maxText;
+    private WaveManager _waveManager;
+    private int _maxValue; // 最大生成数
+    private int _numberOfRemaining; // 残りの数
+    private int _killCount; // 倒した数
 
     private void Start()
     {
+        _waveManager = WaveManager.Instance;
         if (_waveManager) _maxValue = _waveManager.EnemyTypeList.Count;
         else Debug.LogWarning("WaveManagerがありません。");
         if (_maxText) _maxText.text = $"/ {_maxValue}";
