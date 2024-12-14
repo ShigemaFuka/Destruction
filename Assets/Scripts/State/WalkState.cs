@@ -20,15 +20,16 @@ public class WalkState : IState
 
     #endregion
 
-    public WalkState(StateBase stateBase, Transform t, NavMeshAgent nma, Vector3[] vecs,
-        ChangeOfCourseState changeOfCourseState, Animator animator)
+    public WalkState(StateBase stateBase, GameObject owner, Transform t, Vector3[] vecs,
+        ChangeOfCourseState changeOfCourseState)
     {
         _stateBase = stateBase;
         _transform = t;
-        _agent = nma;
+        _agent = owner.GetComponent<NavMeshAgent>();
         _positions = vecs;
         _changeOfCourseState = changeOfCourseState;
-        _animator = animator;
+        // _animator = animator;
+        _animator = owner.GetComponent<Animator>();
     }
 
     public void Enter()

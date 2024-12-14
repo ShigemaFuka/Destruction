@@ -11,14 +11,14 @@ public class ChangeOfCourseState : IState
     private AttackState _attackState = default;
     private Animator _animator = default;
 
-    public ChangeOfCourseState(StateBase stateBase, Transform transform, Transform target, AttackState attackState,
-        Animator animator)
+    public ChangeOfCourseState(StateBase stateBase, GameObject owner, Transform transform, Transform target, AttackState attackState)
     {
         _stateBase = stateBase;
         _transform = transform;
         _target = target;
         _attackState = attackState;
-        _animator = animator;
+        // _animator = animator;
+        _animator = owner.GetComponent<Animator>();
     }
 
     public void Enter()

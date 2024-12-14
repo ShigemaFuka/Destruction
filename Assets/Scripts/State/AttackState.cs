@@ -15,8 +15,8 @@ public class AttackState : IState
     private Animator _animator = default;
     private static readonly int Attack1 = Animator.StringToHash("Attack");
 
-    public AttackState(StateBase stateBase, float interval, GameObject bulletPrefab, Transform muzzle,
-        GameObject target, float attackValue, Animator animator)
+    public AttackState(StateBase stateBase, GameObject owner, float interval, GameObject bulletPrefab, Transform muzzle,
+        GameObject target, float attackValue)
     {
         _stateBase = stateBase;
         _interval = interval;
@@ -24,7 +24,8 @@ public class AttackState : IState
         _muzzle = muzzle;
         _target = target;
         _attackValue = attackValue;
-        _animator = animator;
+        // _animator = animator;
+        _animator = owner.GetComponent<Animator>();
     }
 
     public void Enter()
