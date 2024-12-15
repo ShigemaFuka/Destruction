@@ -17,7 +17,7 @@ public class WaveManager : MonoBehaviour
     [SerializeField, Header("敵の種類を指定する　※↑の数だけ指定")]
     private List<int> _enemyTypeList;
 
-    [SerializeField, Header("次のWaveを開始するまでの間隔")] [Header("※第一WaveはGeneratorに依存")]
+    [SerializeField, Header("次のWaveを開始するまでの間隔")]
     private List<float> _intervals;
 
     public static WaveManager Instance;

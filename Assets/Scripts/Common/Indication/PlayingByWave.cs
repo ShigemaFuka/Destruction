@@ -16,11 +16,11 @@ public class PlayingByWave : MonoBehaviour
     private void Update()
     {
         // 最終Waveにならば
-        if (_waveManager.CurrentWave >= _waveManager.MaxWaveCount - 1)
+        if (_waveManager.CurrentWave >= _waveManager.MaxWaveCount)
         {
             _anim.Play("Last");
         }
-        else if (_waveManager.CurrentWave == 0)
+        else if (_waveManager.CurrentWave == 1)
         {
             _anim.Play("First");
         }

@@ -4024,11 +4024,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3647020351101109172, guid: c95fb8451fc3d97449e76c777b7e80cb, type: 3}
       propertyPath: _intervals.Array.data[1]
-      value: 6
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 3647020351101109172, guid: c95fb8451fc3d97449e76c777b7e80cb, type: 3}
       propertyPath: _intervals.Array.data[2]
-      value: 6
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 3647020351101109172, guid: c95fb8451fc3d97449e76c777b7e80cb, type: 3}
       propertyPath: _enemyTypeList.Array.size
