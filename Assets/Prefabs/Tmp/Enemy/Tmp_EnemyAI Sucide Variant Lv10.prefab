@@ -8,6 +8,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -5256778032227674349, guid: b7d6242685bd9a3418a7549c04e98623, type: 3}
+      propertyPath: _range
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: -5256778032227674349, guid: b7d6242685bd9a3418a7549c04e98623, type: 3}
+      propertyPath: _lifeTime
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 658309192418728665, guid: b7d6242685bd9a3418a7549c04e98623, type: 3}
       propertyPath: _maxHp
       value: 5.5

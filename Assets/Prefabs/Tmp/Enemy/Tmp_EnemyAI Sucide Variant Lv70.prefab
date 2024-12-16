@@ -14,7 +14,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 471927650769570482, guid: 313dd5216d466e847a3553222a889aff, type: 3}
       propertyPath: _speed
-      value: 8.2
+      value: 8.25
       objectReference: {fileID: 0}
     - target: {fileID: 471927650769570482, guid: 313dd5216d466e847a3553222a889aff, type: 3}
       propertyPath: _attackValue
@@ -26,7 +26,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1470042565683459701, guid: 313dd5216d466e847a3553222a889aff, type: 3}
       propertyPath: _maxHp
-      value: 72.5
+      value: 120
+      objectReference: {fileID: 0}
+    - target: {fileID: 3046763690247601087, guid: 313dd5216d466e847a3553222a889aff, type: 3}
+      propertyPath: _lifeTime
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 4515097246662753168, guid: 313dd5216d466e847a3553222a889aff, type: 3}
       propertyPath: m_LocalPosition.x

@@ -242,7 +242,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _currentStateName: 
   _speed: 3
-  _animator: {fileID: 5841844923359072412}
   _model: {fileID: 5841844923349721948}
   _parentRouteName: Route
   _bulletPrefab: {fileID: 548845198865158214, guid: 95b0f0ad1822b2c438f0e89b8f3a6146, type: 3}
@@ -294,8 +293,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93a4e0645b2233f41ad23d6d881e53c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _lifeTime: 15
-  _range: 9
+  _lifeTime: 20
+  _range: 13
   _rangeObj: {fileID: 4578483620398084956}
   _animator: {fileID: 8111396976384915732}
 --- !u!1 &2672729395394513926
@@ -856,11 +855,6 @@ Transform:
 --- !u!1 &5841844923349721948 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1695502807786733843, guid: c73a559184154c75991d095521bdea87, type: 3}
-  m_PrefabInstance: {fileID: 5086188867114213967}
-  m_PrefabAsset: {fileID: 0}
---- !u!95 &5841844923359072412 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 1695502807779455699, guid: c73a559184154c75991d095521bdea87, type: 3}
   m_PrefabInstance: {fileID: 5086188867114213967}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &5414640623941580945

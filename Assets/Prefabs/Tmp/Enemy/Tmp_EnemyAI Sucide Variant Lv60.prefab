@@ -22,7 +22,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5680639136801243877, guid: 4b4d17cc877cec44bbecc85afa440e93, type: 3}
       propertyPath: _speed
-      value: 6.75
+      value: 8.1
       objectReference: {fileID: 0}
     - target: {fileID: 5680639136801243877, guid: 4b4d17cc877cec44bbecc85afa440e93, type: 3}
       propertyPath: _attackValue
@@ -34,7 +34,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6647193671344225826, guid: 4b4d17cc877cec44bbecc85afa440e93, type: 3}
       propertyPath: _maxHp
-      value: 52.5
+      value: 80
+      objectReference: {fileID: 0}
+    - target: {fileID: 7066561159611184104, guid: 4b4d17cc877cec44bbecc85afa440e93, type: 3}
+      propertyPath: _lifeTime
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 8570888328140501959, guid: 4b4d17cc877cec44bbecc85afa440e93, type: 3}
       propertyPath: m_LocalPosition.x
