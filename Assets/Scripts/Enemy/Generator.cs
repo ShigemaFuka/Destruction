@@ -40,9 +40,8 @@ public class Generator : MonoBehaviour
 
     private GameObject Generate()
     {
-        var num = _waveManager.EnemyTypeList[_waveManager.TotalCount];
-        if (num >= _waveManager.EnemyTypeList.Count) return null;
-        var go = Instantiate(_prefabs[num], transform);
+        var enemyType = _waveManager.EnemyTypeList[_waveManager.TotalCount];
+        var go = Instantiate(_prefabs[enemyType], transform);
         _waveManager.AddCount(); // 生成のたびに個数を加算（各Waveにおいて）
         return go;
     }

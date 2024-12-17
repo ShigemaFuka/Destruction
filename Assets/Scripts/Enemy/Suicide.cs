@@ -13,12 +13,12 @@ public class Suicide : MonoBehaviour, IDeath
 
     [SerializeField, Header("生存時間")] private float _lifeTime = 10f;
     [SerializeField, Header("範囲")] private float _range = 3f;
-    [SerializeField, Header("可視化範囲のObj")] private GameObject _rangeObj = default;
-    [SerializeField] private Animator _animator = default;
-    private Hp _hp = default;
-    private GameObject _tower = default;
-    private bool _canDamage = default; // タワーにダメージを与えられるか
-    private float _remainingHp = default;
+    [SerializeField, Header("可視化範囲のObj")] private GameObject _rangeObj;
+    [SerializeField] private Animator _animator;
+    private Hp _hp;
+    private GameObject _tower;
+    private bool _canDamage; // タワーにダメージを与えられるか
+    private float _remainingHp;
 
     #endregion
 
@@ -43,21 +43,26 @@ public class Suicide : MonoBehaviour, IDeath
         yield return new WaitForSeconds(2); // tの２秒後
         _animator.speed = 2f;
         yield return new WaitForSeconds(_lifeTime - t - 2);
-        _remainingHp = _hp.CurrentHp;
+        _remainingHp = _hp.CurrentHp; // 時間切れによる自滅直前のHPを格納
         _hp.Damage(_hp.CurrentHp);
     }
 
     /// <summary>
     /// 死亡したあとに実行されるメソッド
+    /// 自爆時間前に死亡したとき
     /// </summary>
     public void Death()
     {
         if (_remainingHp <= 0)
         {
             Attack(_hp.MaxHp * 0.1f);
-            Debug.Log("1 wari : " + _hp.MaxHp * 0.1f);
+            // Debug.Log("1 wari : " + _hp.MaxHp * 0.1f);
         }
-        else Attack(_remainingHp);
+        else
+        {
+            Attack(_remainingHp);
+            // Debug.Log($"_remainingHp : {_remainingHp}");
+        }
 
         _rangeObj.SetActive(false); // 非表示
     }
@@ -71,8 +76,6 @@ public class Suicide : MonoBehaviour, IDeath
         if (CheckDistance())
         {
             // 一定距離以内にタワーが存在するときだけ、ダメージを与える
-            // var d = _tower.GetComponent<IDamage>();
-            // d.Damage(value);
             var ds = _tower.GetComponents<IDamage>();
             foreach (var d in ds)
             {
@@ -80,7 +83,6 @@ public class Suicide : MonoBehaviour, IDeath
             }
         }
 
-        Debug.Log($"damage value : {value}");
         _canDamage = false;
     }
 
@@ -98,6 +100,7 @@ public class Suicide : MonoBehaviour, IDeath
     {
         var offset = _tower.transform.position - transform.position;
         var sqrLen = offset.sqrMagnitude;
+        // Debug.Log($"sprLen: {sqrLen}   range: {_range}");
         return sqrLen < _range * _range;
     }
 
