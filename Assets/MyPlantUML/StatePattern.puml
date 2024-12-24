@@ -1,0 +1,39 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+class Enemy
+class StateBase
+class WalkState
+class AttackState
+class DeathState
+interface IState{
+ + Enter()
+ + Execute()
+ + Exit()
+}
+
+class StateBase{
+ + ChangeState()
+}
+class WalkState{
+ + WalkState()
+}
+class AttackState{
+ + AttackState()
+}
+class DeathState{
+ + DeathState()
+}
+
+StateBase <|-- Enemy
+IState <|.. WalkState
+IState <|.. AttackState
+IState <|.. DeathState
+Enemy --> WalkState : "uses"
+Enemy --> AttackState : "uses"
+Enemy --> DeathState : "uses"
+StateBase --> IState : "uses"
+
+note left of StateBase : ステートを切り替える機能を持つ
+note left of Enemy : ステートを切り替えている
+@enduml
