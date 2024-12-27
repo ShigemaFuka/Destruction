@@ -11,13 +11,12 @@ public class ChangeOfCourseState : IState
     private AttackState _attackState = default;
     private Animator _animator = default;
 
-    public ChangeOfCourseState(StateBase stateBase, GameObject owner, Transform transform, Transform target, AttackState attackState)
+    public ChangeOfCourseState(StateBase owner, AttackState attackState)
     {
-        _stateBase = stateBase;
-        _transform = transform;
-        _target = target;
+        _stateBase = owner;
+        _transform = owner.transform;
+        _target = GameObject.FindWithTag("Tower").transform;
         _attackState = attackState;
-        // _animator = animator;
         _animator = owner.GetComponent<Animator>();
     }
 
@@ -40,7 +39,7 @@ public class ChangeOfCourseState : IState
     /// <summary>
     /// 攻撃方向への回転
     /// </summary>
-    public void Rotation()
+    private void Rotation()
     {
         var nextCorner = _target.position;
         var to = nextCorner - _transform.position;

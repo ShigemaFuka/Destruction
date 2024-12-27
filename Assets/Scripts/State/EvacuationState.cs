@@ -13,7 +13,7 @@ public class EvacuationState : IState
     private StateBase _stateBase = default;
     private Enemy _enemy = default;
     private Vector3 _healPosition = default; // 回復エリアの場所
-    private float _distance = 1f; // 到達したとみなす距離
+    private float _distance = 20f; // 到達したとみなす距離
     private NavMeshAgent _agent = default;
     private Transform _transform = default;
     private float _waitTime = default; // 留まる時間
@@ -26,20 +26,19 @@ public class EvacuationState : IState
 
     #endregion
 
-    public EvacuationState(StateBase stateBase, Enemy enemy, Vector3 healPosition, NavMeshAgent agent,
-        Transform selfTransform,
-        IHeal heal, float waitTime, MonoBehaviour mono, WalkState walkState)
+    public EvacuationState(StateBase owner,
+        float waitTime, WalkState walkState)
     {
-        _stateBase = stateBase;
-        _enemy = enemy;
-        _healPosition = healPosition;
-        _agent = agent;
-        _transform = selfTransform;
-        _heal = heal;
+        _healPosition = GameObject.Find("HealPoint").transform.position;
+        _transform = owner.transform;
         _waitTime = waitTime;
-        _defaultSpeed = agent.speed;
-        _monoBehaviour = mono;
         _walkState = walkState;
+        _stateBase = owner.GetComponent<StateBase>();
+        _heal = owner.GetComponent<IHeal>();
+        _monoBehaviour = owner.GetComponent<MonoBehaviour>();
+        _enemy = owner.GetComponent<Enemy>();
+        _agent = owner.GetComponent<NavMeshAgent>();
+        _defaultSpeed = _agent.speed;
     }
 
     public void Enter()
@@ -77,7 +76,10 @@ public class EvacuationState : IState
         var distance = (_transform.position - _healPosition).sqrMagnitude;
         if (distance <= _distance)
         {
-            if (!_isCoroutineStarted) _monoBehaviour.StartCoroutine(Wait());
+            if (!_isCoroutineStarted)
+            {
+                _monoBehaviour.StartCoroutine(Wait());
+            }
         }
     }
 

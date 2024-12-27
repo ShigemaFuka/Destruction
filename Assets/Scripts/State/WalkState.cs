@@ -8,34 +8,35 @@ public class WalkState : IState
 {
     #region 変数
 
-    private readonly StateBase _stateBase = default;
+    private readonly StateBase _stateBase;
     private float _distance = 1f; // 到達したとみなす距離
-    private Vector3[] _positions = default; // 経路の位置情報
-    private int _indexNum = default; // めざす場所のインデックス番号
-    private NavMeshAgent _agent = default;
-    private Transform _transform = default;
-    private ChangeOfCourseState _changeOfCourseState = default;
-    private Animator _animator = default;
-    private static readonly int Walk = Animator.StringToHash("Walk");
+    private Vector3[] _positions; // 経路の位置情報
+    private int _indexNum; // めざす場所のインデックス番号
+    private NavMeshAgent _agent;
+    private Transform _transform;
+    private ChangeOfCourseState _changeOfCourseState;
+    private Animator _animator;
+    private int walk = Animator.StringToHash("Walk");
+    private GameObject _parentRoute;
 
     #endregion
 
-    public WalkState(StateBase stateBase, GameObject owner, Transform t, Vector3[] vecs,
+    public WalkState(StateBase owner,
         ChangeOfCourseState changeOfCourseState)
     {
-        _stateBase = stateBase;
-        _transform = t;
+        _stateBase = owner;
+        _parentRoute = GameObject.Find(owner.GetComponent<Enemy>().ParentRouteName);
+        _transform = owner.transform;
         _agent = owner.GetComponent<NavMeshAgent>();
-        _positions = vecs;
         _changeOfCourseState = changeOfCourseState;
-        // _animator = animator;
         _animator = owner.GetComponent<Animator>();
+        GetRoute();
     }
 
     public void Enter()
     {
         // Debug.Log("Enter Walk State");
-        if (_animator) _animator.SetBool(Walk, true);
+        if (_animator) _animator.SetBool(walk, true);
     }
 
     public void Execute()
@@ -47,7 +48,20 @@ public class WalkState : IState
     public void Exit()
     {
         // Debug.Log("Exit Walk State");
-        if (_animator) _animator.SetBool(Walk, false);
+        if (_animator) _animator.SetBool(walk, false);
+    }
+
+    /// <summary>
+    /// 経路を取得
+    /// </summary>
+    private void GetRoute()
+    {
+        var childCount = _parentRoute.transform.childCount;
+        _positions = new Vector3[childCount];
+        for (var i = 0; i < _positions.Length; i++)
+        {
+            _positions[i] = _parentRoute.transform.GetChild(i).transform.position;
+        }
     }
 
     /// <summary>

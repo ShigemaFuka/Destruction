@@ -15,16 +15,15 @@ public class AttackState : IState
     private Animator _animator = default;
     private static readonly int Attack1 = Animator.StringToHash("Attack");
 
-    public AttackState(StateBase stateBase, GameObject owner, float interval, GameObject bulletPrefab, Transform muzzle,
-        GameObject target, float attackValue)
+    public AttackState(StateBase owner, float interval, GameObject bulletPrefab,
+        float attackValue)
     {
-        _stateBase = stateBase;
+        _stateBase = owner;
         _interval = interval;
         _bulletPrefab = bulletPrefab;
-        _muzzle = muzzle;
-        _target = target;
+        _muzzle = owner.transform.Find("Muzzle");
+        _target = GameObject.FindWithTag("Tower");
         _attackValue = attackValue;
-        // _animator = animator;
         _animator = owner.GetComponent<Animator>();
     }
 
@@ -53,13 +52,13 @@ public class AttackState : IState
     {
         // var d = _target.GetComponent<IDamage>();
         // d.Damage(_attackValue);
-        
+
         var ds = _target.GetComponents<IDamage>();
         foreach (var d in ds)
         {
             d?.Damage(_attackValue);
         }
-        
+
         if (_animator) _animator.SetTrigger(Attack1);
         Object.Instantiate(_bulletPrefab, _muzzle.position, _muzzle.rotation);
         // Debug.Log("発射");
