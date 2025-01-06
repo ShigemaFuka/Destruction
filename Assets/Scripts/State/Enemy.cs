@@ -54,13 +54,13 @@ public class Enemy : StateBase
                 new EvacuationState(this, _waitTime, _walkState);
         }
 
-        var death = GetComponents<IDeath>();
-        _deathState = new DeathState(this, gameObject, _model, death);
+        _deathState = new DeathState(this, _model);
         ChangeState(_walkState);
     }
 
     protected override void OnUpdate()
     {
+        if (_currentState == _deathState) return;
         if (_hp.CurrentHp <= 0)
         {
             ChangeState(_deathState);

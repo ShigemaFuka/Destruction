@@ -11,18 +11,20 @@ public class DeathState : IState
     private Animator _animator;
     private GameObject _model; // キャラクターやモンスター
     private IDeath[] _death;
+    private bool _canFlag;
 
-    public DeathState(StateBase stateBase, GameObject owner, GameObject model, IDeath[] death)
+    public DeathState(StateBase owner, GameObject model)
     {
-        _stateBase = stateBase;
+        _stateBase = owner;
         _model = model;
         _animator = model.GetComponent<Animator>();
-        _death = death;
+        _death = owner.GetComponents<IDeath>();
         _generator = Generator.Instance;
     }
 
     public void Enter()
     {
+        _canFlag = true;
         foreach (var d in _death)
         {
             d.Death();
@@ -30,11 +32,13 @@ public class DeathState : IState
 
         if (_animator) _animator.Play("Die");
         else Debug.Log("animがない");
-        var renderers = _stateBase.gameObject.GetComponentsInChildren<Renderer>();
+        var renderers = _model.GetComponentsInChildren<Renderer>();
+        // todo: グレーにできていない
         foreach (var renderer in renderers)
         {
             renderer.material.color = Color.gray;
         }
+
 
         _generator.RemoveObj(_stateBase.gameObject);
 
@@ -43,15 +47,16 @@ public class DeathState : IState
 
     public void Execute()
     {
+        if (_model && _canFlag)
+        {
+            var pos = _model.transform.position;
+            _model.transform.position = new Vector3(pos.x, -0.5f, pos.z); // 地面に落ちる感じ
+            _canFlag = false;
+        }
     }
 
     public void Exit()
     {
-        if (_model)
-        {
-            var pos = _model.transform.position;
-            _model.transform.position = new Vector3(pos.x, -0.5f, pos.z); // 地面に落ちる感じ
-        }
         // Debug.Log("Exit Death State");
     }
 }

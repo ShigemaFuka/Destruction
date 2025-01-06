@@ -5,7 +5,7 @@ using UnityEngine;
 /// </summary>
 public class StateBase : MonoBehaviour
 {
-    private IState _currentState;
+    protected IState _currentState;
     private IdleState _idleState;
 
     [SerializeField, Tooltip("現在の状態名")] private string _currentStateName = "";
