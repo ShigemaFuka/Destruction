@@ -16,7 +16,7 @@ public class ShowCustomStatusOnPointerEnter : MonoBehaviour, IPointerEnter
     private void Start()
     {
         _infoText.text = "";
-        _gameManager = FindObjectOfType<GameManager>();
+        _gameManager = GameManager.Instance;
     }
 
     private void GetSetInfo()

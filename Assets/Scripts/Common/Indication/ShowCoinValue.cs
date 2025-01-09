@@ -12,7 +12,7 @@ public class ShowCoinValue : MonoBehaviour
     private void Start()
     {
         if (_numberTween == null) Debug.LogWarning("NumberTweenがありません。");
-        _gameManager = FindObjectOfType<GameManager>();
+        _gameManager = GameManager.Instance;
         if (_gameManager == null) Debug.LogWarning("GameManagerがありません。");
     }
 

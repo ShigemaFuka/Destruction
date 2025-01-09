@@ -11,7 +11,7 @@ public class GetSetWeaponStatus : MonoBehaviour
     private void Start()
     {
         _weaponStatus = GetComponent<WeaponStatus>();
-        _gameManager = FindObjectOfType<GameManager>();
+        _gameManager = GameManager.Instance;
         Invoke(nameof(GetSetStatus), 0.1f); //GetSetStatus();
     }
 

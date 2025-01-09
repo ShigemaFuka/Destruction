@@ -18,9 +18,9 @@ public class Upgrader : MonoBehaviour
 
     private void Start()
     {
-        _costManager = FindObjectOfType<CostManager>();
-        _saveManager = FindObjectOfType<SaveManager>();
-        _gameManager = FindObjectOfType<GameManager>();
+        _costManager = CostManager.Instance;
+        _saveManager = SaveManager.Instance;
+        _gameManager = GameManager.Instance;
     }
 
     /// <summary>

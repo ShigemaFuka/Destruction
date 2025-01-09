@@ -12,7 +12,6 @@ public class WeaponGenerator : MonoBehaviour
     private CostManager _costManager = default;
     private List<WeaponStatus> _weaponStatusList = default;
     private GameManager _gameManager = default;
-    private SaveManager _saveManager = default;
 
     public List<WeaponStatus> WeaponStatusList
     {
@@ -22,11 +21,9 @@ public class WeaponGenerator : MonoBehaviour
 
     private void Start()
     {
-        _costManager = FindObjectOfType<CostManager>();
-        _saveManager = FindObjectOfType<SaveManager>();
+        _costManager = CostManager.Instance;
+        _gameManager = GameManager.Instance;
         _weaponStatusList = new List<WeaponStatus>();
-        _gameManager = FindObjectOfType<GameManager>();
-
 
         foreach (var weapon in _weapons)
         {

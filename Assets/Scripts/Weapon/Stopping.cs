@@ -83,7 +83,6 @@ public class Stopping : MonoBehaviour, IOffense
             target.GetComponent<NavMeshAgent>().isStopped = true;
             target.GetComponent<Enemy>().enabled = false;
             if (!_stoppingTargets.Contains(target)) _stoppingTargets.Add(target);
-            Debug.Log($"{target}を停止します。flag: {target.GetComponent<NavMeshAgent>().isStopped}");
         }
     }
 

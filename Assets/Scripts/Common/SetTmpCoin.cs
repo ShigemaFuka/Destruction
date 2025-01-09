@@ -12,7 +12,7 @@ public class SetTmpCoin : MonoBehaviour
 
     private void Start()
     {
-        _gameManager = FindObjectOfType<GameManager>();
+        _gameManager = GameManager.Instance;
         _gameManager.TemporaryCustodyCoin = _reward;
     }
 }

@@ -18,7 +18,7 @@ public class ShowStatusOnPointerEnter : MonoBehaviour, IPointerEnter
     {
         _infoText.text = "";
         _weaponGenerator = FindObjectOfType<WeaponGenerator>();
-        _gameManager = FindObjectOfType<GameManager>();
+        _gameManager = GameManager.Instance;
     }
 
     private void GetSetInfo()
@@ -28,7 +28,6 @@ public class ShowStatusOnPointerEnter : MonoBehaviour, IPointerEnter
             var status = _weaponGenerator.WeaponStatusList[_indexNum];
             _infoText.text = $"Cost : {status.Cost:0.0}  Att : {status.Attack:0.0}\n" +
                              $"RNG : {status.Range:0.0}  RT : {status.Reload:0.0}";
-            Debug.Log($"cost : {status.Cost:0.0}");
         }
         else
         {

@@ -17,11 +17,11 @@ public class SceneChanger : MonoBehaviour
     {
         Instance = this;
     }
-    
+
     private void Start()
     {
         _wfs = new WaitForSeconds(_duration);
-        _gameManager = FindObjectOfType<GameManager>();
+        _gameManager = GameManager.Instance;
     }
 
     public void Change()

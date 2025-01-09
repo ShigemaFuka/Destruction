@@ -11,7 +11,7 @@ public class GetTmpCoin : MonoBehaviour
 
     private void Start()
     {
-        _gameManager = FindObjectOfType<GameManager>();
+        _gameManager = GameManager.Instance;
         if (_gameManager == null) Debug.LogWarning("GameManagerがありません。");
         _numberTween = FindObjectOfType<NumberTween>();
         if (_numberTween == null) Debug.LogWarning($"{_numberTween.name}がありません。");

@@ -23,15 +23,11 @@ public class Hp : MonoBehaviour, IDamage, IHeal
     private void Start()
     {
         _currentHp = _maxHp;
-        _sceneChanger = FindObjectOfType<SceneChanger>();
+        _sceneChanger = SceneChanger.Instance;
         _gameManager = GameManager.Instance;
     }
 
-    /// <summary>
-    /// 呼ばれたら自身のHPを減らす
-    /// </summary>
-    /// <param name="value"></param>
-    public void Damage(float value)
+    private void Update()
     {
         if (_currentHp <= 0)
         {
@@ -40,12 +36,17 @@ public class Hp : MonoBehaviour, IDamage, IHeal
                 StartCoroutine(_sceneChanger.LateChange());
                 _gameManager.ChangeReward(0, _maxHp); // 負け
                 _toResult = false;
+                Debug.LogWarning("HPが０になりました。");
             }
-
-            Debug.LogWarning("HPが０になりました。");
-            return;
         }
+    }
 
+    /// <summary>
+    /// 呼ばれたら自身のHPを減らす
+    /// </summary>
+    /// <param name="value"></param>
+    public void Damage(float value)
+    {
         _currentHp -= value;
     }
 

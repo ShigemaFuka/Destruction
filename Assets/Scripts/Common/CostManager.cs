@@ -9,6 +9,12 @@ public class CostManager : MonoBehaviour
     [SerializeField] private float _currentCost = default;
     [SerializeField] private Text _costText = default;
     private float _previousCost = default; // 変化前のコスト
+    public static CostManager Instance;
+
+    private void Awake()
+    {
+        Instance = this;
+    }
 
     private void Update()
     {
