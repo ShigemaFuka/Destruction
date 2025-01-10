@@ -1,3 +1,4 @@
+using System.Linq;
 using UnityEngine;
 
 public class OffenseState : IState
@@ -8,13 +9,13 @@ public class OffenseState : IState
     private Transform _muzzle = default;
     private GameObject _weaponObject = default; // 武器自体
 
-    public OffenseState(Weapon weapon, GameObject bulletPrefab, Transform bulletSpawnPoint,
-        GameObject weaponObject)
+    public OffenseState(StateBase owner)
     {
-        _weapon = weapon;
-        _bulletPrefab = bulletPrefab;
-        _muzzle = bulletSpawnPoint;
-        _weaponObject = weaponObject;
+        _weapon = owner.gameObject.GetComponent<Weapon>();
+        _bulletPrefab = _weapon.BulletPrefab;
+        _muzzle = owner.transform.GetComponentsInChildren<Transform>()
+            .FirstOrDefault(t => t.name == "Muzzle");
+        _weaponObject = owner.gameObject;
     }
 
     public void Enter()

@@ -1,3 +1,4 @@
+using System.Linq;
 using UnityEngine;
 
 /// <summary>
@@ -15,15 +16,16 @@ public class AttackState : IState
     private Animator _animator = default;
     private static readonly int Attack1 = Animator.StringToHash("Attack");
 
-    public AttackState(StateBase owner, float interval, GameObject bulletPrefab,
-        float attackValue)
+    public AttackState(StateBase owner)
     {
         _stateBase = owner;
-        _interval = interval;
-        _bulletPrefab = bulletPrefab;
-        _muzzle = owner.transform.Find("Muzzle");
+        var script = owner.GetComponent<Enemy>();
+        _interval = script.ShootInterval;
+        _bulletPrefab = script.BulletPrefab;
+        _muzzle = owner.transform.GetComponentsInChildren<Transform>()
+            .FirstOrDefault(t => t.name == "Muzzle");
         _target = GameObject.FindWithTag("Tower");
-        _attackValue = attackValue;
+        _attackValue = script.AttackValue;
         _animator = owner.GetComponent<Animator>();
     }
 

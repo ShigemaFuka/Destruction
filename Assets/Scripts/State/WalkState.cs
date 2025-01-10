@@ -21,8 +21,7 @@ public class WalkState : IState
 
     #endregion
 
-    public WalkState(StateBase owner,
-        ChangeOfCourseState changeOfCourseState)
+    public WalkState(StateBase owner, ChangeOfCourseState changeOfCourseState)
     {
         _stateBase = owner;
         _parentRoute = GameObject.Find(owner.GetComponent<Enemy>().ParentRouteName);

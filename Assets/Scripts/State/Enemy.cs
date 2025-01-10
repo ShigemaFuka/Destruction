@@ -10,16 +10,13 @@ public class Enemy : StateBase
     #region 宣言部
 
     [SerializeField] private float _speed = 1f;
-
     [SerializeField, Header("モデル")] private GameObject _model;
-
     [SerializeField, Header("経路オブジェクトの親")] private string _parentRouteName = default;
     [SerializeField, Header("弾丸プレハブ")] private GameObject _bulletPrefab;
     [SerializeField, Header("発射インターバル")] private float _shootInterval;
     [SerializeField, Header("攻撃力")] private float _attackValue = 1f;
     [SerializeField, Header("回復地点")] private string _healPointName;
     [SerializeField, Header("回復地点で要する時間")] private float _waitTime = 3f;
-    private GameObject _parentRoute;
     private NavMeshAgent _agent;
     private WalkState _walkState; // 歩行
     private AttackState _attackState; // 攻撃
@@ -33,7 +30,12 @@ public class Enemy : StateBase
 
     #region プロパティ
 
+    public GameObject Model => _model;
     public string ParentRouteName => _parentRouteName;
+    public GameObject BulletPrefab => _bulletPrefab;
+    public float ShootInterval => _shootInterval;
+    public float AttackValue => _attackValue;
+    public float WaitTime => _waitTime;
 
     #endregion
 
@@ -42,8 +44,7 @@ public class Enemy : StateBase
         _hp = GetComponent<Hp>();
         _agent = GetComponent<NavMeshAgent>();
         _agent.speed = _speed;
-        _attackState = new AttackState(this, _shootInterval, _bulletPrefab,
-            _attackValue);
+        _attackState = new AttackState(this);
         _changeOfCourseState = new ChangeOfCourseState(this, _attackState);
         _walkState = new WalkState(this, _changeOfCourseState);
         var go = GameObject.Find(_healPointName);
@@ -51,10 +52,10 @@ public class Enemy : StateBase
         {
             _canEvacuate = true;
             _evacuationState =
-                new EvacuationState(this, _waitTime, _walkState);
+                new EvacuationState(this, _walkState);
         }
 
-        _deathState = new DeathState(this, _model);
+        _deathState = new DeathState(this);
         ChangeState(_walkState);
     }
 

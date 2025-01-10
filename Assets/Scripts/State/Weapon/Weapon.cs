@@ -8,7 +8,6 @@ public class Weapon : StateBase
     #region 変数
 
     [SerializeField, Header("弾丸プレハブ")] private GameObject _bulletPrefab = default;
-    [SerializeField, Header("マズル")] private Transform _bulletSpawnPoint = default;
     [SerializeField, Header("可視化範囲のObj")] private GameObject _rangeObj = default;
     [SerializeField, Header("回転するもの")] private GameObject _rotator = default;
     [SerializeField, Header("対象との角度差")] private float _angle = 1f;
@@ -20,14 +19,18 @@ public class Weapon : StateBase
 
     #endregion
 
+    #region プロパティ
+
     public GameObject Target { get; private set; } = default;
+    public GameObject BulletPrefab => _bulletPrefab;
+
+    #endregion
 
     protected override void OnStart()
     {
         _weaponStatus = GetComponent<WeaponStatus>();
-        _generator = FindObjectOfType<Generator>();
-        _offenseState = new OffenseState(this, _bulletPrefab, _bulletSpawnPoint, gameObject);
-        if (_generator.EnemiesList.Count == 0) Debug.LogWarning("listの要素数が０です。");
+        _generator = Generator.Instance;
+        _offenseState = new OffenseState(this);
         if (!_rotator) Debug.LogWarning("回転するものがありません。");
     }
 

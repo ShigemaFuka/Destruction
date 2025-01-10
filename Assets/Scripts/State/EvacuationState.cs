@@ -20,23 +20,20 @@ public class EvacuationState : IState
     private float _speedUp = 2f; // 速度上昇
     private float _defaultSpeed = default;
     private bool _isCoroutineStarted = false; // コルーチンが開始されたかどうか
-    private MonoBehaviour _monoBehaviour = default;
     private WalkState _walkState = default;
     private IHeal _heal = default;
 
     #endregion
 
-    public EvacuationState(StateBase owner,
-        float waitTime, WalkState walkState)
+    public EvacuationState(StateBase owner, WalkState walkState)
     {
         _healPosition = GameObject.Find("HealPoint").transform.position;
         _transform = owner.transform;
-        _waitTime = waitTime;
         _walkState = walkState;
-        _stateBase = owner.GetComponent<StateBase>();
+        _stateBase = owner;
         _heal = owner.GetComponent<IHeal>();
-        _monoBehaviour = owner.GetComponent<MonoBehaviour>();
         _enemy = owner.GetComponent<Enemy>();
+        _waitTime = _enemy.WaitTime;
         _agent = owner.GetComponent<NavMeshAgent>();
         _defaultSpeed = _agent.speed;
     }
@@ -78,7 +75,7 @@ public class EvacuationState : IState
         {
             if (!_isCoroutineStarted)
             {
-                _monoBehaviour.StartCoroutine(Wait());
+                _stateBase.StartCoroutine(Wait());
             }
         }
     }

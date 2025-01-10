@@ -13,11 +13,11 @@ public class DeathState : IState
     private IDeath[] _death;
     private bool _canFlag;
 
-    public DeathState(StateBase owner, GameObject model)
+    public DeathState(StateBase owner)
     {
         _stateBase = owner;
-        _model = model;
-        _animator = model.GetComponent<Animator>();
+        _model = owner.GetComponent<Enemy>().Model;
+        _animator = _model.GetComponent<Animator>();
         _death = owner.GetComponents<IDeath>();
         _generator = Generator.Instance;
     }
@@ -33,12 +33,11 @@ public class DeathState : IState
         if (_animator) _animator.Play("Die");
         else Debug.Log("animがない");
         var renderers = _model.GetComponentsInChildren<Renderer>();
-        // todo: グレーにできていない
+
         foreach (var renderer in renderers)
         {
             renderer.material.color = Color.gray;
         }
-
 
         _generator.RemoveObj(_stateBase.gameObject);
 
