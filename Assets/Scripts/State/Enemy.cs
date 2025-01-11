@@ -65,7 +65,6 @@ public class Enemy : StateBase
         if (_hp.CurrentHp <= 0)
         {
             ChangeState(_deathState);
-            _agent.isStopped = true;
             return;
         } // HPが０なら
 

@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.AI;
 
 /// <summary>
 /// 死亡状態
@@ -12,6 +13,7 @@ public class DeathState : IState
     private GameObject _model; // キャラクターやモンスター
     private IDeath[] _death;
     private bool _canFlag;
+    private NavMeshAgent _agent;
 
     public DeathState(StateBase owner)
     {
@@ -20,10 +22,12 @@ public class DeathState : IState
         _animator = _model.GetComponent<Animator>();
         _death = owner.GetComponents<IDeath>();
         _generator = Generator.Instance;
+        _agent = owner.GetComponent<NavMeshAgent>();
     }
 
     public void Enter()
     {
+        _agent.enabled = false;
         _canFlag = true;
         foreach (var d in _death)
         {
@@ -32,11 +36,12 @@ public class DeathState : IState
 
         if (_animator) _animator.Play("Die");
         else Debug.Log("animがない");
-        var renderers = _model.GetComponentsInChildren<Renderer>();
+        var renderers = _stateBase.gameObject.GetComponentsInChildren<Renderer>();
 
         foreach (var renderer in renderers)
         {
-            renderer.material.color = Color.gray;
+            renderer.material.shader = Shader.Find("Standard"); // シェーダーを変更
+            renderer.material.SetColor("_Color", Color.gray); // 色を変更
         }
 
         _generator.RemoveObj(_stateBase.gameObject);
