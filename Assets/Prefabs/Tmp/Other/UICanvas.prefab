@@ -2007,6 +2007,7 @@ GameObject:
   - component: {fileID: 1944324903658217454}
   - component: {fileID: 3518131715866527970}
   - component: {fileID: 1743925163347456705}
+  - component: {fileID: 7235886168469612491}
   m_Layer: 5
   m_Name: Triangle
   m_TagString: Untagged
@@ -2049,7 +2050,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b91830418e1f9d64e81a9dfe09276ccd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _button: {fileID: 371117837457244851}
   _nums:
   - 1
   - 2
@@ -2067,8 +2067,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa9eeadd52148274590d633ad48146d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  countText: {fileID: 2474134607688653705}
-  incrementButton: {fileID: 371117837457244851}
+  _text: {fileID: 2474134607688653705}
+  _targetButton: {fileID: 371117837457244851}
 --- !u!114 &1743925163347456705
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2081,6 +2081,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eae488066f820fb409899ca04b0d75cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &7235886168469612491
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5840368598632593867}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f789d811891afea47b5b3954d9c03bdf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _model: {fileID: 1944324903658217454}
+  _view: {fileID: 3518131715866527970}
 --- !u!1 &6108845796795666271
 GameObject:
   m_ObjectHideFlags: 0
