@@ -1455,6 +1455,10 @@ PrefabInstance:
       propertyPath: _reload
       value: 1.01
       objectReference: {fileID: 0}
+    - target: {fileID: 2339011307542882021, guid: 373a1b144e77d8741a707c935c3e2de3, type: 3}
+      propertyPath: _showCost
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4536030478338809380, guid: 373a1b144e77d8741a707c935c3e2de3, type: 3}
       propertyPath: m_Name
       value: Updater WeaponA BlowAway
@@ -1554,6 +1558,10 @@ PrefabInstance:
     - target: {fileID: 2652089012244712124, guid: 1c72b07f6850f0d458d7b3c5630cc2cf, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3350012869641922344, guid: 1c72b07f6850f0d458d7b3c5630cc2cf, type: 3}
+      propertyPath: _showCost
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3529488672849371113, guid: 1c72b07f6850f0d458d7b3c5630cc2cf, type: 3}
       propertyPath: m_Name
@@ -1676,6 +1684,10 @@ PrefabInstance:
     - target: {fileID: 2213769142092998580, guid: 49c982e749759484e82b4eeb208ae53f, type: 3}
       propertyPath: m_Enabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3719233079489703245, guid: 49c982e749759484e82b4eeb208ae53f, type: 3}
+      propertyPath: _showCost
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7763383764545840914, guid: 49c982e749759484e82b4eeb208ae53f, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
@@ -1883,6 +1895,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5023487290121936961, guid: e7a89cd8652e6ad458c843dad661258d, type: 3}
       propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6413440730866834532, guid: e7a89cd8652e6ad458c843dad661258d, type: 3}
+      propertyPath: _showCost
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []

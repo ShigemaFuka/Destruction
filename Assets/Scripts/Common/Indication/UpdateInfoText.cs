@@ -13,8 +13,8 @@ public class UpdateInfoText : MonoBehaviour
 
     private void Start()
     {
-        if (_weaponStatus == null) Debug.LogWarning($"{_weaponStatus.name}がありません。");
-        if (_targetButton == null) Debug.LogWarning($"{_targetButton.name}がありません。");
+        if (_weaponStatus == null) Debug.LogWarning("_weaponStatusがありません。");
+        if (_targetButton == null) Debug.LogWarning("_targetButtonがありません。");
         _targetButton.onClick.AddListener(OnClick);
         _infoText.text = "";
         ShowStatus();
