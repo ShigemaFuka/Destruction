@@ -71,7 +71,7 @@ public class WaveManager : MonoBehaviour
         _generator = Generator.Instance;
         _sceneChanger = SceneChanger.Instance;
         _gameManager = GameManager.Instance;
-        if (_hp == null) Debug.LogWarning($"HPがありません。");
+        if (_hp == null) Debug.LogWarning("HPがありません。");
 
         if (_maxNumsEachWaves.Count == 0)
         {
@@ -92,7 +92,7 @@ public class WaveManager : MonoBehaviour
         // 最終Waveが終わったら
         if (_currentWave >= _maxNumsEachWaves.Count + 1)
         {
-            Debug.Log($"最終Wave 終");
+            Debug.Log("最終Wave 終");
             // 敵を殲滅したらシーン遷移
             if (_generator.EnemiesList.Count == 0)
             {
