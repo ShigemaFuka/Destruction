@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UniRx;
 using UnityEngine;
 
 /// <summary>
@@ -34,6 +35,11 @@ public class WaveManager : MonoBehaviour
 
     #region プロパティ
 
+    private ReactiveProperty<float> _reactiveInterval;
+
+    // ReadOnlyのインターフェースを公開
+    public IReadOnlyReactiveProperty<float> FirstWaveInterval => _reactiveInterval;
+
     /// <summary> 生成ができるか </summary>
     public bool CanGeneration => _canGeneration;
 
@@ -64,6 +70,7 @@ public class WaveManager : MonoBehaviour
     private void Awake()
     {
         Instance = this;
+        _reactiveInterval = new ReactiveProperty<float>(10);
     }
 
     private void Start()
@@ -139,8 +146,26 @@ public class WaveManager : MonoBehaviour
         // 最後は次のWaveがないため
         if (_currentWave < _maxNumsEachWaves.Count)
         {
-            yield return new WaitForSeconds(_intervals[_currentWave]);
-            _canGeneration = true;
+            if (_currentWave == 0)
+            {
+                var startTime = Time.time; // 開始時刻
+                var endTime = startTime + _intervals[0]; // 終了予定時刻
+                while (Time.time < endTime)
+                {
+                    var remainingTime = endTime - Time.time; // 残り時間を計算
+                    _reactiveInterval.Value = remainingTime;
+                    // Debug.Log($"残り時間: {remainingTime:F2} 秒   _reactiveInterval.Value:{_reactiveInterval.Value}");
+
+                    yield return null; // 次のフレームまで待機
+                }
+
+                _canGeneration = true;
+            }
+            else
+            {
+                yield return new WaitForSeconds(_intervals[_currentWave]);
+                _canGeneration = true;
+            }
         }
 
         _currentWave++;
