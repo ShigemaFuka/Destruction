@@ -4020,7 +4020,7 @@ PrefabInstance:
       objectReference: {fileID: 722514231}
     - target: {fileID: 3647020351101109172, guid: c95fb8451fc3d97449e76c777b7e80cb, type: 3}
       propertyPath: _intervals.Array.data[0]
-      value: 6
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 3647020351101109172, guid: c95fb8451fc3d97449e76c777b7e80cb, type: 3}
       propertyPath: _intervals.Array.data[1]
@@ -4198,6 +4198,22 @@ PrefabInstance:
       propertyPath: _reward
       value: 70
       objectReference: {fileID: 0}
+    - target: {fileID: 8722132262316913129, guid: c95fb8451fc3d97449e76c777b7e80cb, type: 3}
+      propertyPath: _weapons.Array.data[0]
+      value: 
+      objectReference: {fileID: 2130587031764774785, guid: 2d0e064837eb7b7408fd39568b707302, type: 3}
+    - target: {fileID: 8722132262316913129, guid: c95fb8451fc3d97449e76c777b7e80cb, type: 3}
+      propertyPath: _weapons.Array.data[1]
+      value: 
+      objectReference: {fileID: 1639153089067326308, guid: 3b168f5440bdd7c459bc54bb7d6f882c, type: 3}
+    - target: {fileID: 8722132262316913129, guid: c95fb8451fc3d97449e76c777b7e80cb, type: 3}
+      propertyPath: _weapons.Array.data[2]
+      value: 
+      objectReference: {fileID: 4536030478338809380, guid: 0152206e59b32d948b1d9a121a2a7a8c, type: 3}
+    - target: {fileID: 8722132262316913129, guid: c95fb8451fc3d97449e76c777b7e80cb, type: 3}
+      propertyPath: _weapons.Array.data[3]
+      value: 
+      objectReference: {fileID: 1185689560228358071, guid: 73cda7ace0707884b89878b3dc130a66, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

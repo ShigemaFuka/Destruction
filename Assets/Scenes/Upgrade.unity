@@ -1444,6 +1444,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 173776433}
     m_Modifications:
     - target: {fileID: 1961887566710409636, guid: 373a1b144e77d8741a707c935c3e2de3, type: 3}
+      propertyPath: _cost
+      value: 1.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 1961887566710409636, guid: 373a1b144e77d8741a707c935c3e2de3, type: 3}
       propertyPath: _range
       value: 1.05
       objectReference: {fileID: 0}
@@ -1532,8 +1536,12 @@ PrefabInstance:
     m_TransformParent: {fileID: 173776433}
     m_Modifications:
     - target: {fileID: 1527409429086914665, guid: 1c72b07f6850f0d458d7b3c5630cc2cf, type: 3}
+      propertyPath: _cost
+      value: 1.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 1527409429086914665, guid: 1c72b07f6850f0d458d7b3c5630cc2cf, type: 3}
       propertyPath: _range
-      value: 1.2
+      value: 1.05
       objectReference: {fileID: 0}
     - target: {fileID: 1527409429086914665, guid: 1c72b07f6850f0d458d7b3c5630cc2cf, type: 3}
       propertyPath: _reload
@@ -1852,6 +1860,14 @@ PrefabInstance:
     - target: {fileID: 1639153089067326308, guid: e7a89cd8652e6ad458c843dad661258d, type: 3}
       propertyPath: m_Name
       value: Updater WeaponA Long
+      objectReference: {fileID: 0}
+    - target: {fileID: 3887912558310112429, guid: e7a89cd8652e6ad458c843dad661258d, type: 3}
+      propertyPath: _cost
+      value: 1.28
+      objectReference: {fileID: 0}
+    - target: {fileID: 3887912558310112429, guid: e7a89cd8652e6ad458c843dad661258d, type: 3}
+      propertyPath: _attack
+      value: 1.2
       objectReference: {fileID: 0}
     - target: {fileID: 5023487290121936961, guid: e7a89cd8652e6ad458c843dad661258d, type: 3}
       propertyPath: m_LocalPosition.x

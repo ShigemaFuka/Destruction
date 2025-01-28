@@ -70,7 +70,7 @@ MonoBehaviour:
   - {fileID: 5502217642144517912, guid: 4b4d17cc877cec44bbecc85afa440e93, type: 3}
   - {fileID: 289071825158080335, guid: 313dd5216d466e847a3553222a889aff, type: 3}
   - {fileID: 274984972625590921, guid: e75c9624c7407574da0be3c626bfe83e, type: 3}
-  _initialInterval: 5
+  - {fileID: 1821308159862844387, guid: 384a44723dcb22947b78b077806adbbd, type: 3}
   _interval: 2
 --- !u!1 &2962733964860604326
 GameObject:
