@@ -35,4 +35,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Stages/Test_SpecialStage_4.unity
     guid: 9331dcac2e2066646844f960e92a5276
+  - enabled: 1
+    path: Assets/Scenes/Tutorial.unity
+    guid: 9f98b18b8775a6c49b7e574326d39db3
   m_configObjects: {}
