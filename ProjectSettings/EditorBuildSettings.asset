@@ -53,4 +53,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Tutorials/Tutorial_Enemy.unity
     guid: 40089e36f8dc57e48be8f9cd150ee8ef
+  - enabled: 1
+    path: Assets/Scenes/Tutorials/Tutorial_Upgrade.unity
+    guid: 950a357a32b767a4781011a9fade557d
   m_configObjects: {}
