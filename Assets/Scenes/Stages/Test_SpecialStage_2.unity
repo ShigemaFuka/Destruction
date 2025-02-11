@@ -1469,6 +1469,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c95fb8451fc3d97449e76c777b7e80cb, type: 3}
+--- !u!114 &579357443 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7350013659266767916, guid: c95fb8451fc3d97449e76c777b7e80cb, type: 3}
+  m_PrefabInstance: {fileID: 579357442}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e04b0fd580e8a6488569735c35070f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &608417907
 GameObject:
   m_ObjectHideFlags: 0
@@ -2358,7 +2369,7 @@ PrefabInstance:
     - target: {fileID: 86472337591726417, guid: dd1f6d44e3dc9b14bb145f453577a9be, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 393984899}
+      objectReference: {fileID: 579357443}
     - target: {fileID: 86472337591726417, guid: dd1f6d44e3dc9b14bb145f453577a9be, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: ToRestartScene
@@ -2382,6 +2393,10 @@ PrefabInstance:
     - target: {fileID: 1516938449511299669, guid: dd1f6d44e3dc9b14bb145f453577a9be, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: Change
+      objectReference: {fileID: 0}
+    - target: {fileID: 1516938449511299669, guid: dd1f6d44e3dc9b14bb145f453577a9be, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: SelectStage
       objectReference: {fileID: 0}
     - target: {fileID: 2767534141912614136, guid: dd1f6d44e3dc9b14bb145f453577a9be, type: 3}
       propertyPath: m_Pivot.x

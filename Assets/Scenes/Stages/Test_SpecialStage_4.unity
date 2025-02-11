@@ -2430,6 +2430,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: Change
       objectReference: {fileID: 0}
+    - target: {fileID: 1516938449511299669, guid: dd1f6d44e3dc9b14bb145f453577a9be, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: SelectStage
+      objectReference: {fileID: 0}
     - target: {fileID: 2767534141912614136, guid: dd1f6d44e3dc9b14bb145f453577a9be, type: 3}
       propertyPath: m_Pivot.x
       value: 0

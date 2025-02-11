@@ -670,6 +670,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: Change
       objectReference: {fileID: 0}
+    - target: {fileID: 1516938449511299669, guid: dd1f6d44e3dc9b14bb145f453577a9be, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: SelectStage
+      objectReference: {fileID: 0}
     - target: {fileID: 1981917614739419927, guid: dd1f6d44e3dc9b14bb145f453577a9be, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0.816
