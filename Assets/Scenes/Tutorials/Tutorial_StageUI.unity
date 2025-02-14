@@ -285,7 +285,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &168194642
 RectTransform:
   m_ObjectHideFlags: 0
@@ -704,7 +704,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &325472095
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2637,7 +2637,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6315947414293465459, guid: 08fe381ec0ad18e46a63ee65d007fba9, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -490
+      value: -706
       objectReference: {fileID: 0}
     - target: {fileID: 6315947414293465459, guid: 08fe381ec0ad18e46a63ee65d007fba9, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -3990,6 +3990,7 @@ MonoBehaviour:
   - {fileID: 1549814867}
   - {fileID: 325472094}
   - {fileID: 964603144}
+  - {fileID: 168194641}
   - {fileID: 1426329565}
 --- !u!1 &1647673696
 GameObject:
@@ -4762,11 +4763,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6315947414293465459, guid: 08fe381ec0ad18e46a63ee65d007fba9, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -596
+      value: 685
       objectReference: {fileID: 0}
     - target: {fileID: 6315947414293465459, guid: 08fe381ec0ad18e46a63ee65d007fba9, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 170
+      value: -286
       objectReference: {fileID: 0}
     - target: {fileID: 6315947414293465459, guid: 08fe381ec0ad18e46a63ee65d007fba9, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
